@@ -16,10 +16,11 @@ return new class extends Migration
             $table->string('Nombre');
             $table->string('Descripcion');
             $table->integer('Precio');
-            //stock
             $table->integer('Stock');
             $table->string('Imagen');
-            $table->string('Categoria');
+            //Tabla de categorias de productos haciedo referencia al id de la tabla de categorias
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->date('Creado_En'); // created at
             $table->timestamp('Updated_at')->useCurrent(); // updated at
         });
