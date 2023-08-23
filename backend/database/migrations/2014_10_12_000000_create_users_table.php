@@ -13,18 +13,14 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('Nombre');
-            $table->string('Apelido');
-            $table->string('Correo')->unique();
-            $table->string('Contrasena');
-            $table->string('Localidad')->nullable()->default(null);
-            $table->string('Calle')->nullable()->default(null);
-            $table->date('Creado_En'); // created at
-            $table->timestamp('Actualizado_En')->useCurrent(); // updated at
-
-
-
+            $table->string('nombre');
+            $table->string('apelido');
+            $table->string('correo')->unique();
+            $table->string('contrasena');
+            $table->string('localidad')->nullable()->default(null);
+            $table->string('calle')->nullable()->default(null);
             $table->rememberToken();
+            $table->timestamps();
         });
     }
 

@@ -17,10 +17,9 @@ return new class extends Migration
             $table->foreign('order_id')->references('id')->on('orders'); // referencia a la tabla de pedidos
             $table->unsignedBigInteger('products_id'); // id de los productos
             $table->foreign('products_id')->references('id')->on('products'); // referencia a la tabla de productos
-            $table->integer('Cantidad'); // cantidad de productos
-            $table->integer('Precio'); // precio del producto
+            $table->integer('cantidad'); 
+            $table->integer('precio'); 
             $table->timestamps();
-
         });
     }
 
