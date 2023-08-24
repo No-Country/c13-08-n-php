@@ -5,37 +5,31 @@ import { AppBar } from '@mui/material';
 import NavBar from './component/navBar/NavBar';
 import { Routes, Route,BrowserRouter } from 'react-router-dom';
 
-
-import Combos from './pages/Combos';
-import Contacto from './pages/Contacto';
-import Pizzas from './pages/Pizzas';
+import  Contacto  from './pages/Contacto';
+import Combos from './pages/combos';
+import Pizzas from './pages/pizzas';
 import Search from './pages/Search';
-
+//import ItemListConteiner from './component/itemListConteiner/ItemListConteiner';
 
 
 const navigationLink = [
 
-  {
-    "title": "combos",
-    "path": "/combos",
-    "icon": <LiveTvIcon />,
-  },
 
   {
-    title: "contacto",
+    title: "Combos",
+    path: "/combos",
+    icon: <LiveTvIcon />,
+  },
+  {
+
+    title: "Contacto",
     path: "/contacto",
     icon: <LiveTvIcon />,
   },
   {
 
-    title: "pizzas",
+    title: "Pizzas",
     path: "/pizzas",
-    icon: <LiveTvIcon />,
-  },
-  {
-
-    title: "Search",
-    path: "/Search",
     icon: <LiveTvIcon />,
   }
 
@@ -50,27 +44,23 @@ function App() {
       <NavBar navigationLink={navigationLink} />
         <Routes>
 
-          <Route
-            path="/"
-            element={<ItemListConteiner/>}
-          />
+         
           <Route
             path="/combos"
             element={<Combos />}
           />
           <Route
-            path="/contacto"
+            path="/Documentales"
             element={<Contacto />}
           />
           <Route
-            path="/pizzas"
+            path="/Novedades"
             element={<Pizzas />}
           />
           <Route
             path="/Search"
             element={<Search />}
           />
-          
 
         </Routes>
      </>
