@@ -21,8 +21,8 @@ class CategoriesController extends Controller
     public function create(Request $request)
     {
         $request->validate([
-            'Nombre' => 'request',
-            'Descripcion' => 'request',
+            'nombre' => 'request',
+            'descripcion' => 'request',
         ]);
         $category = new Categories($request->input());
         $category->save();

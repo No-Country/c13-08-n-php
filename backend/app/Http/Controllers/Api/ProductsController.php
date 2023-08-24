@@ -21,11 +21,11 @@ class ProductsController extends Controller
     public function create(Request $request)
     {
         $request->validate([
-            'Nombre' => 'required',
-            'Descripcion' => 'required',
-            'Precio' => 'required',
-            'Stock' => 'required',
-            'Imagen' => 'required',
+            'nombre' => 'required',
+            'descripcion' => 'required',
+            'precio' => 'required',
+            'stock' => 'required',
+            'imagen' => 'required',
             'category_id' => 'required',
         ]);
         $product = new Products($request->input());
