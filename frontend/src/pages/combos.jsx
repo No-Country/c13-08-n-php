@@ -1,9 +1,9 @@
 import React from 'react'
 
-const combos = () => {
+const Combos = () => {
   return (
     <div>combos</div>
   )
 }
 
-export default combos
+export default Combos
