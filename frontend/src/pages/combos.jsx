@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Combos = () => {
+const Series = () => {
   return (
-    <div>combos</div>
+    <div>Series</div>
   )
 }
 
-export default Combos
+export default Series
