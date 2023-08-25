@@ -1,5 +1,12 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CartController;
+use App\Http\Controllers\Api\CategoriesController;
+use App\Http\Controllers\Api\OrdersController;
+use App\Http\Controllers\Api\OrdersDetailController;
+use App\Http\Controllers\Api\ProductsController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,29 +28,48 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Path: routes\api.php
 
-Route::get('/users', 'App\Http\Controllers\UserController@index');
-Route::post('/users', 'App\Http\Controllers\UserController@store');
-Route::get('/users/{id}', 'App\Http\Controllers\UserController@show');
-Route::put('/users/{id}', 'App\Http\Controllers\UserController@update');
-Route::delete('/users/{id}', 'App\Http\Controllers\UserController@destroy');
+Route::get('/users', [UserController::class, 'index']);
+Route::post('/users', [UserController::class, 'store']); //no esta en el controler
+Route::get('/users/{id}', [UserController::class, 'show']);
+Route::put('/users/{id}', [UserController::class, 'update']);
+Route::delete('/users/{id}', [UserController::class, 'destroy']); //no esta en el controler
 
 //Products Routes
-Route::get('/products', 'App\Http\Controllers\ProductsController@index');
-Route::post('/products', 'App\Http\Controllers\ProductsController@store');
-Route::get('/products/{id}', 'App\Http\Controllers\ProductsController@show');
-Route::put('/products/{id}', 'App\Http\Controllers\ProductsController@update');
-Route::delete('/products/{id}', 'App\Http\Controllers\ProductsController@destroy');
+Route::get('/products', [ProductsController::class, 'index']);
+Route::post('/products', [ProductsController::class, 'store']); //no esta en el controler
+Route::get('/products/{id}', [ProductsController::class, 'show']);
+Route::put('/products/{id}', [ProductsController::class, 'update']);
+Route::delete('/products/{id}', [ProductsController::class, 'destroy']);
 
 //Orders Routes
-Route::get('/orders', 'App\Http\Controllers\OrdersController@index');
-Route::post('/orders', 'App\Http\Controllers\OrdersController@store');
-Route::get('/orders/{id}', 'App\Http\Controllers\OrdersController@show');
-Route::put('/orders/{id}', 'App\Http\Controllers\OrdersController@update');
-Route::delete('/orders/{id}', 'App\Http\Controllers\OrdersController@destroy');
+Route::get('/orders', [OrdersController::class, 'index']);
+Route::post('/orders', [OrdersController::class, 'store']); //no esta en el controler
+Route::get('/orders/{id}', [OrdersController::class, 'show']);
+Route::put('/orders/{id}', [OrdersController::class, 'update']);
+Route::delete('/orders/{id}', [OrdersController::class, 'destroy']);
 
 //OrderDetails Routes
-Route::get('/orderdetails', 'App\Http\Controllers\OrdersDetailController@index');
-Route::post('/orderdetails', 'App\Http\Controllers\OrdersDetailController@store');
-Route::get('/orderdetails/{id}', 'App\Http\Controllers\OrdersDetailController@show');
-Route::put('/orderdetails/{id}', 'App\Http\Controllers\OrdersDetailController@update');
-Route::delete('/orderdetails/{id}', 'App\Http\Controllers\OrdersDetailController@destroy');
+Route::get('/orderdetails', [OrdersDetailController::class, 'index']);
+Route::post('/orderdetails', [OrdersDetailController::class, 'store']);
+Route::get('/orderdetails/{id}', [OrdersDetailController::class, 'show']);
+Route::put('/orderdetails/{id}', [OrdersDetailController::class, 'update']);
+Route::delete('/orderdetails/{id}', [OrdersDetailController::class, 'destroy']);
+
+//Categories Routes
+Route::get('/categories', [CategoriesController::class, 'index']);
+Route::post('/categories', [CategoriesController::class, 'store']);
+Route::get('/categories/{id}', [CategoriesController::class, 'show']);
+Route::put('/categories/{id}', [CategoriesController::class, 'update']);
+Route::delete('/categories/{id}', [CategoriesController::class, 'destroy']);
+
+//Cart Routes
+Route::get('/cart', [CartController::class, 'index']);
+Route::post('/cart', [CartController::class, 'store']);
+Route::get('/cart/{id}', [CartController::class, 'show']);
+Route::put('/cart/{id}', [CartController::class, 'update']);
+Route::delete('/cart/{id}', [CartController::class, 'destroy']);
+
+//Auth Routes
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout']);
