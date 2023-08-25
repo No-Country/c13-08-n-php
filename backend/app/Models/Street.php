@@ -13,4 +13,9 @@ class Street extends Model
         return $this->hasMany(Locations::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }
