@@ -9,7 +9,7 @@ class Products extends Model
 {
     use HasFactory;
 
-    public function carts()
+    public function cart()
     {
         return $this->belongsToMany(Cart::class);
     }
@@ -28,4 +28,5 @@ class Products extends Model
     {
         return $this->belongsToMany(Reviews::class);
     }
+
 }
