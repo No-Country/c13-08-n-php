@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id'); // id del usuario
-            $table->foreign('user_id')->references('id')->on('users'); // referencia a la tabla de usuarios
-            $table->string('Nombre'); // nombre del usuario
-            $table->string('Direccion'); //direccion a donde sera enviado el producto
+            $table->unsignedBigInteger('user_id'); 
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->enum('estado', ['pendiente','entregado'])->default('pendiente'); 
+            $table->string('direccion');
+            $table->dateTime('fecha_hora'); 
             $table->timestamps();
         });
     }
