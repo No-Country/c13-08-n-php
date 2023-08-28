@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Orders;
+use App\Models\Reviews;
 use Illuminate\Http\Request;
 
-class OrdersController extends Controller
+class ReviewsController extends Controller
 {
     public function index()
     {
@@ -18,12 +18,12 @@ class OrdersController extends Controller
         //
     }
 
-    public function show(Orders $orders)
+    public function show(reviews $reviews)
     {
         //
     }
 
-    public function update(Request $request, Orders $orders)
+    public function update(Request $request, reviews $reviews)
     {
         //
     }

@@ -10,7 +10,8 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::get();
+        $users = User::select('id', 'nombre', 'apellido', 'correo', 'localidad', 'calle')
+        ->get();
         return response([
             "status" => 200,
             "message" => "List users",
@@ -20,7 +21,8 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        $user = User::where('id', $user->id)
+        $user = User::select('id', 'nombre', 'apellido', 'correo', 'localidad', 'calle')
+        ->where('id', $user->id)
         ->get();
         return response([
             "status" => 200,
@@ -28,13 +30,25 @@ class UserController extends Controller
         ],200);
     }
 
-    public function update(Request $request, User $user)
+    public function showProfile()
     {
-        $user->update($request->input());
+        $user = User::select('id', 'nombre', 'apellido', 'correo', 'localidad', 'calle')
+        ->where('id', auth()->user()->id)
+        ->get();
         return response([
             "status" => 200,
-            "message" => "Updated user successfully",
+            "message" => "User profile",
             "data" => $user
+        ],200);
+    }
+
+    public function updateProfile(Request $request, User $user)
+    {
+        $user->where('id', auth()->user()->id)->update($request->input()); 
+        
+        return response([
+            "status" => 200,
+            "message" => "Updated user successfully"
         ],200);
     }
 }
