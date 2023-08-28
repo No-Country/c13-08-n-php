@@ -1,6 +1,6 @@
 import { Button, Card, CardContent, CardMedia, Typography,Link } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import Peliculas from '../../pages/Peliculas'
+
 import './ItemMovie.css'
 
 const ItemMovie = (props) => {

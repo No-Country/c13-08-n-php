@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "firebase": "^10.3.0",
+    "knex": "^2.5.1",
+    "mysql": "^2.18.1",
+    "react-simple-image-slider": "^2.4.1"
+  }
+}

@@ -1,0 +1,32 @@
+.containerCount{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    justify-content: space-between;
+}
+.containerContador{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.containerContador button{
+    margin: 1rem;
+}
+.containerContador p {
+    font-size: 20px;
+}
+
+.miBtn {
+    background-color: #8bcde8b3;
+    border: none;
+    color: rgb(17, 17, 16);
+    padding: 10px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+}
