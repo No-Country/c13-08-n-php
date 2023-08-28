@@ -9,6 +9,7 @@ import  Contacto  from './pages/Contacto';
 import Combos from './pages/combos';
 import Pizzas from './pages/pizzas';
 import Search from './pages/Search';
+import SignInSide from './component/loginSesion/anotherLogin';
 //import ItemListConteiner from './component/itemListConteiner/ItemListConteiner';
 
 
@@ -31,7 +32,12 @@ const navigationLink = [
     title: "Pizzas",
     path: "/pizzas",
     icon: <LiveTvIcon />,
-  }
+  },
+  {
+    title: "Iniciar sesión",
+    path: "/login",
+    icon: <LiveTvIcon />,
+  },
 
 ];
 
@@ -60,6 +66,10 @@ function App() {
           <Route
             path="/Search"
             element={<Search />}
+          />
+          <Route
+            path="/Login"
+            element={<SignInSide />}
           />
 
         </Routes>
