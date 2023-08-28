@@ -6,7 +6,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -42,7 +41,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $rules = [
-            'correo' => 'required|string|email|max:100',
+            'correo' => 'required|string|email|max:255',
             'contrasena' => 'required|string'
         ];
         $validator = Validator::make($request->input(),$rules);
@@ -52,24 +51,35 @@ class AuthController extends Controller
                 'errors' => $validator->errors()->all()
             ],400);
         }
-        if(!Auth::attempt($request->only('correo','contrasena'))){
+
+        $user = User::select('id', 'nombre', 'apellido', 'correo', 'contrasena')
+        ->where('correo',$request->correo)->first();
+        
+        if(isset($user->id)){
+            if(Hash::check($request->contrasena, $user->contrasena)){
+                return response()->json([
+                    'status' => true,
+                    'message' => 'User logged in successfully',
+                    'data' => $user,
+                    'token' => $user->createToken('API_TOKEN')->plainTextToken
+                ],200);
+            } else {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'The password is incorrect',
+                ],401);
+            }
+        } else {
             return response()->json([
                 'status' => false,
-                'errors' => ['Action unauthorized']
+                'message' => 'Unregistered user',
             ],401);
         }
-        $user = User::where('correo',$request->correo)->first();
-        return response()->json([
-            'status' => true,
-            'message' => 'User logged in successfully',
-            'data' => $user,
-            'token' => $user->createToken('API_TOKEN')->plainTextToken
-        ],200);
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
-        Auth::logout();
+        auth()->user()->tokens()->delete();
         return response()->json([
             'status' => true,
             'message' => 'User logged out successfully'
