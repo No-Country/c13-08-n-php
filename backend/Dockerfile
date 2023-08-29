@@ -4,7 +4,6 @@ COPY . .
 
 COPY . /var/www/html
 
-RUN composer install
 
 # Image config
 ENV SKIP_COMPOSER 1
