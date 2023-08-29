@@ -42,10 +42,22 @@ Route::get('product/panes/semibaguette', [ProductsController::class, 'filterSemi
 Route::get('product/pizzas', [ProductsController::class, 'filterPizzas']);
 Route::get('product/focaccias', [ProductsController::class, 'filterFocaccias']);
 Route::get('product/combos', [ProductsController::class, 'filterCombos']);
+
 // Busqueda: product/search?prod=name
 Route::post('product/search', [ProductsController::class, 'search']);
 Route::put('products/{product}', [ProductsController::class, 'update']);
 Route::delete('products/{product}', [ProductsController::class, 'destroy']);
+
+//Review Routes
+Route::get('/reviews', [ReviewsController::class, 'index']);
+Route::post('/reviews', [ReviewsController::class, 'store']);
+Route::get('/reviews/{id}', [ReviewsController::class, 'show']);
+Route::put('/reviews/{id}', [ReviewsController::class, 'update']);
+
+//Auth Routes
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout']);
 
 Route::middleware('auth:sanctum')->group(function () {
     //Orders Routes
