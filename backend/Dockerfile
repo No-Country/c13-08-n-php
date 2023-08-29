@@ -4,10 +4,7 @@ COPY . .
 
 COPY . /var/www/html
 
-RUN composer install --optimize-autoloader --no-dev \
-    && mkdir -p storage/logs \
-    && php artisan optimize:clear \
-    && chown -R www-data:www-data /var/www/html \
+RUN composer install
 
 # Image config
 ENV SKIP_COMPOSER 1
