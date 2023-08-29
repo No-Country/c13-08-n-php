@@ -15,8 +15,10 @@
     "@mui/icons-material": "^5.14.3",
     "@mui/material": "^5.14.5",
     "react": "^18.2.0",
+    "react-carousel": "^4.3.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.15.0"
+    "react-router-dom": "^6.15.0",
+    "react-simple-image-slider": "^2.4.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

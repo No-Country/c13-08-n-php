@@ -18,7 +18,6 @@ return new class extends Migration
             $table->integer('precio');
             $table->integer('stock')->default(0);
             $table->string('imagen');
-            //Tabla de categorias de productos haciedo referencia al id de la tabla de categorias
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();

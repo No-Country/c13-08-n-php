@@ -22,14 +22,4 @@ class OrdersDetailController extends Controller
     {
         //
     }
-
-    public function update(Request $request, Orders_detail $orders_detail)
-    {
-        //
-    }
-
-    public function destroy(Orders_detail $orders_detail)
-    {
-        //
-    }
 }

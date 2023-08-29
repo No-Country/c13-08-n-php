@@ -1,49 +1,65 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CartController;
+use App\Http\Controllers\Api\CategoriesController;
+use App\Http\Controllers\Api\OrdersController;
+use App\Http\Controllers\Api\OrdersDetailController;
+use App\Http\Controllers\Api\ProductsController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+//Auth and user Routes
+Route::post('auth/register', [AuthController::class, 'register']);
+Route::post('auth/login', [AuthController::class, 'login']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('users', [UserController::class, 'index']);
+    Route::get('user/{user}', [UserController::class, 'show']);
+    Route::get('user-profile', [UserController::class, 'showProfile']);
+    Route::put('user-profile/update', [UserController::class, 'updateProfile']);
+    
+    Route::get('auth/logout', [AuthController::class, 'logout']);
 });
 
-
-// Path: routes\api.php
-
-Route::get('/users', 'App\Http\Controllers\UserController@index');
-Route::post('/users', 'App\Http\Controllers\UserController@store');
-Route::get('/users/{id}', 'App\Http\Controllers\UserController@show');
-Route::put('/users/{id}', 'App\Http\Controllers\UserController@update');
-Route::delete('/users/{id}', 'App\Http\Controllers\UserController@destroy');
+//Categories Routes
+Route::get('categories', [CategoriesController::class, 'index']);
+Route::post('categories', [CategoriesController::class, 'create']);
+Route::get('categories/{categories}', [CategoriesController::class, 'show']);
+Route::put('categories/{category}', [CategoriesController::class, 'update']);
+Route::delete('categories/{category}', [CategoriesController::class, 'destroy']);
 
 //Products Routes
-Route::get('/products', 'App\Http\Controllers\ProductsController@index');
-Route::post('/products', 'App\Http\Controllers\ProductsController@store');
-Route::get('/products/{id}', 'App\Http\Controllers\ProductsController@show');
-Route::put('/products/{id}', 'App\Http\Controllers\ProductsController@update');
-Route::delete('/products/{id}', 'App\Http\Controllers\ProductsController@destroy');
+Route::get('products', [ProductsController::class, 'index']);
+Route::post('products', [ProductsController::class, 'create']);
+Route::get('products/{products}', [ProductsController::class, 'show']);
+Route::get('products/panes', [ProductsController::class, 'filterPanes']);
+Route::get('products/pizzas', [ProductsController::class, 'filterPizzas']);
+Route::get('products/focaccias', [ProductsController::class, 'filterFocaccias']);
+Route::get('products/combos', [ProductsController::class, 'filterCombos']);
+Route::put('products/{product}', [ProductsController::class, 'update']);
+Route::delete('products/{product}', [ProductsController::class, 'destroy']);
 
-//Orders Routes
-Route::get('/orders', 'App\Http\Controllers\OrdersController@index');
-Route::post('/orders', 'App\Http\Controllers\OrdersController@store');
-Route::get('/orders/{id}', 'App\Http\Controllers\OrdersController@show');
-Route::put('/orders/{id}', 'App\Http\Controllers\OrdersController@update');
-Route::delete('/orders/{id}', 'App\Http\Controllers\OrdersController@destroy');
-
-//OrderDetails Routes
-Route::get('/orderdetails', 'App\Http\Controllers\OrdersDetailController@index');
-Route::post('/orderdetails', 'App\Http\Controllers\OrdersDetailController@store');
-Route::get('/orderdetails/{id}', 'App\Http\Controllers\OrdersDetailController@show');
-Route::put('/orderdetails/{id}', 'App\Http\Controllers\OrdersDetailController@update');
-Route::delete('/orderdetails/{id}', 'App\Http\Controllers\OrdersDetailController@destroy');
+Route::middleware('auth:sanctum')->group(function () {
+    //Orders Routes
+    Route::get('/orders', [OrdersController::class, 'index']);
+    Route::post('/orders', [OrdersController::class, 'store']); //no esta en el controler
+    Route::get('/orders/{id}', [OrdersController::class, 'show']);
+    Route::put('/orders/{id}', [OrdersController::class, 'update']);
+    Route::delete('/orders/{id}', [OrdersController::class, 'destroy']);
+    
+    //OrderDetails Routes
+    Route::get('/orderdetails', [OrdersDetailController::class, 'index']);
+    Route::post('/orderdetails', [OrdersDetailController::class, 'store']);
+    Route::get('/orderdetails/{id}', [OrdersDetailController::class, 'show']);
+    Route::put('/orderdetails/{id}', [OrdersDetailController::class, 'update']);
+    Route::delete('/orderdetails/{id}', [OrdersDetailController::class, 'destroy']);
+    
+    //Cart Routes
+    Route::get('/cart', [CartController::class, 'index']);
+    Route::post('/cart', [CartController::class, 'store']);
+    Route::get('/cart/{id}', [CartController::class, 'show']);
+    Route::put('/cart/{id}', [CartController::class, 'update']);
+    Route::delete('/cart/{id}', [CartController::class, 'destroy']);
+});
