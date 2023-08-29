@@ -34,10 +34,16 @@ Route::delete('categories/{category}', [CategoriesController::class, 'destroy'])
 Route::get('products', [ProductsController::class, 'index']);
 Route::post('products', [ProductsController::class, 'create']);
 Route::get('products/{products}', [ProductsController::class, 'show']);
-Route::get('products/panes', [ProductsController::class, 'filterPanes']);
-Route::get('products/pizzas', [ProductsController::class, 'filterPizzas']);
-Route::get('products/focaccias', [ProductsController::class, 'filterFocaccias']);
-Route::get('products/combos', [ProductsController::class, 'filterCombos']);
+// Filtros
+Route::get('product/panes', [ProductsController::class, 'filterPanes']);
+Route::get('product/panes/campo', [ProductsController::class, 'filterCampo']);
+Route::get('product/panes/molde', [ProductsController::class, 'filterMolde']);
+Route::get('product/panes/semibaguette', [ProductsController::class, 'filterSemibaguette']);
+Route::get('product/pizzas', [ProductsController::class, 'filterPizzas']);
+Route::get('product/focaccias', [ProductsController::class, 'filterFocaccias']);
+Route::get('product/combos', [ProductsController::class, 'filterCombos']);
+// Busqueda: product/search?prod=name
+Route::post('product/search', [ProductsController::class, 'search']);
 Route::put('products/{product}', [ProductsController::class, 'update']);
 Route::delete('products/{product}', [ProductsController::class, 'destroy']);
 
