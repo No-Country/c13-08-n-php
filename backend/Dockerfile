@@ -2,6 +2,13 @@ FROM richarvey/nginx-php-fpm:1.9.1
 
 COPY . .
 
+COPY . /var/www/html
+
+RUN composer install --optimize-autoloader --no-dev \
+    && mkdir -p storage/logs \
+    && php artisan optimize:clear \
+    && chown -R www-data:www-data /var/www/html \
+
 # Image config
 ENV SKIP_COMPOSER 1
 ENV WEBROOT /var/www/html/public
