@@ -73,3 +73,9 @@ Route::delete('/cart/{id}', [CartController::class, 'destroy']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
+
+//Review Routes
+Route::get('/reviews', [ReviewsController::class, 'index']);
+Route::post('/reviews', [ReviewsController::class, 'store']);
+Route::get('/reviews/{id}', [ReviewsController::class, 'show']);
+Route::put('/reviews/{id}', [ReviewsController::class, 'update']);
