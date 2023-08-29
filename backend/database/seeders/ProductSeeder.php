@@ -145,7 +145,7 @@ class ProductSeeder extends Seeder
             'descripcion' => 'Combo clásico: campo clásico + focaccia clásica.',
             'precio' => 2600,
             'stock' => 20,
-            'imagen' => '-',
+            'imagen' => 'https://res.cloudinary.com/dhpf7lthd/image/upload/v1693316761/bread-ecommerce/combo-clasico_pekxgk.jpg',
             'category_id' => 4
         ]);
         Products::create([
@@ -153,7 +153,7 @@ class ProductSeeder extends Seeder
             'descripcion' => 'Combo integral: campo integral + molde integral.',
             'precio' => 2700,
             'stock' => 20,
-            'imagen' => '-',
+            'imagen' => 'https://res.cloudinary.com/dhpf7lthd/image/upload/v1693316792/bread-ecommerce/combo-integral_pai0nn.jpg',
             'category_id' => 4
         ]);
     }

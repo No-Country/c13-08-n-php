@@ -10,7 +10,8 @@ class CategoriesController extends Controller
 {
     public function index()
     {
-        $categories = Categories::get();
+        $categories = Categories::select('id', 'nombre', 'descripcion')
+        ->get();
         return response([
             "status" => 200,
             "message" => "List categories",
@@ -35,7 +36,8 @@ class CategoriesController extends Controller
 
     public function show(Categories $categories)
     {
-        $category = Categories::where('id', $categories->id)
+        $category = Categories::select('id', 'nombre', 'descripcion')
+        ->where('id', $categories->id)
         ->get();
         return response([
             "status" => 200,

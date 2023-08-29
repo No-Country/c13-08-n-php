@@ -27,9 +27,4 @@ class OrdersController extends Controller
     {
         //
     }
-
-    public function destroy(Orders $orders)
-    {
-        //
-    }
 }
