@@ -193,7 +193,7 @@
 .inactive {
   /* make exit animation */
   animation: exit 0.5s ease-in-out forwards;
-  display: inline-block;
+  display: none;
 }
 
 @keyframes exit {
