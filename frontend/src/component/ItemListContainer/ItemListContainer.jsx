@@ -39,6 +39,7 @@ const ItemListContainer = () => {
             natural.
           </h2>
         </div>
+        
         <ItemList productos={productos} />
         <div className='masProductos'>
           <button>Ver todos los productos</button>
