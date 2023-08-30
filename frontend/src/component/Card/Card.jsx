@@ -15,4 +15,4 @@ const Card = ({ id, imagen }) => {
   );
 };
 
-export default Card;
+export default Card
