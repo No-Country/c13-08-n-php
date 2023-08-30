@@ -4,14 +4,14 @@ import LiveTvIcon from '@mui/icons-material/LiveTv';
 import CardsContainer from './component/CardsContainer/CardsContainer';
 import NavBar from './component/navBar/NavBar';
 //import Fotter from './component/fotter/Fotter.jsx';
-import { Routes, Route,BrowserRouter } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Cart from './component/Cart/Cart';
-import  Contacto  from './pages/Contacto';
+import Contacto from './pages/Contacto';
 import Combos from './pages/combos';
 import Pizzas from './pages/pizzas';
 import Search from './pages/Search';
 import panificados from './pages/panificados';
-import LoginSesion from './component/loginSesion/LoginSesion';
+/* import LoginSesion from './component/loginSesion/LoginSesion'; Ya no se usa*/
 import "./app.css"
 import Fotter from './component/fotter/fotter';
 import Infomation from './component/information/Infomation';
@@ -50,66 +50,71 @@ const navigationLink = [
   }
 ];
 
-function App() {  
+function App() {
 
 
   return (
-      <>
+    <>
 
       <NavBar navigationLink={navigationLink} />
+      <Routes>
+        <NavBar navigationLink={navigationLink} />
+        < Slider />
+        < CardsContainer />
         <Routes>
-           <NavBar navigationLink={navigationLink} />
-           < Slider />
-           < CardsContainer />
-           <Routes>
 
-          <Route 
-            path='/' 
-            element={<ItemListContainer/>}
+          <Route
+            path='/'
+            element={<ItemListContainer />}
           />
 
           <Route
             path="/combos"
             element={<Combos />}
           />
-              
+
           <Route
             path="/Documentales"
             element={<Contacto />}
           />
-              
+
           <Route
             path="/Novedades"
             element={<Pizzas />}
           />
-              
+
           <Route
             path="/panificados"
             element={<panificados />}
           />
-              
+
+          {/* 
           <Route
             path="/login"
-            element={<LoginSesion/>}
-          />
+            element={<LoginSesion />}
+          /> 
+          */}
+
+          {/* Este es el login que estamos usando */}
           <Route
             path="/Login"
             element={<SignInSide />}
           />
-              
-          <Route 
-            path='/item/:idItem' 
-            element={<ItemDetailContainer/>}
+
+          <Route
+            path='/item/:idItem'
+            element={<ItemDetailContainer />}
           />
-          <Route 
-             path='/cart' 
-             element={ <Cart />} 
+          <Route
+            path='/cart'
+            element={<Cart />}
           />
 
+        </Routes>
+        <Infomation />
+        <Fotter />
       </Routes>
-        <Infomation/>
-        <Fotter/>
-     </> 
+    </>
   )
 }
 
