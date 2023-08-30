@@ -57,63 +57,63 @@ function App() {
     <>
 
       <NavBar navigationLink={navigationLink} />
-      <Routes>
-        <NavBar navigationLink={navigationLink} />
-        < Slider />
-        < CardsContainer />
         <Routes>
+          {/* <NavBar navigationLink={navigationLink} /> */}
+          {/* < Slider /> */}
+          {/* < CardsContainer /> */}
+          {/* <Routes> */}
 
-          <Route
-            path='/'
-            element={<ItemListContainer />}
-          />
+            <Route
+              path='/'
+              element={<ItemListContainer />}
+            />
 
-          <Route
-            path="/combos"
-            element={<Combos />}
-          />
+            <Route
+              path="/combos"
+              element={<Combos />}
+            />
 
-          <Route
-            path="/Documentales"
-            element={<Contacto />}
-          />
+            <Route
+              path="/Documentales"
+              element={<Contacto />}
+            />
 
-          <Route
-            path="/Novedades"
-            element={<Pizzas />}
-          />
+            <Route
+              path="/Novedades"
+              element={<Pizzas />}
+            />
 
-          <Route
-            path="/panificados"
-            element={<panificados />}
-          />
+            <Route
+              path="/panificados"
+              element={<panificados />}
+            />
 
-          {/* 
-          <Route
-            path="/login"
-            element={<LoginSesion />}
-          /> 
-          */}
+            {/* 
+            <Route
+              path="/login"
+              element={<LoginSesion />}
+            /> 
+            */}
 
-          {/* Este es el login que estamos usando */}
-          <Route
-            path="/Login"
-            element={<SignInSide />}
-          />
+            {/* Este es el login que estamos usando */}
+            <Route
+              path="/Login"
+              element={<SignInSide />}
+            />
 
-          <Route
-            path='/item/:idItem'
-            element={<ItemDetailContainer />}
-          />
-          <Route
-            path='/cart'
-            element={<Cart />}
-          />
+            <Route
+              path='/item/:idItem'
+              element={<ItemDetailContainer />}
+            />
+            <Route
+              path='/cart'
+              element={<Cart />}
+            />
 
+          {/* </Routes> */}
+          {/* <Infomation /> */}
+          {/* <Fotter /> */}
         </Routes>
-        <Infomation />
-        <Fotter />
-      </Routes>
     </>
   )
 }
