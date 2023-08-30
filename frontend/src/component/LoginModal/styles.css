@@ -1,13 +1,12 @@
 .modal {
   height: 373px;
   width: 378px;
-  margin: 0 auto;
+  margin: auto;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  display: none;
 }
 
 .modal .formulario-login {
@@ -172,4 +171,38 @@
   font-family: 'Lato-Bold', Helvetica;
   font-size: 11.1px;
   font-weight: 700;
+}
+
+.active {
+  display: inline-block;
+  /* make entry animation */
+  animation: entry 0.5s ease-in-out forwards;
+}
+
+@keyframes entry {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.inactive {
+  /* make exit animation */
+  animation: exit 0.5s ease-in-out forwards;
+  display: inline-block;
+}
+
+@keyframes exit {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
 }

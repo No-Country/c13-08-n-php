@@ -1,26 +1,23 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './styles.css';
 
-export const LoginModal = ({}) => {
-  const [show, setShow] = useState(false);
+export const LoginModal = ({ setShow, show }) => {
   //after 30 seconds the modal will show up
   useEffect(() => {
     setTimeout(() => {
       setShow(true);
     }, 3000);
-  }, []);
 
-  //if the user clicks on the close button, the modal will close
-  const closeModal = () => {
-    setShow(false);
-  };
-  //if the user clicks on the background, the modal will close
-  const closeOutside = (e) => {
-    if (e.target.id === 'modal') {
-      setShow(false);
-    }
-  };
+    //if the user clicks on the background, the modal will close
+    let handler = (e) => {
+        if (!document.querySelector('.modal').contains(e.target)) {
+            setShow(false);
+        }
+    };
+
+    document.addEventListener('mousedown', (e) => handler(e));
+  }, []);
 
   async function postData(Data) {
     try {
@@ -52,13 +49,10 @@ export const LoginModal = ({}) => {
     postData(JSON.stringify(Data));
   };
 
-  
-
   return (
     //made the style change depending on the state of the modal
     <form
-      className='modal'
-      style={show ? { display: 'inline-block' } : { display: 'none' }}
+      className={show ? 'modal active' : 'modal inactive'}
       onSubmit={handleSubmit}
     >
       <div className='formulario-login'>
@@ -100,3 +94,5 @@ export const LoginModal = ({}) => {
     </form>
   );
 };
+
+export default LoginModal;
