@@ -206,3 +206,15 @@
     transform: translateY(-100%);
   }
 }
+
+.cuenta-nueva {
+  /* remove link styling */
+  text-decoration: none;
+  color: #1e1e1e;
+  font-family: 'Lato-Bold', Helvetica;
+  font-size: 12.6px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 18.9px;
+  white-space: nowrap;
+}
