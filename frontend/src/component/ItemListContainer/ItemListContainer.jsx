@@ -1,11 +1,10 @@
-
-import { useState, useEffect } from "react";
-import ItemList from "../ItemList/ItemList";
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {db} from '../../Services/config'
-import { collection, getDocs, where, query } from 'firebase/firestore';
+import ItemList from "../ItemList/ItemList";
 import "./ItemListContainer.css"
-
+import { collection, getDocs, where, query } from 'firebase/firestore';
 
  const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
@@ -26,25 +25,17 @@ import "./ItemListContainer.css"
     
   }, [idCategoria]);
 
-  // Make the backgorund darker when the modal is open
-
-
   return (
     < >
-      
-        <div className="titulo">
-          <h1 > Nuestros Productos:</h1>
-          <h2> Panificados y Pizzas con Harinas Organicas y de fermentacion natural.</h2>
+        <div>
+          <h1 className="titulo">Nuestros productos</h1>
+          <h2 className="subtitulo">Panificados y Pizzas con Harinas Organicas y de fermentacion natural.</h2>
         </div>
         <ItemList productos={productos} /><div className="masProductos"> 
         <button>
           Ver todos los productos
         </button>
       </div>
-      
-
-      
-      
     </>
   )
 }
