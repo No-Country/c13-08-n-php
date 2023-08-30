@@ -31,10 +31,10 @@ import Fotter from "../fotter/Fotter";
 
   return (
     < >
-      
-        <div className="titulo">
-          <h1 > Nuestros Productos:</h1>
-          <h2> Panificados y Pizzas con Harinas Organicas y de fermentacion natural.</h2>
+      <div className={show ? "blur": ""}>
+        <div>
+          <h1 className="titulo">Nuestros productos</h1>
+          <h2 className="subtitulo">Panificados y Pizzas con Harinas Organicas y de fermentacion natural.</h2>
         </div>
         <ItemList productos={productos} /><div className="masProductos"> 
         <button>
