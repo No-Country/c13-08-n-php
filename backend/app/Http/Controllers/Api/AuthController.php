@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -15,8 +15,8 @@ class AuthController extends Controller
         $rules = [
             'nombre' => 'required|string|max:150',
             'apellido' => 'required|string|max:150',
-            'correo' => 'required|email|unique:users',
-            'contrasena' => 'required|string|min:8'
+            'email' => 'required|email|unique:users',
+            'contrasena' => 'required|string|min:8|confirmed'
         ];
         $validator = Validator::make($request->input(),$rules);
         if($validator->fails()){
@@ -28,7 +28,7 @@ class AuthController extends Controller
         $user = User::create([
             'nombre' => $request->nombre, 
             'apellido' => $request->apellido,
-            'correo' => $request->correo,
+            'email' => $request->email,
             'contrasena' => Hash::make($request->contrasena)
         ]);
         return response()->json([
@@ -41,7 +41,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $rules = [
-            'correo' => 'required|string|email|max:255',
+            'email' => 'required|string|email|max:255',
             'contrasena' => 'required|string'
         ];
         $validator = Validator::make($request->input(),$rules);
@@ -52,9 +52,9 @@ class AuthController extends Controller
             ],400);
         }
 
-        $user = User::select('id', 'nombre', 'apellido', 'correo', 'contrasena')
-        ->where('correo',$request->correo)->first();
-        
+        $user = User::select('id', 'nombre', 'apellido', 'email', 'contrasena')
+        ->where('email', '=', $request->email)->first();
+
         if(isset($user->id)){
             if(Hash::check($request->contrasena, $user->contrasena)){
                 return response()->json([
