@@ -3,6 +3,8 @@ import LiveTvIcon from '@mui/icons-material/LiveTv';
 //import { AppBar } from '@mui/material';
 import CardsContainer from './component/CardsContainer/CardsContainer';
 import NavBar from './component/navBar/NavBar';
+import LoginModal from './component/LoginModal/LoginModal';
+import { useState } from 'react';
 //import Fotter from './component/fotter/Fotter.jsx';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Cart from './component/Cart/Cart';
@@ -52,10 +54,12 @@ const navigationLink = [
 
 function App() {
 
+  // Make the backgorund darker when the modal is open
+  const [show, setShow] = useState(false);
 
   return (
     <>
-
+      <div className={show ? "darkFilter": ""}>
       <NavBar navigationLink={navigationLink} />
       <Infomation /> 
        <Slider /> 
@@ -116,8 +120,10 @@ function App() {
          
            
         </Routes>
-        
+
         <Fotter /> 
+      </div>
+      <LoginModal show={show} setShow={setShow}/>
     </>
   )
 }

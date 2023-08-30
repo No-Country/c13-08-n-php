@@ -1,3 +1,7 @@
 body{
     background-color: antiquewhite;
 }
+
+.darkFilter{
+    filter: blur(2.5px);
+}
