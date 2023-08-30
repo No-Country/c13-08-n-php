@@ -61,8 +61,9 @@ function App() {
     <>
       <div className={show ? "darkFilter": ""}>
       <NavBar navigationLink={navigationLink} />
-      <Infomation /> 
+       
        <Slider /> 
+       <Infomation />
         <Routes>
           {/* <NavBar navigationLink={navigationLink} /> */}
          
