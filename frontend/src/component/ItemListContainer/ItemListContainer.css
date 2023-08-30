@@ -20,6 +20,17 @@
   white-space: nowrap;
 }
 
+.masProductos {
+    display: grid;
+    justify-content: center;
+}
+.masProductos button{
+    width: 378px;
+    height: 50px;
+    background-color: #F4D88F;
+    margin-bottom: 20px;
+}
+
 .blur {
   filter: blur(4px);
 }
