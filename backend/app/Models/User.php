@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
@@ -17,7 +18,21 @@ class User extends Authenticatable
         'apellido',
         'email',
         'contrasena',
+        'google_id',
+        'google_token',
     ];
+
+    public static function updateOrCreateGoogleUser($googleUser)
+    {
+        return static::updateOrCreate(
+            ['google_id' => $googleUser->id],
+            [
+                'nombre' => $googleUser->name,
+                'email' => $googleUser->email,
+                'google_token' => $googleUser->token,
+            ]
+        );
+    }
 
     public function cart()
     {
