@@ -22,6 +22,7 @@ import ItemListContainer from './component/ItemListContainer/ItemListContainer';
 import Slider from './component/Slider/Slider';
 import ItemDetailContainer from './component/ItemDetailContainer/ItemDetailContainer';
 import { CarritoProvider } from './Context/CarritoContext';
+import { CssBaseline } from '@mui/material';
 
 const navigationLink = [
 
@@ -59,8 +60,12 @@ function App() {
 
   return (
     <>
-      <div className={show ? "darkFilter": ""}>
-      <NavBar navigationLink={navigationLink} />
+      
+        <BrowserRouter>
+          <CarritoProvider>
+            <CssBaseline>
+              <div className={show ? "darkFilter": ""}>
+            <NavBar navigationLink={navigationLink} />
        
        <Slider /> 
        <Infomation />
@@ -120,11 +125,16 @@ function App() {
           {/* </Routes> */}
          
            
-        </Routes>
+            </Routes>
 
-        <Fotter /> 
-      </div>
+            <Fotter /> 
+         </div>
       <LoginModal show={show} setShow={setShow}/>
+            </CssBaseline>
+          </CarritoProvider>       
+        </BrowserRouter>
+      
+      
     </>
   )
 }
