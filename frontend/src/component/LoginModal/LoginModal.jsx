@@ -1,5 +1,6 @@
 import axios from 'axios';
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './styles.css';
 
 export const LoginModal = ({ setShow, show }) => {
@@ -11,9 +12,9 @@ export const LoginModal = ({ setShow, show }) => {
 
     //if the user clicks on the background, the modal will close
     let handler = (e) => {
-        if (!document.querySelector('.modal').contains(e.target)) {
-            setShow(false);
-        }
+      if (!document.querySelector('.modal').contains(e.target)) {
+        setShow(false);
+      }
     };
 
     document.addEventListener('mousedown', (e) => handler(e));
@@ -68,7 +69,9 @@ export const LoginModal = ({ setShow, show }) => {
           </div>
           <p className='quiero-crear-una'>
             <span className='span'>Quiero crear una </span>
-            <span className='text-wrapper-2'>cuenta nueva</span>
+            <Link to='/register' className='cuenta-nueva'>
+              <span className='text-wrapper-2'>cuenta nueva</span>
+            </Link>
           </p>
           <div className='modal-title'>Ingresá con tu usuario</div>
           <div className='email-wrapper'>
