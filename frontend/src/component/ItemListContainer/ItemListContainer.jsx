@@ -31,6 +31,7 @@ import "./ItemListContainer.css"
       <div className="titulo">
         <h1 > Nuestros Productos:</h1>
         <h2> Panificados y Pizzas con Harinas Organicas y de fermentacion natural.</h2>
+        {/* <LoginModal/> */}
       </div>
       <ItemList productos={productos} />
       
