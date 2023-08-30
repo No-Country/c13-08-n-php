@@ -57,9 +57,11 @@ function App() {
     <>
 
       <NavBar navigationLink={navigationLink} />
+      <Infomation /> 
+       <Slider /> 
         <Routes>
           {/* <NavBar navigationLink={navigationLink} /> */}
-          {/* < Slider /> */}
+         
           {/* < CardsContainer /> */}
           {/* <Routes> */}
 
@@ -111,9 +113,11 @@ function App() {
             />
 
           {/* </Routes> */}
-          {/* <Infomation /> */}
-          {/* <Fotter /> */}
+         
+           
         </Routes>
+        
+        <Fotter /> 
     </>
   )
 }
