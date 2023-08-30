@@ -70,6 +70,7 @@ const NavBar = ({ navigationLink }) => {
                         >
                             <img src="./src/assets/carrito.svg" alt="carrito" height="24px" width="24px" />
                         </IconButton>
+                        
                     </Box>
                 </Toolbar>
             </AppBar>

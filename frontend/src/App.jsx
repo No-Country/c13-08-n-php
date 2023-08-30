@@ -9,17 +9,24 @@ import Cart from './component/Cart/Cart';
 import Contacto from './pages/Contacto';
 import Combos from './pages/combos';
 import Pizzas from './pages/pizzas';
-import Search from './pages/Search';
-import panificados from './pages/panificados';
+//import Search from './pages/Search';
+//import panificados from './pages/panificados';
 /* import LoginSesion from './component/loginSesion/LoginSesion'; Ya no se usa*/
 import "./app.css"
-import Fotter from './component/fotter/fotter';
+//import Footer from './component/Footer/Footer';
 import Infomation from './component/information/Infomation';
 import SignInSide from './component/loginSesion/anotherLogin';
 import ItemListContainer from './component/ItemListContainer/ItemListContainer';
 import Slider from './component/Slider/Slider';
 import ItemDetailContainer from './component/ItemDetailContainer/ItemDetailContainer';
 import { CarritoProvider } from './Context/CarritoContext';
+import { CssBaseline, ListItem } from '@mui/material';
+import LoginModal from './component/LoginModal/LoginModal';
+import ItemListCompra from './component/ItemListCompra/ItemListCompra';
+
+//import { CarritoProvider } from './Context/CarritoContext';
+
+
 
 const navigationLink = [
 
@@ -55,20 +62,25 @@ function App() {
 
   return (
     <>
-
-      <NavBar navigationLink={navigationLink} />
-      <Infomation /> 
-       <Slider /> 
+      <BrowserRouter>
+      <CarritoProvider>
+        <CssBaseline>
+        <NavBar navigationLink={navigationLink} />   
         <Routes>
-          {/* <NavBar navigationLink={navigationLink} /> */}
+          <Route 
+          path='/'
+          element={ 
+          <>
+          <Slider />
+          <Infomation /> 
+          <CardsContainer />          
+          <ItemListContainer />
          
-          {/* < CardsContainer /> */}
-          {/* <Routes> */}
-
-            <Route
-              path='/'
-              element={<ItemListContainer />}
-            />
+          
+          </>          
+          
+          }/> 
+                 
 
             <Route
               path="/combos"
@@ -85,10 +97,10 @@ function App() {
               element={<Pizzas />}
             />
 
-            <Route
+           {/* <Route
               path="/panificados"
               element={<panificados />}
-            />
+            />*/}
 
             {/* 
             <Route
@@ -110,14 +122,21 @@ function App() {
             <Route
               path='/cart'
               element={<Cart />}
-            />
-
-          {/* </Routes> */}
-         
-           
+            />    
+            <Route
+            path='/loginModal'
+            element={<LoginModal/>}/>
+            
+           < Route 
+           path="/itemList"
+           element={<ItemListCompra/>} />
         </Routes>
+        </CssBaseline>
+      </CarritoProvider>      
+      </BrowserRouter>
         
-        <Fotter /> 
+      
+      
     </>
   )
 }

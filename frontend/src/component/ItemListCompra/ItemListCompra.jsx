@@ -1,14 +1,15 @@
 
 import { useState, useEffect } from "react";
-import ItemList from "../ItemList/ItemList";
+
 import { useParams } from "react-router-dom";
 import {db} from '../../Services/config'
 import { collection, getDocs, where, query } from 'firebase/firestore';
-import "./ItemListContainer.css"
+import "./ItemListCompra.css"
 //import LoginModal from "../LoginModal/LoginModal";
 import Footer from "../Footer/Footer";
+import ItemDetail from "../ItemDetail/ItemDetail";
 
- const ItemListContainer = () => {
+ const ItemListCompra = () => {
   const [productos, setProductos] = useState([]);
   const {idCategoria} = useParams();
 
@@ -35,7 +36,7 @@ import Footer from "../Footer/Footer";
         <h2> Panificados y Pizzas con Harinas Organicas y de fermentacion natural.</h2>
          {/*<LoginModal/> */}
       </div>
-      <ItemList productos={productos} />
+      <ItemDetail />
       <div className="masProductos"> 
         <button>
           Ver todos los productos
@@ -49,5 +50,4 @@ import Footer from "../Footer/Footer";
   )
 }
 
-export default ItemListContainer
-
+export default ItemListCompra

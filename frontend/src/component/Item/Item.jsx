@@ -8,11 +8,11 @@ const Item = ({ id, nombre, precio, imagen }) => {
         <Link to={`/item/${id}`}>
           <img className="imgProducto" src={imagen} alt={nombre}></img>
         </Link>
-        <div>
+        <div className="detalles">
           <h3>{nombre}</h3>
           <p>${precio} </p>
           
-          <Link className="miBtnDetalles" to={`/item/${id}`}>Agregar al Carrito</Link>
+          <Link className="miBtnDetalles" to={`/loginModal`}>Agregar </Link>
         </div>
       </figure>
     </div>

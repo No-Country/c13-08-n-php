@@ -1,21 +1,17 @@
+import image1 from "../../assets/image1.png"
+import image2 from "../../assets/image2.png"
+import image3 from "../../assets/image3.png"
+
+
 
 export default [
-  
-  
-  {
-    
-    urls: "https://res.cloudinary.com/dhpf7lthd/image/upload/v1693000654/bread-ecommerce/pan-campo_clasico_qilmtu.jpg",
+  {    
+    urls: image1,
   },
-  {
-   
-    urls: "https://res.cloudinary.com/dhpf7lthd/image/upload/v1693000665/bread-ecommerce/pan-campo_integral_qhedi7.jpg",
+  {    
+    urls: image2,
   },
-  {
-    
-    urls: "https://res.cloudinary.com/dhpf7lthd/image/upload/v1693000736/bread-ecommerce/pan-molde_clasico_m52ofp.jpg",
-  },
-  {
-    
-    urls: "https://res.cloudinary.com/dhpf7lthd/image/upload/v1693000754/bread-ecommerce/pan-molde_integral_arandanos_rw70gq.jpg",
-  },
+  {    
+    urls: image3,
+  }  
 ];

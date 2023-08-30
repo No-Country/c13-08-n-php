@@ -1,14 +1,16 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './styles.css';
-
-export const LoginModal = ({}) => {
+import Slider from '../Slider/Slider';
+import Infomation from '../information/Infomation';
+import { Link } from 'react-router-dom';
+const LoginModal = ({}) => {
   const [show, setShow] = useState(false);
   //after 30 seconds the modal will show up
   useEffect(() => {
     setTimeout(() => {
       setShow(true);
-    }, 3000);
+    }, 1000);
   }, []);
 
   //if the user clicks on the close button, the modal will close
@@ -56,6 +58,9 @@ export const LoginModal = ({}) => {
 
   return (
     //made the style change depending on the state of the modal
+    <>
+    <Slider />
+    <Infomation />
     <form
       className='modal'
       style={show ? { display: 'inline-block' } : { display: 'none' }}
@@ -68,9 +73,12 @@ export const LoginModal = ({}) => {
           </div>
           <div className='overlap-group'>
             {/* Modal Button Login */}
-            <button className='iniciar-sesi-n' type='submit'>
+            <Link to={ '/itemList'}>
+            <button className='iniciar-sesi-n' type='submit' >
               INICIAR SESIÓN
             </button>
+            </Link>
+            
           </div>
           <p className='quiero-crear-una'>
             <span className='span'>Quiero crear una </span>
@@ -98,5 +106,11 @@ export const LoginModal = ({}) => {
         </div>
       </div>
     </form>
+    
+    
+    
+    </>
+    
   );
 };
+export default LoginModal

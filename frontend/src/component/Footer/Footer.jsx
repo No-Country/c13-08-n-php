@@ -1,12 +1,12 @@
 import React from 'react'
 import { Box } from "@mui/system"
-import "./fotter.css"
+import "./footer.css"
 
-function Fotter() {
+function Footer() {
   return (
     <Box
       sx={{
-        position: "absolute",
+        
         bottom: "0px",
         width: "100%",
         height: "117px",
@@ -36,4 +36,4 @@ function Fotter() {
   )
 }
 
-export default Fotter
+export default Footer
