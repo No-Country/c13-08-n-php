@@ -66,18 +66,25 @@ function App() {
             <CssBaseline>
               <div className={show ? "darkFilter": ""}>
             <NavBar navigationLink={navigationLink} />
-       
-       <Slider /> 
-       <Infomation />
+         
         <Routes>
           {/* <NavBar navigationLink={navigationLink} /> */}
          
-          {/* < CardsContainer /> */}
+          {/*  */}
           {/* <Routes> */}
 
             <Route
               path='/'
-              element={<ItemListContainer />}
+              element={
+              <>
+              <Slider /> 
+              <Infomation />
+              < CardsContainer />
+              <ItemListContainer />
+              
+              </>
+              
+              }
             />
 
             <Route
@@ -122,7 +129,7 @@ function App() {
               element={<Cart />}
             />
 
-          {/* </Routes> */}
+          
          
            
             </Routes>
@@ -130,6 +137,7 @@ function App() {
             <Fotter /> 
          </div>
       <LoginModal show={show} setShow={setShow}/>
+       
             </CssBaseline>
           </CarritoProvider>       
         </BrowserRouter>

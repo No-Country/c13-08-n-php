@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import {db} from '../../Services/config'
 import { collection, getDocs, where, query } from 'firebase/firestore';
 import "./ItemListContainer.css"
-import Fotter from "../fotter/Fotter";
+
 
  const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
@@ -41,7 +41,7 @@ import Fotter from "../fotter/Fotter";
           Ver todos los productos
         </button>
       </div>
-      < Fotter />
+      
 
       
       

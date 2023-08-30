@@ -3,7 +3,7 @@ import Cards from "../Cards/Cards";
 import { useParams } from "react-router-dom";
 import {db} from '../../Services/config'
 import { collection, getDocs, where, query } from 'firebase/firestore';
-
+import './CardsContainer.css'
 
  const CardsContainer = () => {
   const [productos, setProductos] = useState([]);
@@ -25,9 +25,10 @@ import { collection, getDocs, where, query } from 'firebase/firestore';
   }, [idCategoria]);
 
   return (
-    <div>
+    <div className="gridCards">
       
       <Cards productos={productos} />
+      
       
     </div>
   )
