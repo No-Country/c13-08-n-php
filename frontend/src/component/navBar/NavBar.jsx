@@ -28,6 +28,7 @@ const NavBar = ({ navigationLink }) => {
             <AppBar position="static" sx={{ minHeight: "200px", backgroundColor: "white" }}>
                 <Toolbar sx={{ display: "flex", justifyContent: "space-between", margin: "auto", width: "85%" }}>
                     <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                        <NavLink to="/">
                         <IconButton
                             color="inherit"
                             size="large"
@@ -38,6 +39,7 @@ const NavBar = ({ navigationLink }) => {
 
                         </IconButton>
                         <img src="./src/assets/logo.svg" alt="logo" height="150px" width="150px" />
+                        </NavLink>
 
                     </Box>
                     <Box sx={{ display: { xs: "none", sm: "block" } }}>

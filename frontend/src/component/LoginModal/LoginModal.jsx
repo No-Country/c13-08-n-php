@@ -7,7 +7,7 @@ export const LoginModal = ({ setShow, show }) => {
   useEffect(() => {
     setTimeout(() => {
       setShow(true);
-    }, 3000);
+    }, 10000);
 
     //if the user clicks on the background, the modal will close
     let handler = (e) => {
