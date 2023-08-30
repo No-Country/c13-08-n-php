@@ -1,4 +1,4 @@
-
+import LoginModal from "../LoginModal/LoginModal";
 import { useState, useEffect } from "react";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
@@ -25,16 +25,19 @@ import "./ItemListContainer.css"
     
   }, [idCategoria]);
 
+  // Make the backgorund darker when the modal is open
+  const [show, setShow] = useState(false);
+
   return (
     < >
-      
-      <div className="titulo">
-        <h1 > Nuestros Productos:</h1>
-        <h2> Panificados y Pizzas con Harinas Organicas y de fermentacion natural.</h2>
-        {/* <LoginModal/> */}
+      <div className={show ? "blur": ""}>
+        <div className="titulo">
+          <h1 > Nuestros Productos:</h1>
+          <h2> Panificados y Pizzas con Harinas Organicas y de fermentacion natural.</h2>
+        </div>
+        <ItemList productos={productos} />
       </div>
-      <ItemList productos={productos} />
-      
+      {/* <LoginModal show={show} setShow={setShow}/> */}
     </>
   )
 }
