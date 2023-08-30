@@ -31,9 +31,9 @@ import "./ItemListContainer.css"
   return (
     < >
       <div className={show ? "blur": ""}>
-        <div className="titulo">
-          <h1 > Nuestros Productos:</h1>
-          <h2> Panificados y Pizzas con Harinas Organicas y de fermentacion natural.</h2>
+        <div>
+          <h1 className="titulo">Nuestros productos</h1>
+          <h2 className="subtitulo">Panificados y Pizzas con Harinas Organicas y de fermentacion natural.</h2>
         </div>
         <ItemList productos={productos} />
       </div>
