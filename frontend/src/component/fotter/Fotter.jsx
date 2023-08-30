@@ -6,8 +6,8 @@ function Fotter() {
   return (
     <Box
       sx={{
-        position: "absolute",
-        bottom: "0px",
+        //position: "absolute",
+        //bottom: "0px",
         width: "100%",
         height: "117px",
         borderRadius: "30px 30px 0px 0px",

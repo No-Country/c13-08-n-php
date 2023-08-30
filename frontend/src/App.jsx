@@ -57,8 +57,9 @@ function App() {
     <>
 
       <NavBar navigationLink={navigationLink} />
-      <Infomation /> 
+       
        <Slider /> 
+       <Infomation />
         <Routes>
           {/* <NavBar navigationLink={navigationLink} /> */}
          
