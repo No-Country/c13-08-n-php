@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\CategoriesController;
 use App\Http\Controllers\Api\OrdersController;
 use App\Http\Controllers\Api\OrdersDetailController;
 use App\Http\Controllers\Api\ProductsController;
+use App\Http\Controllers\Api\ReviewsController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('user/{user}', [UserController::class, 'show']);
     Route::get('user-profile', [UserController::class, 'showProfile']);
     Route::put('user-profile/update', [UserController::class, 'updateProfile']);
-    
     Route::get('auth/logout', [AuthController::class, 'logout']);
 });
 
@@ -48,6 +48,20 @@ Route::put('products/{product}', [ProductsController::class, 'update']);
 Route::delete('products/{product}', [ProductsController::class, 'destroy']);
 
 Route::middleware('auth:sanctum')->group(function () {
+    //Review Routes
+    Route::get('reviews', [ReviewsController::class, 'index']);
+    Route::post('reviews', [ReviewsController::class, 'store']);
+    Route::get('reviews/{reviews}', [ReviewsController::class, 'show']);
+    Route::get('review-product/{reviews}', [ReviewsController::class, 'showbyProduct']);
+    Route::put('reviews/{reviews}', [ReviewsController::class, 'updatebyUser']);
+
+    //Cart Routes
+    Route::get('/cart', [CartController::class, 'index']);
+    Route::post('/cart', [CartController::class, 'store']);
+    Route::get('/cart/{id}', [CartController::class, 'show']);
+    Route::put('/cart/{id}', [CartController::class, 'update']);
+    Route::delete('/cart/{id}', [CartController::class, 'destroy']);
+    
     //Orders Routes
     Route::get('/orders', [OrdersController::class, 'index']);
     Route::post('/orders', [OrdersController::class, 'store']); //no esta en el controler
@@ -61,11 +75,4 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/orderdetails/{id}', [OrdersDetailController::class, 'show']);
     Route::put('/orderdetails/{id}', [OrdersDetailController::class, 'update']);
     Route::delete('/orderdetails/{id}', [OrdersDetailController::class, 'destroy']);
-    
-    //Cart Routes
-    Route::get('/cart', [CartController::class, 'index']);
-    Route::post('/cart', [CartController::class, 'store']);
-    Route::get('/cart/{id}', [CartController::class, 'show']);
-    Route::put('/cart/{id}', [CartController::class, 'update']);
-    Route::delete('/cart/{id}', [CartController::class, 'destroy']);
 });
