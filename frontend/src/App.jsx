@@ -8,11 +8,11 @@ import { useState } from 'react';
 //import Fotter from './component/fotter/Fotter.jsx';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Cart from './component/Cart/Cart';
-import Contacto from './pages/contacto';
-import Combos from './pages/combos';
-import Pizzas from './pages/pizzas';
+import Contacto from './pages/Contacto';
+import Combos from './pages/Combos';
+import Pizzas from './pages/Pizzas';
 import Search from './pages/Search';
-import panificados from './pages/panificados';
+import panificados from './pages/Panificados';
 /* import LoginSesion from './component/loginSesion/LoginSesion'; Ya no se usa*/
 import "./app.css"
 import Fotter from './component/fotter/fotter';
