@@ -8,7 +8,7 @@ import { useState } from 'react';
 //import Fotter from './component/fotter/Fotter.jsx';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Cart from './component/Cart/Cart';
-import Contacto from './pages/Contacto';
+import Contacto from './pages/contacto';
 import Combos from './pages/combos';
 import Pizzas from './pages/pizzas';
 import Search from './pages/Search';

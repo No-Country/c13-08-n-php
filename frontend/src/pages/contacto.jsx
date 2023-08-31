@@ -1,9 +1,9 @@
 import React from 'react'
 
- const Documentales = () => {
+ const Contacto = () => {
   return (
-    <div>Documentales</div>
+    <div>Contacto</div>
   )
 }
 
-export default Documentales
+export default Contacto
