@@ -42,7 +42,7 @@ Route::get('product/panes/semibaguette', [ProductsController::class, 'filterSemi
 Route::get('product/pizzas', [ProductsController::class, 'filterPizzas']);
 Route::get('product/focaccias', [ProductsController::class, 'filterFocaccias']);
 Route::get('product/combos', [ProductsController::class, 'filterCombos']);
-// Busqueda: product/search?prod=name
+// Búsqueda: product/search?prod=name
 Route::post('product/search', [ProductsController::class, 'search']);
 Route::put('products/{product}', [ProductsController::class, 'update']);
 Route::delete('products/{product}', [ProductsController::class, 'destroy']);
@@ -54,7 +54,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('reviews/{reviews}', [ReviewsController::class, 'show']);
     Route::get('review-product/{reviews}', [ReviewsController::class, 'showbyProduct']);
     Route::put('reviews/{reviews}', [ReviewsController::class, 'updatebyUser']);
-
+    
     //Cart Routes
     Route::get('/cart', [CartController::class, 'index']);
     Route::post('/cart', [CartController::class, 'store']);
@@ -75,4 +75,4 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/orderdetails/{id}', [OrdersDetailController::class, 'show']);
     Route::put('/orderdetails/{id}', [OrdersDetailController::class, 'update']);
     Route::delete('/orderdetails/{id}', [OrdersDetailController::class, 'destroy']);
-});
+});    

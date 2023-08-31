@@ -1,0 +1,12 @@
+.imgCarrito {
+    width: 2rem;            
+}
+.carritoImage{
+    display:flex;
+    flex-direction: column-reverse;
+    margin-top: .5rem;  
+    margin-left: .5rem; 
+}
+.cantidadProducto span{
+    text-decoration: none;
+}
