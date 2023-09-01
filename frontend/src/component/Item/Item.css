@@ -6,8 +6,6 @@
   text-align: center;
   font-size: 16px; 
   width: 200px;
- 
-  
 }
 h3{
   margin: 0px;
@@ -26,22 +24,38 @@ p{
   }  
 
   .miBtnDetalles {
-    
-    background-color: #409989;
+    background: linear-gradient(180deg, rgb(63.83, 153.2, 137.11) 0%, rgb(50, 51, 52) 100%);
+    background-color: #296157;
+    font-family: "Lato-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
     border: none;
-    color: rgb(20, 1, 1);
+    border-radius: 5px;
+    color: #ffffff;
     padding: 5px 5px;
     text-align: center;
     text-decoration: none;    
-    font-size: 14px;      
+    font-size: 18px;      
     cursor: pointer;
-    
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
-  
+
+  .miBtnDetalles:hover {
+    background-color: #296157;
+    background: linear-gradient(180deg, rgb(63.83, 153.2, 137.11) 0%, rgb(63.83, 153.2, 137.11) 100%);
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .miBtnDetalles img {
+    padding-left: 12px;
+  }
+
   .detalles{
     display: flex;
     flex-direction: column;
-    
   }
   
