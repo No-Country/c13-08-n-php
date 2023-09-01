@@ -47,8 +47,8 @@ const navigationLink = [
     icon: <LiveTvIcon />,
   },
   {
-    title: "Iniciar sesión",
-    path: "/login",
+    title: "Registrarse",
+    path: "/registro",
     icon: <LiveTvIcon />,
   }
 ];
@@ -114,9 +114,9 @@ function App() {
             /> 
             */}
 
-            {/* Este es el login que estamos usando */}
+            
             <Route
-              path="/Login"
+              path="/registro"
               element={<SignInSide />}
             />
 
@@ -129,7 +129,7 @@ function App() {
               element={<Cart />}
             />
 
-          
+            
          
            
             </Routes>
