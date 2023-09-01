@@ -7,12 +7,12 @@ import LoginModal from './component/LoginModal/LoginModal';
 import { useState } from 'react';
 //import Fotter from './component/fotter/Fotter.jsx';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-// import Cart from './component/Cart/Cart';
-// import Contacto from './pages/Contacto.jsx';
-// import Combos from './pages/Combos.jsx';
-// import Pizzas from './pages/Pizzas.jsx';
-// import Search from './pages/Search';
-// import Panificados from './pages/Panificados';
+import Cart from './component/Cart/Cart';
+import Contacto from './pages/Contacto.jsx';
+import Combos from './pages/Combos.jsx';
+import Pizzas from './pages/Pizzas.jsx';
+import Search from './pages/Search';
+import Panificados from './pages/Panificados';
 /* import LoginSesion from './component/loginSesion/LoginSesion'; Ya no se usa*/
 import "./app.css"
 import Fotter from './component/fotter/fotter';
@@ -129,7 +129,7 @@ function App() {
               element={<Cart />}
             />
 
-          
+            
          
            
             </Routes>

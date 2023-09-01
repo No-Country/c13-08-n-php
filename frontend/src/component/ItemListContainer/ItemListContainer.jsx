@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import {db} from '../../Services/config'
 import ItemList from "../ItemList/ItemList";
 import "./ItemListContainer.css"
+import axios from 'axios';
 
  const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
@@ -11,7 +12,12 @@ import "./ItemListContainer.css"
 
   useEffect(() => {
     const misProductos = idCategoria ? query(collection(db, "Productos"), where("category_id","==",idCategoria)) : collection(db, "Productos");
-    
+    //TRAER PRODUCTOS CON AXIOS Y PROMISES
+    // axios.get("https://c13-08-n-php.fly.dev/api/products")
+    // .then(res => {
+    //   console.log(res.data.data.data)
+    // })
+    // .catch(error => console.error(error))
     getDocs(misProductos)
     .then(res => {
       const nuevosProductos = res.docs.map(doc => {
