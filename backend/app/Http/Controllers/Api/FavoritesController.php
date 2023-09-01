@@ -1,18 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\Favorites;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FavoritesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $favorites = Favorites::select('id', 'user_id', 'product_id')
+        $favorites = Favorites::join('products', 'favorites.product_id', '=', 'products.id')
+        ->join('users', 'favorites.user_id', '=', 'users.id')
+        ->select('favorites.id', 'users.email', 'products.nombre as product')
         ->get();
         return response([
             "status" => 200,
@@ -21,60 +22,59 @@ class FavoritesController extends Controller
         ],200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create(Request $request)
+    public function checkFavorite(Request $request, Favorites $favorites)
     {
-        $request->validate([
-            'user_id' => 'request',
-            'product_id' => 'request',
-        ]);
-        $favorites = new Favorites($request->input());
-        $favorites->save();
-        return response([
-            "status" => 200,
-            "message" => "Created favorite successfully",
-            "data" => $favorites
-        ],200);
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Favorites $favorites)
-    {
-        $favorite = Favorites::select('id', 'user_id', 'product_id')
-        ->where('id', $favorites->id)
+        $query = DB::table('favorites')
+        ->where('user_id', auth()->user()->id)
+        ->where('product_id', $request->product_id)
         ->get();
-        return response([
-            "status" => 200,
-            "data" => $favorite
-        ],200);
+        
+        if (count($query) >= 1 && count($query) != null) {
+            DB::table('favorites')->where('user_id', auth()->user()->id)
+            ->where('product_id', $request->product_id)->delete();
+            return response([
+                "status" => 200,
+                "message" => "Removed favorite successfully"
+            ],200);
+        } else {
+            $request->validate([
+                'product_id' => 'required',
+            ]);
+            $favorites = new Favorites([
+                'user_id' => auth()->user()->id,
+                'product_id' => $request->product_id
+            ]);
+            $favorites->save();
+            return response([
+                "status" => 200,
+                "message" => "Check favorite successfully",
+                "data" => $favorites
+            ],200);
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Favorites $favorites)
+    public function showbyUser()
     {
-        $favorites->update($request->input());
-        return response([
-            "status" => 200,
-            "message" => "Updated favorite successfully",
-            "data" => $favorites
-        ],200);
-    }
+        $query = Favorites::where('user_id', auth()->user()->id)
+        ->get();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Favorites $favorites)
-    {
-        $favorites->delete();
-        return response([
-            "status" => 200,
-            "message" => "Deleted favorite successfully"
-        ],200);
+        if (count($query) >= 1 && count($query) != null) {
+            $favorite = Favorites::join('products', 'favorites.product_id', '=', 'products.id')
+            ->join('users', 'favorites.user_id', '=', 'users.id')
+            ->select('favorites.id', 'users.email', 'products.nombre as product')
+            ->where('favorites.user_id', auth()->user()->id)
+            ->orderBy('favorites.id', 'desc')
+            ->get();
+            return response([
+                "status" => 200,
+                "message" => "List favorites of user",
+                "data" => $favorite
+            ],200);
+        } else {
+            return response([
+                "status" => 200,
+                "message" => "No favorites"
+            ],200);
+        }        
     }
 }
