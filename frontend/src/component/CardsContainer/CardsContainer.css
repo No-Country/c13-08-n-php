@@ -1,0 +1,5 @@
+.gridCards{
+    display: grid;
+    margin-top: 20px;
+    justify-items: center;
+}

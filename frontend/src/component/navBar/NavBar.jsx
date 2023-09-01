@@ -1,4 +1,5 @@
 import { AppBar, Button, Drawer, IconButton, Toolbar, Typography } from "@mui/material";
+import { Link } from "@mui/material";
 import NavListDrawer from "./NavListDrawer";
 import { useState } from "react";
 import SearchIcon from '@mui/icons-material/Search';
@@ -7,10 +8,13 @@ import { Box } from "@mui/system";
 import Search from "../../pages/Search";
 
 import { NavLink } from "react-router-dom";
+import LoginSesion from "../loginSesion/LoginSesion";
 
 import React from 'react'
 import { Height } from "@mui/icons-material";
 //import { Login,} from "@mui/icons-material";
+
+
 
 const NavBar = ({ navigationLink }) => {
     const [open, setOpen] = useState(false);
@@ -21,19 +25,21 @@ const NavBar = ({ navigationLink }) => {
     }
     return (
         <>
-            <AppBar position="static">
-                <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+            <AppBar position="static" sx={{ minHeight: "200px", backgroundColor: "white" }}>
+                <Toolbar sx={{ display: "flex", justifyContent: "space-between", margin: "auto", width: "85%" }}>
                     <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                        <NavLink to="/">
                         <IconButton
                             color="inherit"
                             size="large"
                             onClick={() => setOpen(true)}
+                            sx={{ display: "none" }}
                         >
                             <MenuIcon />
 
                         </IconButton>
-                        <Typography variant="h6" > LOGO
-                        </Typography>
+                        <img src="./src/assets/logo.svg" alt="logo" height="150px" width="150px" />
+                        </NavLink>
 
                     </Box>
                     <Box sx={{ display: { xs: "none", sm: "block" } }}>
@@ -43,29 +49,37 @@ const NavBar = ({ navigationLink }) => {
                                 key={item.title}
                                 LinkComponent={NavLink}
                                 to={item.path}
+                                sx={{ paddingLeft: "40px", fontFamily: "Lato", textTransform: "capitalize", color: "#1E1E1E" }}
+
                             >
                                 {item.title}
                             </Button>
                         ))}
                     </Box>
 
-                    
+                    <Box sx={{width:"200px", display:"flex",justifyContent: "space-between" }}>
+                        <Button variant="text" sx={{color:"#1E1E1E",fontFamily: "Lato",fontSize:"14px",fontWeight: "bold"}}>
+                           
+                          INICIAR SESION
+                            
+                        </Button>
+
+
                         <IconButton
                             color="inherit"
                             size="large"
                             onClick={() => setOpenSearch(true)}
                         >
-                            <SearchIcon />
-
+                            <img src="./src/assets/carrito.svg" alt="carrito" height="24px" width="24px" />
                         </IconButton>
-                
+                    </Box>
                 </Toolbar>
             </AppBar>
 
             <Drawer
                 open={open}
                 anchor="left"
-                
+
                 onClose={() => setOpen(false)}
                 sx={{ display: { xs: "flex", sm: "none" } }}
             >
@@ -85,10 +99,10 @@ const NavBar = ({ navigationLink }) => {
                 //buscar papersProps
                 PaperProps={{ style: { width: '100%' } }}
                 onClose={() => setOpenSearch(false)}
-                //sx={{ display: { xs: "flex", sm: "none" } }}
+            //sx={{ display: { xs: "flex", sm: "none" } }}
             >
 
-                    <Search setOpenSearch= {setOpenSearch} />   
+                <Search setOpenSearch={setOpenSearch} />
             </Drawer>
         </>
     )

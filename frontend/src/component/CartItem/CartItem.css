@@ -1,0 +1,40 @@
+.imagenCardItem img{
+    max-width: 300px;
+    padding: .8rem;
+   
+}
+
+.CardItem{
+    display:flex;
+    flex-direction: row;    
+    align-items: center;
+    justify-content: center;
+    
+   
+}
+@media (max-width: 858px){
+  .CardItem{
+    flex-direction: column;
+  }
+}
+.miBtn2{
+background-color: #f88c8c;
+border: none;
+color: white;
+font-size: 14px;
+margin: 5px;
+cursor: pointer;
+max-width: 8rem;
+padding: .5rem;
+}
+.textCardItem{
+     list-style: none;
+}
+.SubCardItem{
+  background-color: antiquewhite;  
+  width: 50vh;
+  height: 50vh;
+  padding: 2rem;
+  margin: 1rem;
+}
+
