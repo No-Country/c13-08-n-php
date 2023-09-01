@@ -37,7 +37,7 @@ import axios from 'axios';
           <h2 className="subtitulo">Panificados y Pizzas con Harinas Organicas y de fermentacion natural.</h2>
         </div>
         <ItemList productos={productos} /><div className="masProductos"> 
-        <button>
+        <button className='ver-todos' onClick={console.log("clck")}>
           Ver todos los productos
         </button>
       </div>

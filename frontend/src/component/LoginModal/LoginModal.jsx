@@ -7,7 +7,14 @@ export const LoginModal = ({ setShow, show }) => {
   //after 30 seconds the modal will show up
   useEffect(() => {
     setTimeout(() => {
+      //checks if the user have cookies with the token
+      if (document.cookie.includes('token')) {
+        //if the user have the token, the modal will not show up
+        setShow(false);
+      } else {
+        //if the user doesn't have the token, the modal will show up
       setShow(true);
+      }
     }, 10000);
 
     //if the user clicks on the background, the modal will close
@@ -32,6 +39,13 @@ export const LoginModal = ({ setShow, show }) => {
       }).then((response) => {
         console.log(response);
         alert('Bienvenido');
+        // Guardamos el token en las cookies del navegador para que el usuario no tenga que volver a loguearse
+        // Con tiempo de expiración de 1 hora
+        document.cookie = `token=${response.data.token};max-age=3600;path=/`;
+        // Redireccionamos al usuario a la página de inicio
+        window.location.href = '/';
+        // Cerramos el modal
+        setShow(false);
       });
     } catch (error) {
       console.log(error);
@@ -43,7 +57,7 @@ export const LoginModal = ({ setShow, show }) => {
     e.preventDefault();
     //set the data in a variable
     const Data = {
-      correo: e.target.correo.value,
+      email: e.target.correo.value,
       contrasena: e.target.contrasena.value,
     };
     //send the data to the backend
