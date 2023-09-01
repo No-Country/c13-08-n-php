@@ -11,7 +11,7 @@ Route::get('/', function () {
 
 Route::get('/auth/google/redirect', function () {
     return Socialite::driver('google')->redirect();
-});
+})->name('login.google');
 
 Route::get('/auth/google/callback', function () {
     $googleUser = Socialite::driver('google')->user();
