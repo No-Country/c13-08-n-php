@@ -93,18 +93,18 @@ function App() {
             />
 
             <Route
-              path="/Documentales"
+              path="/contacto"
               element={<Contacto />}
             />
 
             <Route
-              path="/Novedades"
+              path="/pizzas"
               element={<Pizzas />}
             />
 
             <Route
               path="/panificados"
-              element={<panificados />}
+              element={<Panificados />}
             />
 
             {/* 
