@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\OrdersDetailController;
 use App\Http\Controllers\Api\ProductsController;
 use App\Http\Controllers\Api\ReviewsController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\FavoritesController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -46,6 +47,13 @@ Route::get('product/combos', [ProductsController::class, 'filterCombos']);
 Route::post('product/search', [ProductsController::class, 'search']);
 Route::put('products/{product}', [ProductsController::class, 'update']);
 Route::delete('products/{product}', [ProductsController::class, 'destroy']);
+
+//Favorites Routes
+Route::get('favorites', [FavoritesController::class, 'index']);
+Route::post('favorites', [FavoritesController::class, 'create']);
+Route::get('favorites/{favorites}', [FavoritesController::class, 'show']);
+Route::put('favorites/{favorites}', [FavoritesController::class, 'update']);
+Route::delete('favorites/{favorites}', [FavoritesController::class, 'destroy']);
 
 Route::middleware('auth:sanctum')->group(function () {
     //Review Routes
