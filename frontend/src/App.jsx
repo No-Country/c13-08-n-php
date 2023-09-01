@@ -8,9 +8,9 @@ import { useState } from 'react';
 //import Fotter from './component/fotter/Fotter.jsx';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Cart from './component/Cart/Cart';
-import Contacto from './pages/Contacto.jsx';
-import Combos from './pages/Combos.jsx';
-import Pizzas from './pages/Pizzas.jsx';
+import Contacto from './pages/Contacto';
+import Combos from './pages/Combos';
+import Pizzas from './pages/Pizzas';
 import Search from './pages/Search';
 import Panificados from './pages/Panificados';
 /* import LoginSesion from './component/loginSesion/LoginSesion'; Ya no se usa*/
@@ -81,7 +81,6 @@ function App() {
               <Infomation />
               < CardsContainer />
               <ItemListContainer />
-              
               </>
               
               }
@@ -94,17 +93,17 @@ function App() {
 
             <Route
               path="/contacto"
-              element={<Contacto />}
+              element={<Contacto/>}
             />
 
             <Route
               path="/pizzas"
-              element={<Pizzas />}
+              element={<Pizzas/>}
             />
 
             <Route
               path="/panificados"
-              element={<Panificados />}
+              element={<Panificados/>}
             />
 
             {/* 

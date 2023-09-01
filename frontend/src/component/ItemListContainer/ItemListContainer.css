@@ -35,3 +35,19 @@
 .blur {
   filter: blur(4px);
 }
+
+.ver-todos {
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Lato-Regular', Helvetica;
+  color: #111111;
+  background: linear-gradient(180deg, rgb(244, 216, 143) 0%, rgb(160.22, 134.31, 66.76) 100%);
+  background-color: #c4a553;
+  border: none;
+}
+
+.ver-todos:hover {
+  background: linear-gradient(180deg, rgb(244, 216, 143) 0%, rgb(173, 153, 102) 100%);
+  background-color: #F4D88F;
+  color: #111111;
+}
