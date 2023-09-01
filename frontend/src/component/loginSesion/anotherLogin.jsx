@@ -12,6 +12,8 @@ import Grid from '@mui/material/Grid';
 /* import LockOutlinedIcon from '@mui/icons-material/LockOutlined'; */
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 function Copyright(props) {
   return (
@@ -40,12 +42,36 @@ const defaultTheme = createTheme({
 });
 
 export default function SignInSide() {
+  useEffect(() => {
+    //if have the token, will redirect to the home page
+    if (document.cookie.includes('token')) {
+      window.location.href = '/';
+    }
+  }, []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
+      nombre: data.get('name'),
+      apellido: data.get('lastname'),
       email: data.get('email'),
-      password: data.get('password'),
+      contrasena: data.get('password'),
+      contrasena_confirmation: data.get('cpassword'),
+    })
+    axios.post('https://c13-08-n-php.fly.dev/api/auth/register', {
+      nombre: data.get('name'),
+      apellido: data.get('lastname'),
+      email: data.get('email'),
+      contrasena: data.get('password'),
+      contrasena_confirmation: data.get('cpassword'),
+    }).then((response) => {
+      console.log(response)
+      alert("Usuario creado con exito");
+      document.cookie = `token=${response.data.token};max-age=3600;path=/`;
+      window.location.href = "/";
+    }, (error) => {
+      console.log(error);
     });
   };
 
@@ -135,7 +161,7 @@ export default function SignInSide() {
                 margin="normal"
                 required
                 fullWidth
-                name="password"
+                name="cpassword"
                 label="Confirmar Contraseña"
                 type="password"
                 id="cpassword"
