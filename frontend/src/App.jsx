@@ -1,19 +1,11 @@
 
 import LiveTvIcon from '@mui/icons-material/LiveTv';
-//import { AppBar } from '@mui/material';
 import CardsContainer from './component/CardsContainer/CardsContainer';
 import NavBar from './component/navBar/NavBar';
 import LoginModal from './component/LoginModal/LoginModal';
 import { useState } from 'react';
-//import Fotter from './component/fotter/Fotter.jsx';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Cart from './component/Cart/Cart';
-import Contacto from './pages/Contacto';
-import Combos from './pages/Combos';
-import Pizzas from './pages/Pizzas';
-import Search from './pages/Search';
-import Panificados from './pages/Panificados';
-/* import LoginSesion from './component/loginSesion/LoginSesion'; Ya no se usa*/
 import "./app.css"
 import Fotter from './component/fotter/fotter';
 import Infomation from './component/information/Infomation';
@@ -23,6 +15,10 @@ import Slider from './component/Slider/Slider';
 import ItemDetailContainer from './component/ItemDetailContainer/ItemDetailContainer';
 import { CarritoProvider } from './Context/CarritoContext';
 import { CssBaseline } from '@mui/material';
+import ItemsPizzas from './component/ItemsPizzas/ItemsPizzas';
+import ItemsPanes from './component/ItemsPanes/ItemsPanes';
+import ItemsFocaccias from './component/ItemsFocaccias/ItemsFocaccias';
+import ItemsCombos from './component/ItemsCombos/ItemsCombos';
 
 const navigationLink = [
 
@@ -32,8 +28,8 @@ const navigationLink = [
     icon: <LiveTvIcon />,
   },
   {
-    title: "Contacto",
-    path: "/contacto",
+    title: "Focaccias",
+    path: "/focaccias",
     icon: <LiveTvIcon />,
   },
   {
@@ -68,10 +64,7 @@ function App() {
             <NavBar navigationLink={navigationLink} />
          
         <Routes>
-          {/* <NavBar navigationLink={navigationLink} /> */}
-         
-          {/*  */}
-          {/* <Routes> */}
+          
 
             <Route
               path='/'
@@ -88,30 +81,30 @@ function App() {
 
             <Route
               path="/combos"
-              element={<Combos />}
+              element={<ItemsCombos />}
             />
 
             <Route
-              path="/contacto"
-              element={<Contacto/>}
+              path="/focaccias"
+              element={<ItemsFocaccias />}
             />
 
             <Route
               path="/pizzas"
-              element={<Pizzas/>}
+              element={<ItemsPizzas/>}
             />
 
             <Route
               path="/panificados"
-              element={<Panificados/>}
+              element={<ItemsPanes />}
             />
 
-            {/* 
+            
             <Route
               path="/login"
-              element={<LoginSesion />}
+              element={ <LoginModal show={show} setShow={setShow}/>}
             /> 
-            */}
+            
 
             
             <Route

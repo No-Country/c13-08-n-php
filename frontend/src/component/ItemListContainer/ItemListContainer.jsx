@@ -1,36 +1,23 @@
-import { collection, getDocs, query, where } from 'firebase/firestore';
+
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import {db} from '../../Services/config'
-import ItemList from "../ItemList/ItemList";
-import "./ItemListContainer.css"
+import ItemList from  "../ItemList//ItemList"
 import axios from 'axios';
+import './ItemListContainer.css'
 
  const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
-  const {idCategoria} = useParams();
+  
 
   useEffect(() => {
-    const misProductos = idCategoria ? query(collection(db, "Productos"), where("category_id","==",idCategoria)) : collection(db, "Productos");
-    //TRAER PRODUCTOS CON AXIOS Y PROMISES
-    // axios.get("https://c13-08-n-php.fly.dev/api/products")
-    // .then(res => {
-    //   console.log(res.data.data.data)
-    // })
-    // .catch(error => console.error(error))
-    getDocs(misProductos)
-    .then(res => {
-      const nuevosProductos = res.docs.map(doc => {
-        const data = doc.data()
-        return {id:doc.id, ...data}
-      })
-      setProductos(nuevosProductos);
-    })
-    .catch(error => console.error(error))
     
-  }, [idCategoria]);
-
-  return (
+    axios.get("https://c13-08-n-php.fly.dev/api/products")
+    .then((res) => res.data.data.data)
+    .then((productos) => setProductos
+      (productos))
+      console.log(productos)
+    },[])
+    
+    return (
     < >
         <div>
           <h1 className="titulo">Nuestros productos</h1>
