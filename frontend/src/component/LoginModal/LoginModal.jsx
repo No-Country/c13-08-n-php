@@ -13,7 +13,7 @@ export const LoginModal = ({ setShow, show }) => {
         setShow(false);
       } else {
         //if the user doesn't have the token, the modal will show up
-      setShow(true);
+        setShow(true);
       }
     }, 10000);
 
@@ -73,7 +73,8 @@ export const LoginModal = ({ setShow, show }) => {
       <div className='formulario-login'>
         <div className='frame'>
           <div className='overlap'>
-            <div className='text-wrapper'>Iniciar Sesión con Google</div>
+            {/*  */}
+            <button className='login-google' type="button" onClick={() => console.log("lol")}>Iniciar Sesión con Google</button>
           </div>
           <div className='overlap-group'>
             {/* Modal Button Login */}
