@@ -19,6 +19,7 @@ import ItemsPizzas from './component/ItemsPizzas/ItemsPizzas';
 import ItemsPanes from './component/ItemsPanes/ItemsPanes';
 import ItemsFocaccias from './component/ItemsFocaccias/ItemsFocaccias';
 import ItemsCombos from './component/ItemsCombos/ItemsCombos';
+import ItemsTodosProductos from './component/ItemsTodosProductos/ItemsTodosProductos';
 
 const navigationLink = [
 
@@ -120,6 +121,12 @@ function App() {
               path='/cart'
               element={<Cart />}
             />
+            <Route 
+            path="/todosProductos"
+            element={<ItemsTodosProductos/>}
+            />
+
+           
 
             
          
@@ -128,7 +135,7 @@ function App() {
 
             <Fotter /> 
          </div>
-      <LoginModal show={show} setShow={setShow}/>
+          <LoginModal show={show} setShow={setShow}/>
        
             </CssBaseline>
           </CarritoProvider>       

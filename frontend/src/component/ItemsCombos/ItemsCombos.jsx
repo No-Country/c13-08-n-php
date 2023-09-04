@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import ItemList from  "../ItemList/ItemList"
 import axios from 'axios';
+import SideBar from "../SideBar/SideBar";
+import './ItemsCombos.css'
 
 const ItemsCombos = () => {
     const [productos, setProductos] = useState([]);
@@ -19,13 +21,19 @@ const ItemsCombos = () => {
       < >
           <div>
             <h1 className="titulo">Nuestros productos</h1>
-            <h2 className="subtitulo">Panificados y Pizzas con Harinas Organicas y de fermentacion natural.</h2>
+            <h2 className="subtitulo">Combos:</h2>
           </div>
-          <ItemList productos={productos} /><div className="masProductos"> 
-          <button className='ver-todos' onClick={console.log("clck")}>
-            Ver todos los productos
-          </button>
-        </div>
+          <div className="productos">
+            <div className="col-auto">
+              <SideBar />
+              <ItemList productos={productos} />
+              <div className="masProductos">
+                <button className='ver-todos' onClick={console.log("clck")}>
+                 Ver todos los productos
+               </button>
+            </div>
+          </div>
+          </div>
       </>
     )
   }

@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import ItemList from  "../ItemList/ItemList"
 import axios from 'axios';
+import SideBar from "../SideBar/SideBar";
+import "./ItemsPizzas.css"
 
 const ItemsPizzas = () => {
     const [productos, setProductos] = useState([]);
@@ -20,12 +22,22 @@ const ItemsPizzas = () => {
       < >
           <div>
             <h1 className="titulo">Nuestros productos</h1>
-            <h2 className="subtitulo">Panificados y Pizzas con Harinas Organicas y de fermentacion natural.</h2>
+            <h2 className="subtitulo">Pizzas:</h2>
           </div>
-          <ItemList productos={productos} /><div className="masProductos"> 
-          <button className='ver-todos' onClick={console.log("clck")}>
-            Ver todos los productos
-          </button>
+          <div className="productos">
+            <div className="col-auto">
+              <SideBar />
+              <ItemList productos={productos} /><div className="masProductos">
+                <button className='ver-todos' onClick={console.log("clck")}>
+                 Ver todos los productos
+               </button>
+            </div>
+          </div>
+
+
+           
+          
+          
         </div>
       </>
     )
