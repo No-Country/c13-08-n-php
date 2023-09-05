@@ -7,7 +7,6 @@ import LoginModal from './component/LoginModal/LoginModal';
 import { useState } from 'react';
 //import Fotter from './component/fotter/Fotter.jsx';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Cart from './component/Cart/Cart';
 import Contacto from './pages/Contacto';
 import Combos from './pages/Combos';
 import Pizzas from './pages/Pizzas';
@@ -23,6 +22,7 @@ import Slider from './component/Slider/Slider';
 import ItemDetailContainer from './component/ItemDetailContainer/ItemDetailContainer';
 import { CarritoProvider } from './Context/CarritoContext';
 import { CssBaseline } from '@mui/material';
+import Cart from './pages/Cart';
 
 const navigationLink = [
 
