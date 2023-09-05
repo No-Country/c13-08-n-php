@@ -1,11 +1,18 @@
 
 import LiveTvIcon from '@mui/icons-material/LiveTv';
+//import { AppBar } from '@mui/material';
 import CardsContainer from './component/CardsContainer/CardsContainer';
 import NavBar from './component/navBar/NavBar';
 import LoginModal from './component/LoginModal/LoginModal';
 import { useState } from 'react';
+//import Fotter from './component/fotter/Fotter.jsx';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Cart from './component/Cart/Cart';
+import Contacto from './pages/Contacto';
+import Combos from './pages/Combos';
+import Pizzas from './pages/Pizzas';
+import Search from './pages/Search';
+import Panificados from './pages/Panificados';
+/* import LoginSesion from './component/loginSesion/LoginSesion'; Ya no se usa*/
 import "./app.css"
 import Fotter from './component/fotter/fotter';
 import Infomation from './component/information/Infomation';
@@ -13,13 +20,10 @@ import SignInSide from './component/loginSesion/anotherLogin';
 import ItemListContainer from './component/ItemListContainer/ItemListContainer';
 import Slider from './component/Slider/Slider';
 import ItemDetailContainer from './component/ItemDetailContainer/ItemDetailContainer';
+import ItemsTodosProductos from './component/ItemsTodosProductos/ItemsTodosProductos';
 import { CarritoProvider } from './Context/CarritoContext';
 import { CssBaseline } from '@mui/material';
-import ItemsPizzas from './component/ItemsPizzas/ItemsPizzas';
-import ItemsPanes from './component/ItemsPanes/ItemsPanes';
-import ItemsFocaccias from './component/ItemsFocaccias/ItemsFocaccias';
-import ItemsCombos from './component/ItemsCombos/ItemsCombos';
-import ItemsTodosProductos from './component/ItemsTodosProductos/ItemsTodosProductos';
+import Cart from './pages/Cart';
 
 const navigationLink = [
 
@@ -82,23 +86,23 @@ function App() {
 
             <Route
               path="/combos"
-              element={<ItemsCombos />}
+              element={<Combos />}
             />
 
-            <Route
+            {/* <Route
               path="/focaccias"
-              element={<ItemsFocaccias />}
-            />
+              element={<Focaccias />}
+            /> */}
 
             <Route
               path="/pizzas"
-              element={<ItemsPizzas/>}
+              element={<Pizzas/>}
             />
 
-            <Route
+            {/* <Route
               path="/panificados"
-              element={<ItemsPanes />}
-            />
+              element={<Panes />}
+            /> */}
 
             
             <Route

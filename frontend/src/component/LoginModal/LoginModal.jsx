@@ -13,7 +13,7 @@ export const LoginModal = ({ setShow, show }) => {
         setShow(false);
       } else {
         //if the user doesn't have the token, the modal will show up
-      setShow(true);
+        setShow(true);
       }
     },1000);
 
@@ -42,8 +42,6 @@ export const LoginModal = ({ setShow, show }) => {
         // Guardamos el token en las cookies del navegador para que el usuario no tenga que volver a loguearse
         // Con tiempo de expiración de 1 hora
         document.cookie = `token=${response.data.token};max-age=3600;path=/`;
-        // Redireccionamos al usuario a la página de inicio
-        window.location.href = '/';
         // Cerramos el modal
         setShow(false);
       });
@@ -73,7 +71,8 @@ export const LoginModal = ({ setShow, show }) => {
       <div className='formulario-login'>
         <div className='frame'>
           <div className='overlap'>
-            <div className='text-wrapper'>Iniciar Sesión con Google</div>
+            {/*  */}
+            <button className='login-google' type="button" onClick={() => console.log("lol")}>Iniciar Sesión con Google</button>
           </div>
           <div className='overlap-group'>
             {/* Modal Button Login */}
