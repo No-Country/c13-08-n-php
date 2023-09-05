@@ -101,6 +101,10 @@ h4 {
   border-radius: 5.922px;
   margin-top: 20px;
   border: 1.215px solid #409989;
+  /* change the size of the value */
+  font-size: 18px;
+  font-family: 'Lato-Regular', Helvetica;
+  padding-left: 10px;
 }
 
 /* Input text to black */
@@ -139,4 +143,10 @@ h4 {
   border: none;
   height: 50px;
   width: 378px;
+}
+
+.arrow {
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
 }
