@@ -9,16 +9,3 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/auth/google/redirect', function () {
-    return Socialite::driver('google')->redirect();
-})->name('login.google');
-
-Route::get('/auth/google/callback', function () {
-    $googleUser = Socialite::driver('google')->user();
-
-    $user = User::updateOrCreateGoogleUser($googleUser);
-
-    Auth::login($user);
-
-    return redirect('/dashboard'); //VER A DONDE REDIRIGIR
-});

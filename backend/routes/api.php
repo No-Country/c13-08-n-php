@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\CategoriesController;
+use App\Http\Controllers\Api\GoogleAuthController;
 use App\Http\Controllers\Api\OrdersController;
 use App\Http\Controllers\Api\OrdersDetailController;
 use App\Http\Controllers\Api\ProductsController;
@@ -49,12 +50,11 @@ Route::post('product/search', [ProductsController::class, 'search']);
 Route::put('products/{product}', [ProductsController::class, 'update']);
 Route::delete('products/{product}', [ProductsController::class, 'destroy']);
 
-//URL google login
-Route::get('/auth/google/url', function () {
-    $url = Socialite::driver('google')->stateless()->redirect()->getTargetUrl();
-    return response()->json(['url' => $url]);
-});
+//google login
 
+Route::get('/auth/google/redirect',[GoogleAuthController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('/auth/google/callback',[GoogleAuthController::class, 'handleGoogleCallback']);
+Route::get('/auth/google/url',[GoogleAuthController::class, 'getGoogleLoginUrl']);
 
 Route::middleware('auth:sanctum')->group(function () {
     //Favorites Routes
