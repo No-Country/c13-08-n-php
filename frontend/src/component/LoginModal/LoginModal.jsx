@@ -42,8 +42,6 @@ export const LoginModal = ({ setShow, show }) => {
         // Guardamos el token en las cookies del navegador para que el usuario no tenga que volver a loguearse
         // Con tiempo de expiración de 1 hora
         document.cookie = `token=${response.data.token};max-age=3600;path=/`;
-        // Redireccionamos al usuario a la página de inicio
-        window.location.href = '/';
         // Cerramos el modal
         setShow(false);
       });
