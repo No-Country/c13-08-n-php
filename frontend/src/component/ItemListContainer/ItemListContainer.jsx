@@ -1,45 +1,39 @@
-import { collection, getDocs, query, where } from 'firebase/firestore';
+
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import {db} from '../../Services/config'
-import ItemList from "../ItemList/ItemList";
-import "./ItemListContainer.css"
+import ItemList from  "../ItemList//ItemList"
 import axios from 'axios';
+import './ItemListContainer.css'
+import { Link } from "react-router-dom";
 
  const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
-  const {idCategoria} = useParams();
+  
 
   useEffect(() => {
-    const misProductos = idCategoria ? query(collection(db, "Productos"), where("category_id","==",idCategoria)) : collection(db, "Productos");
-    //TRAER PRODUCTOS CON AXIOS Y PROMISES
-    // axios.get("https://c13-08-n-php.fly.dev/api/products")
-    // .then(res => {
-    //   console.log(res.data.data.data)
-    // })
-    // .catch(error => console.error(error))
-    getDocs(misProductos)
-    .then(res => {
-      const nuevosProductos = res.docs.map(doc => {
-        const data = doc.data()
-        return {id:doc.id, ...data}
-      })
-      setProductos(nuevosProductos);
-    })
-    .catch(error => console.error(error))
     
-  }, [idCategoria]);
-
-  return (
+    axios.get("https://c13-08-n-php.fly.dev/api/products?page=1")
+    .then((res) => res.data.data.data)
+    .then((productos) => setProductos(productos))
+      
+    },[])
+    
+    return (
     < >
         <div>
           <h1 className="titulo">Nuestros productos</h1>
           <h2 className="subtitulo">Panificados y Pizzas con Harinas Organicas y de fermentacion natural.</h2>
         </div>
-        <ItemList productos={productos} /><div className="masProductos"> 
-        <button className='ver-todos' onClick={console.log("clck")}>
+        <div className="productos">
+
+        <ItemList productos={productos} />
+       
+      </div> <div className="masProductos"> 
+      <Link to="/todosProductos"> 
+      <button className='ver-todos' onClick={console.log("todos los productos")}>
           Ver todos los productos
         </button>
+      </Link>
+      
       </div>
     </>
   )

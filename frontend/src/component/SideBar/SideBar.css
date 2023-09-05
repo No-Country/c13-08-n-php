@@ -1,0 +1,18 @@
+.nav {
+list-style: none;
+
+
+}
+.simple-text, .nav-link{
+   text-decoration: none;
+   color:#111;
+   font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+    margin-bottom: 13px;
+    display: block;
+    padding: 10px 15px;
+    position: relative;
+  
+   
+}
