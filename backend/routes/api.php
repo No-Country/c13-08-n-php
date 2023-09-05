@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\ReviewsController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\FavoritesController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 
 
 //Auth and user Routes
@@ -48,6 +49,13 @@ Route::post('product/search', [ProductsController::class, 'search']);
 Route::put('products/{product}', [ProductsController::class, 'update']);
 Route::delete('products/{product}', [ProductsController::class, 'destroy']);
 
+//URL google login
+Route::get('/auth/google/url', function () {
+    $url = Socialite::driver('google')->stateless()->redirect()->getTargetUrl();
+    return response()->json(['url' => $url]);
+});
+
+
 Route::middleware('auth:sanctum')->group(function () {
     //Favorites Routes
     Route::get('favorites', [FavoritesController::class, 'index']);
@@ -70,19 +78,17 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/cart/checkout', [CartController::class, 'checkout'])->middleware('auth');
 
     //Orders Routes
-<<<<<<< HEAD
+
     Route::get('/orders', [OrdersController::class, 'index']);
     Route::post('/orders', [OrdersController::class, 'store']); //no esta en el controler
     Route::get('/orders/{id}', [OrdersController::class, 'show']);
     Route::put('/orders/{id}', [OrdersController::class, 'update']);
     Route::delete('/orders/{id}', [OrdersController::class, 'destroy']);
 
-=======
-    Route::post('orders', [OrdersController::class, 'create']); 
+    Route::post('orders', [OrdersController::class, 'create']);
     Route::get('orders/user', [OrdersController::class, 'showbyUser']);
     Route::put('orders/{orders}', [OrdersController::class, 'updateStatus']);
-    
->>>>>>> b52ebc84d05873aaae71531ebc0752b8fa27c87f
+
     //OrderDetails Routes
     Route::get('/orderdetails', [OrdersDetailController::class, 'index']);
     Route::post('/orderdetails', [OrdersDetailController::class, 'store']);
