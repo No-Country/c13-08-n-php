@@ -15,7 +15,7 @@ export const LoginModal = ({ setShow, show }) => {
         //if the user doesn't have the token, the modal will show up
         setShow(true);
       }
-    }, 10000);
+    },1000);
 
     //if the user clicks on the background, the modal will close
     let handler = (e) => {

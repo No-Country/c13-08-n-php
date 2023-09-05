@@ -48,14 +48,12 @@ Route::post('product/search', [ProductsController::class, 'search']);
 Route::put('products/{product}', [ProductsController::class, 'update']);
 Route::delete('products/{product}', [ProductsController::class, 'destroy']);
 
-//Favorites Routes
-Route::get('favorites', [FavoritesController::class, 'index']);
-Route::post('favorites', [FavoritesController::class, 'create']);
-Route::get('favorites/{favorites}', [FavoritesController::class, 'show']);
-Route::put('favorites/{favorites}', [FavoritesController::class, 'update']);
-Route::delete('favorites/{favorites}', [FavoritesController::class, 'destroy']);
-
 Route::middleware('auth:sanctum')->group(function () {
+    //Favorites Routes
+    Route::get('favorites', [FavoritesController::class, 'index']);
+    Route::post('favorites', [FavoritesController::class, 'checkFavorite']);
+    Route::get('favorites/user', [FavoritesController::class, 'showbyUser']);
+
     //Review Routes
     Route::get('reviews', [ReviewsController::class, 'index']);
     Route::post('reviews', [ReviewsController::class, 'store']);

@@ -32,8 +32,8 @@ const navigationLink = [
     icon: <LiveTvIcon />,
   },
   {
-    title: "Contacto",
-    path: "/contacto",
+    title: "Focaccias",
+    path: "/focaccias",
     icon: <LiveTvIcon />,
   },
   {
@@ -68,10 +68,7 @@ function App() {
             <NavBar navigationLink={navigationLink} />
          
         <Routes>
-          {/* <NavBar navigationLink={navigationLink} /> */}
-         
-          {/*  */}
-          {/* <Routes> */}
+          
 
             <Route
               path='/'
@@ -88,30 +85,30 @@ function App() {
 
             <Route
               path="/combos"
-              element={<Combos />}
+              element={<ItemsCombos />}
             />
 
             <Route
-              path="/contacto"
-              element={<Contacto/>}
+              path="/focaccias"
+              element={<ItemsFocaccias />}
             />
 
             <Route
               path="/pizzas"
-              element={<Pizzas/>}
+              element={<ItemsPizzas/>}
             />
 
             <Route
               path="/panificados"
-              element={<Panificados/>}
+              element={<ItemsPanes />}
             />
 
-            {/* 
+            
             <Route
               path="/login"
-              element={<LoginSesion />}
+              element={ <LoginModal show={show} setShow={setShow}/>}
             /> 
-            */}
+            
 
             
             <Route
@@ -127,6 +124,12 @@ function App() {
               path='/cart'
               element={<Cart />}
             />
+            <Route 
+            path="/todosProductos"
+            element={<ItemsTodosProductos/>}
+            />
+
+           
 
             
          
@@ -135,7 +138,7 @@ function App() {
 
             <Fotter /> 
          </div>
-      <LoginModal show={show} setShow={setShow}/>
+          <LoginModal show={show} setShow={setShow}/>
        
             </CssBaseline>
           </CarritoProvider>       
