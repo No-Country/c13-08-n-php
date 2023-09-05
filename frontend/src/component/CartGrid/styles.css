@@ -1,0 +1,142 @@
+.cart-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    'DIRECCIONES DIRECCIONES CARRITO'
+    'DIRECCIONES DIRECCIONES CARRITO'
+    'DIRECCIONES DIRECCIONES CARRITO';
+  margin-top: 90px;
+}
+
+.direcciones-container {
+  grid-area: DIRECCIONES;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 149px;
+}
+
+.productos-container {
+  grid-area: CARRITO;
+}
+
+.guardadas {
+  margin-right: 100px;
+}
+
+.mis-direcciones {
+  color: #000000;
+  font-family: 'Lato-SemiBold', Helvetica;
+  font-size: 24px;
+  font-weight: 600;
+  width: 152px;
+  height: 24px;
+  letter-spacing: 0;
+  line-height: 24px;
+  text-align: center;
+  white-space: nowrap;
+  margin-right: 0;
+  margin-bottom: 19px;
+}
+
+.direccion-nueva {
+  margin-right: 100px;
+  margin-top: 118px;
+}
+
+.direccion {
+  border: 1px solid;
+  border-color: #3f9989;
+  border-radius: 5px;
+  height: 80px;
+  width: 579px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}
+
+.direccion p {
+  cursor: pointer;
+}
+
+.direccion input {
+  margin-left: 29px;
+  border-radius: 30px;
+  /* make a circle */
+  width: 20px;
+  height: 20px;
+  border: 1px solid #3f9989;
+  background-color: #ffffff;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+/* change color when checked */
+
+h4 {
+  /* move to the right */
+  color: #000000;
+  font-family: 'Lato-SemiBold', Helvetica;
+  font-size: 24px;
+  font-weight: 600;
+  height: 24px;
+  line-height: 24px;
+  margin-bottom: 10px;
+}
+
+.direccion-nueva form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.completar-direccion input {
+  width: 579px;
+  height: 47.348px;
+  border-radius: 5px;
+  border-radius: 5.922px;
+  margin-top: 20px;
+  border: 1.215px solid #409989;
+}
+
+/* Input text to black */
+
+.completar-direccion input::placeholder {
+  color: #1e1e1e;
+  font-family: 'Lato-Regular', Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 13.722px;
+  text-align: left;
+  align-items: center;
+}
+
+.completar-direccion p {
+  text-align: center;
+}
+
+.mas-opciones {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.checkout-button {
+  margin-top: 20px;
+  margin-bottom: 25px;
+  background: linear-gradient(
+    180deg,
+    rgb(244, 216, 143) 0%,
+    rgb(160.22, 134.31, 66.76) 100%
+  );
+  background-color: #c4a553;
+
+  border-radius: 5px;
+  border: none;
+  height: 50px;
+  width: 378px;
+}
