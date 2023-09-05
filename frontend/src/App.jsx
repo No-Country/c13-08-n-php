@@ -20,6 +20,7 @@ import SignInSide from './component/loginSesion/anotherLogin';
 import ItemListContainer from './component/ItemListContainer/ItemListContainer';
 import Slider from './component/Slider/Slider';
 import ItemDetailContainer from './component/ItemDetailContainer/ItemDetailContainer';
+import ItemsTodosProductos from './component/ItemsTodosProductos/ItemsTodosProductos';
 import { CarritoProvider } from './Context/CarritoContext';
 import { CssBaseline } from '@mui/material';
 import Cart from './pages/Cart';
@@ -85,23 +86,23 @@ function App() {
 
             <Route
               path="/combos"
-              element={<ItemsCombos />}
+              element={<Combos />}
             />
 
-            <Route
+            {/* <Route
               path="/focaccias"
-              element={<ItemsFocaccias />}
-            />
+              element={<Focaccias />}
+            /> */}
 
             <Route
               path="/pizzas"
-              element={<ItemsPizzas/>}
+              element={<Pizzas/>}
             />
 
-            <Route
+            {/* <Route
               path="/panificados"
-              element={<ItemsPanes />}
-            />
+              element={<Panes />}
+            /> */}
 
             
             <Route
