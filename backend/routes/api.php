@@ -69,11 +69,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/cart/{id}', [CartController::class, 'destroy']);
     
     //Orders Routes
-    Route::get('/orders', [OrdersController::class, 'index']);
-    Route::post('/orders', [OrdersController::class, 'store']); //no esta en el controler
-    Route::get('/orders/{id}', [OrdersController::class, 'show']);
-    Route::put('/orders/{id}', [OrdersController::class, 'update']);
-    Route::delete('/orders/{id}', [OrdersController::class, 'destroy']);
+    Route::post('orders', [OrdersController::class, 'create']); 
+    Route::get('orders/user', [OrdersController::class, 'showbyUser']);
+    Route::put('orders/{orders}', [OrdersController::class, 'updateStatus']);
     
     //OrderDetails Routes
     Route::get('/orderdetails', [OrdersDetailController::class, 'index']);
