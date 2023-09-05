@@ -7,7 +7,6 @@ import LoginModal from './component/LoginModal/LoginModal';
 import { useState } from 'react';
 //import Fotter from './component/fotter/Fotter.jsx';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Cart from './component/Cart/Cart';
 import Contacto from './pages/Contacto';
 import Combos from './pages/Combos';
 import Pizzas from './pages/Pizzas';
@@ -21,8 +20,10 @@ import SignInSide from './component/loginSesion/anotherLogin';
 import ItemListContainer from './component/ItemListContainer/ItemListContainer';
 import Slider from './component/Slider/Slider';
 import ItemDetailContainer from './component/ItemDetailContainer/ItemDetailContainer';
+import ItemsTodosProductos from './component/ItemsTodosProductos/ItemsTodosProductos';
 import { CarritoProvider } from './Context/CarritoContext';
 import { CssBaseline } from '@mui/material';
+import Cart from './pages/Cart';
 
 const navigationLink = [
 
@@ -32,8 +33,8 @@ const navigationLink = [
     icon: <LiveTvIcon />,
   },
   {
-    title: "Contacto",
-    path: "/contacto",
+    title: "Focaccias",
+    path: "/focaccias",
     icon: <LiveTvIcon />,
   },
   {
@@ -68,10 +69,7 @@ function App() {
             <NavBar navigationLink={navigationLink} />
          
         <Routes>
-          {/* <NavBar navigationLink={navigationLink} /> */}
-         
-          {/*  */}
-          {/* <Routes> */}
+          
 
             <Route
               path='/'
@@ -91,27 +89,27 @@ function App() {
               element={<Combos />}
             />
 
-            <Route
-              path="/contacto"
-              element={<Contacto/>}
-            />
+            {/* <Route
+              path="/focaccias"
+              element={<Focaccias />}
+            /> */}
 
             <Route
               path="/pizzas"
               element={<Pizzas/>}
             />
 
-            <Route
+            {/* <Route
               path="/panificados"
-              element={<Panificados/>}
-            />
+              element={<Panes />}
+            /> */}
 
-            {/* 
+            
             <Route
               path="/login"
-              element={<LoginSesion />}
+              element={ <LoginModal show={show} setShow={setShow}/>}
             /> 
-            */}
+            
 
             
             <Route
@@ -127,6 +125,12 @@ function App() {
               path='/cart'
               element={<Cart />}
             />
+            <Route 
+            path="/todosProductos"
+            element={<ItemsTodosProductos/>}
+            />
+
+           
 
             
          
@@ -135,7 +139,7 @@ function App() {
 
             <Fotter /> 
          </div>
-      <LoginModal show={show} setShow={setShow}/>
+          <LoginModal show={show} setShow={setShow}/>
        
             </CssBaseline>
           </CarritoProvider>       

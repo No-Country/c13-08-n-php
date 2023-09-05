@@ -7,7 +7,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Box } from "@mui/system";
 import Search from "../../pages/Search";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, redirect } from "react-router-dom";
 import LoginSesion from "../loginSesion/LoginSesion";
 
 import React from 'react'
@@ -65,13 +65,15 @@ const NavBar = ({ navigationLink }) => {
                         </Button>
 
 
+                        <NavLink to="/cart">
                         <IconButton
                             color="inherit"
                             size="large"
-                            onClick={() => setOpenSearch(true)}
+                            //redireccionar a la pagina de de carrito
                         >
                             <img src="./src/assets/carrito.svg" alt="carrito" height="24px" width="24px" />
                         </IconButton>
+                        </NavLink>
                     </Box>
                 </Toolbar>
             </AppBar>

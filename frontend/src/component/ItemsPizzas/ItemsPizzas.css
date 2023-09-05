@@ -1,0 +1,13 @@
+.productos {
+    display:flex;
+    flex-direction: row;   
+    row-gap: 1rem ;
+    justify-content: center;    
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1200px;
+    
+
+
+}
+  

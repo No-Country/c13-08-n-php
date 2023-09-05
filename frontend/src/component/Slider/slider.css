@@ -27,7 +27,7 @@
     height: 100%;
     position: relative;
     object-fit:fill;
-    
+        
   }
   
 
@@ -38,7 +38,7 @@
     cursor: pointer;
     z-index: 100;
     position: absolute;
-    top: 50%;
+    left: 50%;
     width: auto;
     padding: 1rem;
     margin-top: -3rem;
@@ -51,7 +51,7 @@
     color: black
   }
   
-  .slider-container:hover .prev:hover,
+ 
   .slider-container:hover .next:hover {
     color: white;
     background-color: rgba(0, 0, 0, 0.6);

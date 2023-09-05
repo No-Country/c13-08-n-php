@@ -18,7 +18,7 @@
 }
 
 .modal .frame {
-  background-color: #f4d88f;
+  background: linear-gradient(180deg, rgb(244, 216, 143) 0%, rgb(160.22, 134.31, 66.76) 100%);
   border-radius: 7.89px;
   height: 373px;
   overflow: hidden;
@@ -32,7 +32,7 @@
   height: 38px;
   left: 33px;
   position: absolute;
-  top: 303px;
+  top: 250px;
   width: 312px;
 }
 
@@ -51,6 +51,19 @@
   white-space: nowrap;
 }
 
+.login-google {
+  /* no background */
+  background: none;
+  border-radius: 3.95px;
+  height: 38px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  bottom: 200px;
+  width: 312px;
+  cursor: pointer;
+}
+
 .modal .overlap-group {
   background-color: #3f9989;
   border-radius: 3.95px;
@@ -62,12 +75,16 @@
 }
 
 .modal .iniciar-sesi-n {
-  background-color: #3f9989;
+  background: linear-gradient(180deg, rgb(63.83, 153.2, 137.11) 0%, rgb(50, 51, 52) 100%);
+  color: #ffffff;
+  font-family: 'Lato-Bold', Helvetica;
+  font-size: 12.6px;
   display: flex;
   text-align: center;
   justify-content: center;
   align-items: center;
   border-radius: 3.95px;
+  border: none;
   height: 38px;
   width: 312px;
   position: absolute;
@@ -85,7 +102,7 @@
   line-height: 18.9px;
   position: absolute;
   text-align: center;
-  top: 257px;
+  top: 330px;
   white-space: nowrap;
 }
 
