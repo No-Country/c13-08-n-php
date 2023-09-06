@@ -58,7 +58,7 @@ const NavBar = ({ navigationLink }) => {
                     </Box>
 
                     <Box sx={{width:"200px", display:"flex",justifyContent: "space-between" }}>
-                        <Button variant="text" sx={{color:"#1E1E1E",fontFamily: "Lato",fontSize:"14px",fontWeight: "bold"}}>
+                        <Button href="/login" variant="text" sx={{color:"#1E1E1E",fontFamily: "Lato",fontSize:"14px",fontWeight: "bold"}}>
                            
                           INICIAR SESION
                             
