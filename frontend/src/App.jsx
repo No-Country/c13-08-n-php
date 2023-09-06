@@ -49,7 +49,7 @@ const navigationLink = [
   },
   {
     title: "Registrarse",
-    path: "/registro",
+    path: "/register",
     icon: <LiveTvIcon />,
   }
 ];
@@ -113,7 +113,7 @@ function App() {
 
             
             <Route
-              path="/registro"
+              path="/register"
               element={<SignInSide />}
             />
 
