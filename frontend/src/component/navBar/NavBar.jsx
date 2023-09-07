@@ -58,7 +58,7 @@ const NavBar = ({ navigationLink }) => {
                     </Box>
 
                     <Box sx={{width:"200px", display:"flex",justifyContent: "space-between" }}>
-                        <Button href="/login" variant="text" sx={{color:"#1E1E1E",fontFamily: "Lato",fontSize:"14px",fontWeight: "bold"}}>
+                        <Button disabled={document.cookie.includes('token')} href="/login" variant="text" sx={{color:"#1E1E1E",fontFamily: "Lato",fontSize:"14px",fontWeight: "bold"}}>
                            
                           INICIAR SESION
                             
@@ -112,5 +112,13 @@ const NavBar = ({ navigationLink }) => {
 
 
 }
+
+/* export const ShowButton = () => {
+    if (document.cookie.includes('token')) {
+        console.log("Test token");
+    } else {
+
+    }
+} */
 
 export default NavBar
