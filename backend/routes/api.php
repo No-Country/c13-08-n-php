@@ -3,13 +3,13 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\CategoriesController;
+use App\Http\Controllers\Api\FavoritesController;
 use App\Http\Controllers\Api\GoogleAuthController;
 use App\Http\Controllers\Api\OrdersController;
 use App\Http\Controllers\Api\OrdersDetailController;
 use App\Http\Controllers\Api\ProductsController;
 use App\Http\Controllers\Api\ReviewsController;
 use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\Api\FavoritesController;
 use Illuminate\Support\Facades\Route;
 
 //Auth and user Routes
@@ -78,10 +78,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('orders/user', [OrdersController::class, 'showbyUser']);
     Route::put('orders/{orders}', [OrdersController::class, 'updateStatus']);
 
-    //OrderDetails Routes
-    Route::get('/orderdetails', [OrdersDetailController::class, 'index']);
-    Route::post('/orderdetails', [OrdersDetailController::class, 'store']);
-    Route::get('/orderdetails/{id}', [OrdersDetailController::class, 'show']);
-    Route::put('/orderdetails/{id}', [OrdersDetailController::class, 'update']);
-    Route::delete('/orderdetails/{id}', [OrdersDetailController::class, 'destroy']);
+    //Order Details Routes
+    Route::post('orders/details', [OrdersDetailController::class, 'create']);
+    Route::get('orders/details/{details}', [OrdersDetailController::class, 'showbyOrder']);
 });
