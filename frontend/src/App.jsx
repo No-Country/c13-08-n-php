@@ -14,7 +14,7 @@ import Search from './pages/Search';
 import Panificados from './pages/Panificados';
 /* import LoginSesion from './component/loginSesion/LoginSesion'; Ya no se usa*/
 import "./app.css"
-import Fotter from './component/fotter/fotter';
+import Fotter from './component/fotter/Fotter';
 import Infomation from './component/information/Infomation';
 import SignInSide from './component/loginSesion/anotherLogin';
 import ItemListContainer from './component/ItemListContainer/ItemListContainer';
