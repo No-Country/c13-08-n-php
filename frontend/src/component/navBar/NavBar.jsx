@@ -38,7 +38,7 @@ const NavBar = ({ navigationLink }) => {
                             <MenuIcon />
 
                         </IconButton>
-                        <img src="./src/assets/logo.svg" alt="logo" height="150px" width="150px" />
+                        <img src="/static/images/logo.svg" alt="logo" height="150px" width="150px" />
                         </NavLink>
 
                     </Box>
@@ -58,7 +58,7 @@ const NavBar = ({ navigationLink }) => {
                     </Box>
 
                     <Box sx={{width:"200px", display:"flex",justifyContent: "space-between" }}>
-                        <Button variant="text" sx={{color:"#1E1E1E",fontFamily: "Lato",fontSize:"14px",fontWeight: "bold"}}>
+                        <Button disabled={document.cookie.includes('token')} href="/login" variant="text" sx={{color:"#1E1E1E",fontFamily: "Lato",fontSize:"14px",fontWeight: "bold"}}>
                            
                           INICIAR SESION
                             
@@ -71,7 +71,7 @@ const NavBar = ({ navigationLink }) => {
                             size="large"
                             //redireccionar a la pagina de de carrito
                         >
-                            <img src="./src/assets/carrito.svg" alt="carrito" height="24px" width="24px" />
+                            <img src="/static/images/carrito.svg" alt="carrito" height="24px" width="24px" />
                         </IconButton>
                         </NavLink>
                     </Box>
@@ -112,5 +112,13 @@ const NavBar = ({ navigationLink }) => {
 
 
 }
+
+/* export const ShowButton = () => {
+    if (document.cookie.includes('token')) {
+        console.log("Test token");
+    } else {
+
+    }
+} */
 
 export default NavBar

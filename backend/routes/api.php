@@ -3,16 +3,14 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\CategoriesController;
+use App\Http\Controllers\Api\FavoritesController;
 use App\Http\Controllers\Api\GoogleAuthController;
 use App\Http\Controllers\Api\OrdersController;
 use App\Http\Controllers\Api\OrdersDetailController;
 use App\Http\Controllers\Api\ProductsController;
 use App\Http\Controllers\Api\ReviewsController;
 use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\Api\FavoritesController;
 use Illuminate\Support\Facades\Route;
-use Laravel\Socialite\Facades\Socialite;
-
 
 //Auth and user Routes
 Route::post('auth/register', [AuthController::class, 'register']);
@@ -25,6 +23,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('user-profile/update', [UserController::class, 'updateProfile']);
     Route::get('auth/logout', [AuthController::class, 'logout']);
 });
+
+//google login
+Route::get('auth/google/redirect', [GoogleAuthController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('auth/google/callback', [GoogleAuthController::class, 'handleGoogleCallback']);
+Route::get('auth/google/url', [GoogleAuthController::class, 'getGoogleLoginUrl']);
 
 //Categories Routes
 Route::get('categories', [CategoriesController::class, 'index']);
@@ -50,12 +53,6 @@ Route::post('product/search', [ProductsController::class, 'search']);
 Route::put('products/{product}', [ProductsController::class, 'update']);
 Route::delete('products/{product}', [ProductsController::class, 'destroy']);
 
-//google login
-
-Route::get('/auth/google/redirect',[GoogleAuthController::class, 'redirectToGoogle'])->name('login.google');
-Route::get('/auth/google/callback',[GoogleAuthController::class, 'handleGoogleCallback']);
-Route::get('/auth/google/url',[GoogleAuthController::class, 'getGoogleLoginUrl']);
-
 Route::middleware('auth:sanctum')->group(function () {
     //Favorites Routes
     Route::get('favorites', [FavoritesController::class, 'index']);
@@ -70,29 +67,18 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('reviews/{reviews}', [ReviewsController::class, 'updatebyUser']);
 
     //Cart Routes
-
     Route::get('cart', [CartController::class, 'index']);
     Route::post('cart/add/{productId}', [CartController::class, 'addToCart']);
     Route::post('cart/remove/{productId}', [CartController::class, 'removeFromCart']);
     Route::post('cart/clear', [CartController::class, 'clearCart']);
-    Route::post('/cart/checkout', [CartController::class, 'checkout'])->middleware('auth');
+    Route::post('cart/checkout', [CartController::class, 'checkout'])->middleware('auth');
 
     //Orders Routes
-
-    Route::get('/orders', [OrdersController::class, 'index']);
-    Route::post('/orders', [OrdersController::class, 'store']); //no esta en el controler
-    Route::get('/orders/{id}', [OrdersController::class, 'show']);
-    Route::put('/orders/{id}', [OrdersController::class, 'update']);
-    Route::delete('/orders/{id}', [OrdersController::class, 'destroy']);
-
     Route::post('orders', [OrdersController::class, 'create']);
     Route::get('orders/user', [OrdersController::class, 'showbyUser']);
     Route::put('orders/{orders}', [OrdersController::class, 'updateStatus']);
 
-    //OrderDetails Routes
-    Route::get('/orderdetails', [OrdersDetailController::class, 'index']);
-    Route::post('/orderdetails', [OrdersDetailController::class, 'store']);
-    Route::get('/orderdetails/{id}', [OrdersDetailController::class, 'show']);
-    Route::put('/orderdetails/{id}', [OrdersDetailController::class, 'update']);
-    Route::delete('/orderdetails/{id}', [OrdersDetailController::class, 'destroy']);
+    //Order Details Routes
+    Route::post('orders/details', [OrdersDetailController::class, 'create']);
+    Route::get('orders/details/{details}', [OrdersDetailController::class, 'showbyOrder']);
 });

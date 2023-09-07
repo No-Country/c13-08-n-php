@@ -1,27 +1,36 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './styles.css';
+import { redirect } from 'react-router-dom';
 
 const CartGrid = () => {
-    const [User, setUser] = useState([]);
-    useEffect(() => {
-        //sent bearer token to the backend
-        const token = document.cookie.split('=')[1];
-        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-        //checks if the user have cookies with the token
-        if (document.cookie.includes('token')) {
-            //retrieve the user data from the backend
-            axios.get('https://c13-08-n-php.fly.dev/api/user-profile')
-            //set the user data in a state
-            .then((response) => setUser(response.data.data))
-            .catch((error) => console.log(error));
-            //check if the data is in the state
-            console.log(User[0].calle);
-            //set data in the label
-            document.querySelector('.address1').innerHTML = User[0].calle + ' - ' + User[0].localidad;
+    const [Profile, setProfile] = useState([]);
 
-        }
+    useEffect(() => {
+        getProfile();
     }, []);
+
+
+    function getProfile() {
+        //check if the user have cookies with the token
+        if (document.cookie.includes('token')) {
+            const token = document.cookie.split('=')[1];
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+            axios.get('https://c13-08-n-php.fly.dev/api/user-profile')
+            .then((response) => {
+                const data = response.data.data[0];
+                setProfile(data);
+                console.log(data);
+
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        }else{
+            console.log('No hay token');
+            redirect('/');
+        }
+    }
 
 
     //Function to prevent the default behavior of the form
@@ -60,11 +69,17 @@ const CartGrid = () => {
             <div className='direcciones-guardadas'>
                 <div className='direccion'>
                     <input type="radio" name='address-1' id='ad1' value={"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, quis."}/>
-                    <label htmlFor="ad1"><p className='address1'></p></label>
+                    <label htmlFor="ad1">
+                        <p className='address1'>
+                            {/* while the data isnt ready show loading */}
+                            {Profile.length === 0 ? 'Loading...' : Profile.calle + ' - ' + Profile.localidad
+                            }
+                        </p>
+                    </label>
                 </div>
             </div>
 
-                <p className='mas-opciones'>Mas Opciones <img src='./src/assets/ep_arrow-up.svg' className='arrow'/></p>
+                <p className='mas-opciones'>Mas Opciones <img src='/static/images/ep_arrow-up.svg' className='arrow'/></p>
         </div>
 
         <div className='direccion-nueva'>

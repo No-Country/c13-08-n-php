@@ -25,13 +25,13 @@ function Fotter() {
       </Box> 
       <Box sx ={{display: "flex", flexDirection:"wrap"}}>
         <Box sx={{ marginLeft:"40px"}}>
-          <img src="./src/assets/ri_whatsapp-fill.svg" alt="whatsapp" />
+          <img src="/static/images/ri_whatsapp-fill.svg" alt="whatsapp" />
         </Box>
         <Box sx={{ marginLeft:"40px"}}>
-          <img src="./src/assets/ri_instagram-fill.svg" alt="instagram" />
+          <img src="/static/images/ri_instagram-fill.svg" alt="instagram" />
         </Box>
         <Box  sx={{ marginLeft:"40px"}}>
-          <img src="./src/assets/ic_baseline-facebook.svg" alt="facebook" />
+          <img src="/static/images/ic_baseline-facebook.svg" alt="facebook" />
         </Box>
       </Box>
     </Box>
