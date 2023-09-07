@@ -14,7 +14,7 @@ function Infomation() {
                     //border: "1px solid green",
                     width:"400px"
                 }} >
-                    <img src="./src/assets/ic_round-delivery-dining.svg" alt="logo seguridad" width="48px" height="48px" />
+                    <img src="/static/images/ic_round-delivery-dining.svg" alt="logo seguridad" width="48px" height="48px" />
 
                     <Typography
                         variant="h1"
@@ -45,7 +45,7 @@ function Infomation() {
                     //border: "1px solid green",
                     width:"400px"
                 }} >
-                    <img src="./src/assets/solar_card-bold.svg" alt="logo seguridad" width="48px" height="48px" />
+                    <img src="/static/images/solar_card-bold.svg" alt="logo seguridad" width="48px" height="48px" />
 
                     <Typography
                         variant="h1"
@@ -76,7 +76,7 @@ function Infomation() {
                     //border: "1px solid green",
                     width:"400px"
                 }} >
-                    <img src="./src/assets/material-symbols_security.svg" alt="logo seguridad" width="48px" height="48px" />
+                    <img src="/static/images/material-symbols_security.svg" alt="logo seguridad" width="48px" height="48px" />
 
                     <Typography
                         variant="h1"

@@ -64,7 +64,7 @@ const CartGrid = () => {
                 </div>
             </div>
 
-                <p className='mas-opciones'>Mas Opciones <img src='./src/assets/ep_arrow-up.svg' className='arrow'/></p>
+                <p className='mas-opciones'>Mas Opciones <img src='/static/images/ep_arrow-up.svg' className='arrow'/></p>
         </div>
 
         <div className='direccion-nueva'>
