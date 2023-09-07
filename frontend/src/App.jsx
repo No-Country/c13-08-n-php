@@ -5,7 +5,7 @@ import NavBar from './component/navBar/NavBar';
 import LoginModal from './component/LoginModal/LoginModal';
 import { useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Cart from './component/Cart/Cart';
+//import Cart from './component/Cart/Cart';
 import "./app.css"
 import Fotter from './component/fotter/Fotter';
 import Infomation from './component/information/Infomation';
@@ -117,18 +117,14 @@ function App() {
               path='/item/:idItem'
               element={<ItemDetailContainer />}
             />
-            <Route
+           {/*<Route
               path='/cart'
               element={<Cart />}
-            />
+            />*/}
             <Route 
             path="/todosProductos"
             element={<ItemsTodosProductos/>}
             />
-
-           
-
-            
          
            
             </Routes>

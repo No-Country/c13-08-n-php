@@ -49,7 +49,12 @@ const NavBar = ({ navigationLink }) => {
                                 key={item.title}
                                 LinkComponent={NavLink}
                                 to={item.path}
-                                sx={{ paddingLeft: "40px", fontFamily: "Lato", textTransform: "capitalize", color: "#1E1E1E" }}
+                                sx={{ paddingLeft: "40px", 
+                                fontFamily: "Lato", 
+                                textTransform: "capitalize", 
+                                textAlign: "center",
+                                color: "#1E1E1E", 
+                                ":hover": { borderBottom: "2px solid #1E1E1E"}, }}
 
                             >
                                 {item.title}
