@@ -38,7 +38,7 @@ const NavBar = ({ navigationLink }) => {
                             <MenuIcon />
 
                         </IconButton>
-                        <img src="./src/assets/logo.svg" alt="logo" height="150px" width="150px" />
+                        <img src="/static/images/logo.svg" alt="logo" height="150px" width="150px" />
                         </NavLink>
 
                     </Box>
