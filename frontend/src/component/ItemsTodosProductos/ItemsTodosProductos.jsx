@@ -5,7 +5,7 @@ import ItemList from '../ItemList/ItemList'
 import './ItemsTodosProductos.css'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import Sidebar from '../Sidebar/SideBar'
+import SideBar from '../SideBar/SideBar'
 
 
 const ItemsTodosProductos = () => {
