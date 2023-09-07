@@ -71,7 +71,7 @@ const NavBar = ({ navigationLink }) => {
                             size="large"
                             //redireccionar a la pagina de de carrito
                         >
-                            <img src="./src/assets/carrito.svg" alt="carrito" height="24px" width="24px" />
+                            <img src="/public/static/images/carrito.svg" alt="carrito" height="24px" width="24px" />
                         </IconButton>
                         </NavLink>
                     </Box>
