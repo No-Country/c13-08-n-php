@@ -5,7 +5,7 @@ import NavBar from './component/navBar/NavBar';
 import LoginModal from './component/LoginModal/LoginModal';
 import { useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Cart from  './component/CartComponent/CartComponent'
+//import Cart from  './component/CartComponent/CartComponent'
 import "./app.css"
 import Fotter from './component/fotter/Fotter';
 import Infomation from './component/information/Infomation';
@@ -43,12 +43,8 @@ const navigationLink = [
     title: "Panificados",
     path: "/panificados",
     icon: <LiveTvIcon />,
-  },
-  {
-    title: "Registrarse",
-    path: "/register",
-    icon: <LiveTvIcon />,
   }
+  
 ];
 
 function App() {
@@ -123,7 +119,7 @@ function App() {
             path="/todosProductos"
             element={<ItemsTodosProductos/>}
             />
-         
+           
            
             </Routes>
 
