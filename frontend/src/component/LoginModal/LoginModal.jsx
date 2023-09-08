@@ -6,16 +6,12 @@ import './styles.css';
 export const LoginModal = ({ setShow, show }) => {
   //after 30 seconds the modal will show up
   useEffect(() => {
-    setTimeout(() => {
       //checks if the user have cookies with the token
       if (document.cookie.includes('token')) {
         //if the user have the token, the modal will not show up
         setShow(false);
-      } else {
-        //if the user doesn't have the token, the modal will show up
-        setShow(true);
       }
-    },1000);
+  
 
     //if the user clicks on the background, the modal will close
     let handler = (e) => {
@@ -50,6 +46,34 @@ export const LoginModal = ({ setShow, show }) => {
     }
   }
 
+  //Fuction to login with google
+  async function handleGoogle () {
+    try {
+      //axios.get('https://c13-08-n-php.fly.dev/auth/google/url') 
+      //add cors to the hearder in axios
+      await axios({
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+        url: 'https://c13-08-n-php.fly.dev/auth/google/url',
+      }).then((response) => {
+        console.log(response);
+        window.location.href = response.data.url;
+        
+        // alert('Bienvenido');
+        // // Guardamos el token en las cookies del navegador para que el usuario no tenga que volver a loguearse
+        // // Con tiempo de expiración de 1 hora
+        // document.cookie = `token=${response.data.token};max-age=3600;path=/`;
+        // // Cerramos el modal
+        // setShow(false);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   //prevent the page from refreshing when the user clicks on the button
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -72,7 +96,7 @@ export const LoginModal = ({ setShow, show }) => {
         <div className='frame'>
           <div className='overlap'>
             {/*  */}
-            <button className='login-google' type="button" onClick={() => console.log("lol")}>Iniciar Sesión con Google</button>
+            <button className='login-google' type="button" onClick={() => handleGoogle()}>Iniciar Sesión con Google</button>
           </div>
           <div className='overlap-group'>
             {/* Modal Button Login */}

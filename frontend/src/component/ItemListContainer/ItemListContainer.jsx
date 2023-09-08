@@ -33,7 +33,7 @@ import { Link } from "react-router-dom";
        
       </div> <div className="masProductos"> 
       <Link to="/todosProductos"> 
-      <button className='ver-todos' onClick={console.log("todos los productos")}>
+      <button className='ver-todos' onClick={() => console.log("todos los productos")}>
           Ver todos los productos
         </button>
       </Link>
