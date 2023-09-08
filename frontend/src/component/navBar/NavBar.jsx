@@ -63,7 +63,7 @@ const NavBar = ({ navigationLink }) => {
                     </Box>
 
                     <Box sx={{width:"200px", display:"flex",justifyContent: "space-between" }}>
-                        <Button disabled={document.cookie.includes('token')} href="/login" variant="text" sx={{color:"#1E1E1E",fontFamily: "Lato",fontSize:"14px",fontWeight: "bold"}}>
+                        <Button disabled={document.cookie.includes('token')} href="/login" variant="text" sx={{color:"#1E1E1E",fontFamily: "Lato",fontSize:"14px",fontWeight: "bold" ,":hover": { borderBottom: "2px solid #1E1E1E"}}}>
                            
                           INICIAR SESION
                             

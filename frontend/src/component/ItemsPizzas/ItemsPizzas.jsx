@@ -25,13 +25,11 @@ const ItemsPizzas = () => {
             <h2 className="subtitulo">Pizzas:</h2>
           </div>
           <div className="productos">
-            <div className="col-auto">
+            
               <SideBar />
               <ItemList productos={productos} /><div className="masProductos">
-                <button className='ver-todos' onClick={console.log("clck")}>
-                 Ver todos los productos
-               </button>
-            </div>
+              
+            
           </div>
 
 

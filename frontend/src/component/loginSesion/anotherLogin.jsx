@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
 import { useEffect } from 'react';
 
+
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -77,7 +78,7 @@ export default function SignInSide() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Grid container component="main" sx={{ height: '100vh' }}>
+      <Grid container component="main" sx={{ height: '100%' }}>
         <CssBaseline />
         <Grid
           item
@@ -85,12 +86,14 @@ export default function SignInSide() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://lilluna.com/wp-content/uploads/2022/05/french-bread4-resize-17.jpg)',
-            /* backgroundRepeat: 'no-repeat', */
+            backgroundImage: 'url(https://invitadoinvierno.com/wp-content/uploads/2014/06/focaccia-de-bari-3.jpg)',
+            backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
             backgroundSize: 'cover',
             backgroundPosition: 'center',
+            borderRadius: '400px',
+            
           }}
         />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} backgroundColor="#F4D88F" square>

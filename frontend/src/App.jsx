@@ -5,14 +5,14 @@ import NavBar from './component/navBar/NavBar';
 import LoginModal from './component/LoginModal/LoginModal';
 import { useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-//import Cart from './component/Cart/Cart';
+import Cart from  './component/CartComponent/CartComponent'
 import "./app.css"
 import Fotter from './component/fotter/Fotter';
 import Infomation from './component/information/Infomation';
 import SignInSide from './component/loginSesion/anotherLogin';
 import ItemListContainer from './component/ItemListContainer/ItemListContainer';
 import Slider from './component/Slider/Slider';
-import ItemDetailContainer from './component/ItemDetailContainer/ItemDetailContainer';
+//import ItemDetailContainer from './component/ItemDetailContainer/ItemDetailContainer';
 import { CarritoProvider } from './Context/CarritoContext';
 import { CssBaseline } from '@mui/material';
 import ItemsPizzas from './component/ItemsPizzas/ItemsPizzas';
@@ -20,6 +20,7 @@ import ItemsPanes from './component/ItemsPanes/ItemsPanes';
 import ItemsFocaccias from './component/ItemsFocaccias/ItemsFocaccias';
 import ItemsCombos from './component/ItemsCombos/ItemsCombos';
 import ItemsTodosProductos from './component/ItemsTodosProductos/ItemsTodosProductos';
+import CartGrid from './component/CartGrid/CartGrid';
 
 const navigationLink = [
 
@@ -113,14 +114,11 @@ function App() {
               element={<SignInSide />}
             />
 
-            <Route
-              path='/item/:idItem'
-              element={<ItemDetailContainer />}
-            />
-           {/*<Route
+           
+           <Route
               path='/cart'
-              element={<Cart />}
-            />*/}
+              element={<CartGrid />}
+            />
             <Route 
             path="/todosProductos"
             element={<ItemsTodosProductos/>}

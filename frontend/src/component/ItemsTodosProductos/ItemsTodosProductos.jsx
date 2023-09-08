@@ -28,8 +28,11 @@ const ItemsTodosProductos = () => {
           </h2>
         </div>
         <div className='productos'>
-          <Sidebar />
+          
+          <SideBar />
           <ItemList productos={productos} />
+          
+          
         </div>
       </>
     )}

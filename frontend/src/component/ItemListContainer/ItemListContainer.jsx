@@ -11,15 +11,19 @@ import { Link } from "react-router-dom";
 
   useEffect(() => {
     
-    axios.get("https://c13-08-n-php.fly.dev/api/products?page=1")
-    .then((res) => res.data.data.data)
-    .then((productos) => setProductos(productos))
+    axios.get("https://c13-08-n-php.fly.dev/api/products?page=2")
+    .then((res) => res.data.data.data)    
+    .then((data) => setProductos(data.slice(0,4)))
+    
+    
+
+  
       
     },[])
     
     return (
     < >
-        <div>
+        <div className="box-titulos"> 
           <h1 className="titulo">Nuestros productos</h1>
           <h2 className="subtitulo">Panificados y Pizzas con Harinas Organicas y de fermentacion natural.</h2>
         </div>
