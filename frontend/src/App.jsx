@@ -63,7 +63,7 @@ function App() {
           <CarritoProvider>
             <CssBaseline>
               <div className={show ? "darkFilter": ""}>
-            <NavBar navigationLink={navigationLink} />
+            <NavBar navigationLink={navigationLink} show={show} setShow={setShow}/>
          
         <Routes>
           
