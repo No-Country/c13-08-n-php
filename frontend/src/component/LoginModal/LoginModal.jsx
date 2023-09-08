@@ -6,16 +6,12 @@ import './styles.css';
 export const LoginModal = ({ setShow, show }) => {
   //after 30 seconds the modal will show up
   useEffect(() => {
-    setTimeout(() => {
       //checks if the user have cookies with the token
       if (document.cookie.includes('token')) {
         //if the user have the token, the modal will not show up
         setShow(false);
-      } else {
-        //if the user doesn't have the token, the modal will show up
-        setShow(true);
       }
-    });
+  
 
     //if the user clicks on the background, the modal will close
     let handler = (e) => {
