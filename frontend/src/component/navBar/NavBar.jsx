@@ -16,9 +16,13 @@ import { Height } from "@mui/icons-material";
 
 
 
-const NavBar = ({ navigationLink }) => {
+const NavBar = ({ navigationLink, show, setShow }) => {
     const [open, setOpen] = useState(false);
     const [openSearch, setOpenSearch] = useState(false)
+
+    const handleSetShow = () => {
+        setShow(true);
+    }
 
     const handleSearch = () => {
         return <Search />
@@ -63,7 +67,8 @@ const NavBar = ({ navigationLink }) => {
                     </Box>
 
                     <Box sx={{width:"200px", display:"flex",justifyContent: "space-between" }}>
-                        <Button disabled={document.cookie.includes('token')} href="/login" variant="text" sx={{color:"#1E1E1E",fontFamily: "Lato",fontSize:"14px",fontWeight: "bold" ,":hover": { borderBottom: "2px solid #1E1E1E"}}}>
+                        {/* when clicked the button will set show to modal active */}
+                        <Button disabled={document.cookie.includes('token')} onClick={() => handleSetShow()} variant="text" sx={{color:"#1E1E1E",fontFamily: "Lato",fontSize:"14px",fontWeight: "bold" ,":hover": { borderBottom: "2px solid #1E1E1E"}}}>
                            
                           INICIAR SESION
                             
