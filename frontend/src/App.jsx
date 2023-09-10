@@ -21,6 +21,7 @@ import ItemsFocaccias from './component/ItemsFocaccias/ItemsFocaccias';
 import ItemsCombos from './component/ItemsCombos/ItemsCombos';
 import ItemsTodosProductos from './component/ItemsTodosProductos/ItemsTodosProductos';
 import CartGrid from './component/CartGrid/CartGrid';
+import AboutUs from './component/AboutUs/AboutUs';
 
 const navigationLink = [
 
@@ -43,7 +44,13 @@ const navigationLink = [
     title: "Panificados",
     path: "/panificados",
     icon: <LiveTvIcon />,
+  },
+  {
+    title: "Acerca de",
+    path: "/aboutus",
+    icon: <LiveTvIcon />,
   }
+
   
 ];
 
@@ -118,6 +125,11 @@ function App() {
             <Route 
             path="/todosProductos"
             element={<ItemsTodosProductos/>}
+            />
+
+            <Route 
+            path="/aboutus"
+            element={<AboutUs/>}
             />
            
            
