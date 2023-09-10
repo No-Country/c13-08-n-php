@@ -37,24 +37,28 @@
     -webkit-transition: all 0.25s ease-in-out;
     -moz-transition: all 0.25s ease-in-out;
     transition: all 0.25s ease-in-out;
+    display: flex;
+    justify-content: center;
 }
 
 .section-title{
     display: flex;
     white-space: pre-line;
     justify-content: center;
+    font-size: 40px;
 }
 
 .section-subtitle {
     white-space: pre-line;
     display: flex;
-    
+    font-size: 35px;
     justify-content: center;
 }
 
 .section-departament {
     display: flex;
     justify-content: center;
+    font-size: 30px;
 }
 
 .team-item:hover h3{
@@ -71,7 +75,7 @@
     font-style: italic;
 }
 
-.team-info::after {
+/* .team-info::after {
     background: #F4D88F;
     background: -webkit-linear-gradient(
         135deg, #F4D88F 0%, #F4D88F 100%
@@ -92,7 +96,7 @@
     width: 50px;
     height: 3px;
     margin-top: -20px;
-}
+} */
 
 .team-img {
     max-width: 140px;
@@ -105,10 +109,13 @@
 
 ul.team-icon {
     margin-top: 25px;
+    display: flex;
+    justify-content: center;
 }
 
 ul.team-icon li {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
     margin: 0 30px;
     -webkit-transition: all 0.25s ease-in-out;
     -moz-transition: all 0.25s ease-in-out;
@@ -117,26 +124,42 @@ ul.team-icon li {
     transition: all 0.25s ease-in-out;
 }
 
-ul.team-icon li a{
-    margin: 0;
+.linkedin {
+    background-color: #296157;
+    border: none;
+    border-radius: 8px 8px;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
     display: inline-block;
-    padding: 8px 8px;
-    width: 34px;
-    height: 34px;
-    font-size: 18px;
-    line-height: 18px;
-    background-color: #fff;
-    border-radius: 50%;
-    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
 }
 
+.linkedin:hover {
+    opacity: 1
+}
 
+.github {
+    background-color: #296157;
+    border: none;
+    border-radius: 8px 8px;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
 
-.team-icon li a:hover{
-	color:#dedede;
-	-webkit-transition: all 0.25s ease-in-out;
-	-moz-transition: all 0.25s ease-in-out;
-	-ms-transition: all 0.25s ease-in-out;
-	-o-transition: all 0.25s ease-in-out;
-	transition: all 0.25s ease-in-out;
+.github:hover {
+    opacity: 1
 }

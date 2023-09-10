@@ -33,12 +33,16 @@ const AboutUs = () => {
                                 <p>Diseñadora UX</p>
                                 {/* <p>texto de abajo</p> */}
                                 <ul className="team-icon">
-                                    <li><a href="#" className="linkedin">
-                                        <i className="ico-linkedin"></i>
-                                    </a></li>
-                                    <li><a href="#" className="github">
-                                        <i className="ico-github"></i>
-                                    </a></li>
+                                    <li>
+                                        <a target="_blank" href="https://www.linkedin.com/in/carolinalorenaflotts/" className="linkedin">
+                                        Linkedin
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="#" className="github">
+                                        Behance
+                                        </a>
+                                    </li>
 
 
                                 </ul>
@@ -67,12 +71,17 @@ const AboutUs = () => {
                                 <p>Desarrollador FrontEnd</p>
                                 {/* <p>texto de abajo</p> */}
                                 <ul className="team-icon">
-                                    <li><a href="#" className="linkedin">
-                                        <i className="ico-linkedin"></i>
-                                    </a></li>
-                                    <li><a href="#" className="github">
-                                        <i className="ico-github"></i>
-                                    </a></li>
+
+                                    <li>
+                                        <a target="_blank" href="https://www.linkedin.com/in/jesus-alberto-vasquez-ruiz-developer/" className="linkedin">
+                                        Linkedin
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="https://github.com/AlbertoVasquezR" className="github">
+                                        GitHub
+                                        </a>
+                                    </li>
 
 
                                 </ul>
@@ -91,12 +100,17 @@ const AboutUs = () => {
                                 <p>Desarrollador FrontEnd</p>
                                 {/* <p>texto de abajo</p> */}
                                 <ul className="team-icon">
-                                    <li><a href="#" className="linkedin">
-                                        <i className="ico-linkedin"></i>
-                                    </a></li>
-                                    <li><a href="#" className="github">
-                                        <i className="ico-github"></i>
-                                    </a></li>
+
+                                    <li>
+                                        <a target="_blank" href="https://www.linkedin.com/in/gabriel-mendoza-a1a077227" className="linkedin">
+                                        Linkedin
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="https://github.com/xzAnarchy" className="github">
+                                        GitHub
+                                        </a>
+                                    </li>
 
 
                                 </ul>
@@ -115,13 +129,17 @@ const AboutUs = () => {
                                 <p>Desarrollador FrontEnd</p>
                                 {/* <p>texto de abajo</p> */}
                                 <ul className="team-icon">
-                                    <li><a href="#" className="linkedin">
-                                        <i className="ico-linkedin"></i>
-                                    </a></li>
-                                    <li><a href="#" className="github">
-                                        <i className="ico-github"></i>
-                                    </a></li>
-
+                                    
+                                    <li>
+                                        <a target="_blank" href="https://www.linkedin.com/in/diego-omar-bufalari-8576831b9/" className="linkedin">
+                                        Linkedin
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="https://github.com/diegobufa" className="github">
+                                        GitHub
+                                        </a>
+                                    </li>
 
                                 </ul>
                             </div>
@@ -139,12 +157,17 @@ const AboutUs = () => {
                                 <p>Desarrollador FrontEnd</p>
                                 {/* <p>texto de abajo</p> */}
                                 <ul className="team-icon">
-                                    <li><a href="#" className="linkedin">
-                                        <i className="ico-linkedin"></i>
-                                    </a></li>
-                                    <li><a href="#" className="github">
-                                        <i className="ico-github"></i>
-                                    </a></li>
+
+                                    <li>
+                                        <a target="_blank" href="https://www.linkedin.com/in/diego-omar-bufalari-8576831b9/" className="linkedin">
+                                        Linkedin
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="https://github.com/brandaneric" className="github">
+                                        GitHub
+                                        </a>
+                                    </li>
 
 
                                 </ul>
@@ -171,12 +194,17 @@ const AboutUs = () => {
                                 <p>Desarrolladora BackEnd</p>
                                 {/* <p>texto de abajo</p> */}
                                 <ul className="team-icon">
-                                    <li><a href="#" className="linkedin">
-                                        <i className="ico-linkedin"></i>
-                                    </a></li>
-                                    <li><a href="#" className="github">
-                                        <i className="ico-github"></i>
-                                    </a></li>
+
+                                    <li>
+                                        <a target="_blank" href="https://www.linkedin.com/in/mariainesgodoy/" className="linkedin">
+                                        Linkedin
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="https://github.com/godoyFlorio" className="github">
+                                        GitHub
+                                        </a>
+                                    </li>
 
 
                                 </ul>
@@ -195,12 +223,17 @@ const AboutUs = () => {
                                 <p>Desarrollador BackEnd</p>
                                 {/* <p>texto de abajo</p> */}
                                 <ul className="team-icon">
-                                    <li><a href="#" className="linkedin">
-                                        <i className="ico-linkedin"></i>
-                                    </a></li>
-                                    <li><a href="#" className="github">
-                                        <i className="ico-github"></i>
-                                    </a></li>
+
+                                    <li>
+                                        <a target="_blank" href="https://www.linkedin.com/in/gabriel-mendoza-a1a077227" className="linkedin">
+                                        Linkedin
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="https://github.com/xzAnarchy" className="github">
+                                        GitHub
+                                        </a>
+                                    </li>
 
 
                                 </ul>
@@ -219,12 +252,17 @@ const AboutUs = () => {
                                 <p>Desarrollador BackEnd</p>
                                 {/* <p>texto de abajo</p> */}
                                 <ul className="team-icon">
-                                    <li><a href="#" className="linkedin">
-                                        <i className="ico-linkedin"></i>
-                                    </a></li>
-                                    <li><a href="#" className="github">
-                                        <i className="ico-github"></i>
-                                    </a></li>
+
+                                    <li>
+                                        <a target="_blank" href="https://www.linkedin.com/in/jesus-alberto-vasquez-ruiz-developer/" className="linkedin">
+                                        Linkedin
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="https://github.com/byZhetta" className="github">
+                                        GitHub
+                                        </a>
+                                    </li>
 
 
                                 </ul>
@@ -255,12 +293,17 @@ const AboutUs = () => {
                                 <p>QA Tester Manual</p>
                                 {/* <p>texto de abajo</p> */}
                                 <ul className="team-icon">
-                                    <li><a href="#" className="linkedin">
-                                        <i className="ico-linkedin"></i>
-                                    </a></li>
-                                    <li><a href="#" className="github">
-                                        <i className="ico-github"></i>
-                                    </a></li>
+
+                                    <li>
+                                        <a target="_blank" href="https://www.linkedin.com/in/jesus-alberto-vasquez-ruiz-developer/" className="linkedin">
+                                        Linkedin
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="https://github.com/byZhetta" className="github">
+                                        GitHub
+                                        </a>
+                                    </li>
 
 
                                 </ul>
