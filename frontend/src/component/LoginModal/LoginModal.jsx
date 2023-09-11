@@ -40,6 +40,10 @@ export const LoginModal = ({ setShow, show }) => {
         document.cookie = `token=${response.data.token};max-age=3600;path=/`;
         // Cerramos el modal
         setShow(false);
+        // reload the page if is checkout or cart
+        if (window.location.pathname === '/cart' || window.location.pathname === '/checkout') {
+          window.location.reload();
+        }
       });
     } catch (error) {
       console.log(error);

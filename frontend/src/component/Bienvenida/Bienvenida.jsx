@@ -1,6 +1,6 @@
 import React from 'react'
 import { Hidden } from '@mui/material'
-import './bienvenida.css'
+import './Bienvenida.css'
 import SearchIcon from '@mui/icons-material/Search';
 import { Grid, Paper, Box, TextField } from '@mui/material'
 
