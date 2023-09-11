@@ -51,6 +51,13 @@ Route::post('product/search', [ProductsController::class, 'search']);
 Route::put('products/{product}', [ProductsController::class, 'update']);
 Route::delete('products/{product}', [ProductsController::class, 'destroy']);
 
+//Cart Routes
+Route::get('cart', [CartController::class, 'showCart']);
+Route::post('cart/add/{productId}', [CartController::class, 'addToCart']);
+Route::post('cart/remove/{productId}', [CartController::class, 'removeFromCart']);
+Route::post('cart/clear', [CartController::class, 'clearCart']);
+Route::post('cart/checkout', [CartController::class, 'checkout'])->middleware('auth');
+
 Route::middleware('auth:sanctum')->group(function () {
     //Favorites Routes
     Route::get('favorites', [FavoritesController::class, 'index']);
@@ -63,13 +70,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('reviews/{reviews}', [ReviewsController::class, 'show']);
     Route::get('review-product/{reviews}', [ReviewsController::class, 'showbyProduct']);
     Route::put('reviews/{reviews}', [ReviewsController::class, 'updatebyUser']);
-
-    //Cart Routes
-    Route::get('cart', [CartController::class, 'index']);
-    Route::post('cart/add/{productId}', [CartController::class, 'addToCart']);
-    Route::post('cart/remove/{productId}', [CartController::class, 'removeFromCart']);
-    Route::post('cart/clear', [CartController::class, 'clearCart']);
-    Route::post('cart/checkout', [CartController::class, 'checkout'])->middleware('auth');
 
     //Orders Routes
     Route::post('orders', [OrdersController::class, 'create']);
