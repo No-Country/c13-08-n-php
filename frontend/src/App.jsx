@@ -3,7 +3,7 @@ import LiveTvIcon from '@mui/icons-material/LiveTv';
 import CardsContainer from './component/CardsContainer/CardsContainer';
 import NavBar from './component/navBar/NavBar';
 import LoginModal from './component/LoginModal/LoginModal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 //import Cart from  './component/CartComponent/CartComponent'
 import "./app.css"
@@ -60,6 +60,15 @@ function App() {
   // Make the backgorund darker when the modal is open
   const [show, setShow] = useState(false);
 
+  useEffect(() => {
+    //if the user is in /cart route without login, the modal will show up
+  if (window.location.pathname === '/cart' || window.location.pathname === '/checkout') {
+    console.log('cart');
+    if (!document.cookie.includes('token')) {
+      setShow(true);
+    }
+  }
+  });
   return (
     <>
       
