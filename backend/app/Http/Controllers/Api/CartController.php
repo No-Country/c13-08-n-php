@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
-    public function index(Request $request)
+    public function showCart(Request $request)
     {
         global $request;
         $cart = $request->session()->get('cart', []);
