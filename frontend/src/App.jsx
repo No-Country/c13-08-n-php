@@ -126,16 +126,16 @@ function App() {
             />
 
             <Route 
-            path="/checkout"
-            element={<Checkout/>}
-            />
-
-            <Route 
             path="/aboutus"
             element={<AboutUs/>}
             />
+
+            <Route
+              path="/checkout"
+              element={<Checkout />}
+            />
            
-            </Routes>
+          </Routes>
 
             <Fotter /> 
          </div>
