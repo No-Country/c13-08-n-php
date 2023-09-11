@@ -5,7 +5,7 @@ import NavBar from './component/navBar/NavBar';
 import LoginModal from './component/LoginModal/LoginModal';
 import { useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Cart from  './component/CartComponent/CartComponent'
+//import Cart from  './component/CartComponent/CartComponent'
 import "./app.css"
 import Fotter from './component/fotter/Fotter';
 import Infomation from './component/information/Infomation';
@@ -22,6 +22,7 @@ import ItemsCombos from './component/ItemsCombos/ItemsCombos';
 import ItemsTodosProductos from './component/ItemsTodosProductos/ItemsTodosProductos';
 import CartGrid from './component/CartGrid/CartGrid';
 import Checkout from './pages/Checkout';
+import AboutUs from './component/AboutUs/AboutUs';
 
 const navigationLink = [
 
@@ -46,10 +47,12 @@ const navigationLink = [
     icon: <LiveTvIcon />,
   },
   {
-    title: "Registrarse",
-    path: "/register",
+    title: "Acerca de",
+    path: "/aboutus",
     icon: <LiveTvIcon />,
   }
+
+  
 ];
 
 function App() {
@@ -128,7 +131,11 @@ function App() {
             path="/checkout"
             element={<Checkout/>}
             />
-         
+            <Route 
+            path="/aboutus"
+            element={<AboutUs/>}
+            />
+           
            
             </Routes>
 
