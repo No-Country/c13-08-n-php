@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import "./BarraMovile.css"
 import MasVendidos from '../MasVendidos/MasVendidos'
 import { Hidden } from '@mui/material'
-import image1 from "../../assets/panes.png"
+import image1 from "../../assets/Panes.png"
 
 
 
