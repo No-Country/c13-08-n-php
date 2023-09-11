@@ -4,6 +4,15 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    background-color: #F6F6F6;
+    color: var(--colors-default, #000);
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: Lato;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 125% */
+letter-spacing: 0.2px;
 
 }
 
@@ -13,4 +22,13 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+}
+
+.btn{
+    background-color: #F6F6F6;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
 }

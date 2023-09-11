@@ -25,7 +25,7 @@ const MasVendidos = () => {
          <h2>MasVendidos</h2>
 
          <Link  to="/todosProductos">
-            <button className="btn btn-primary"> Ver todos los productos</button>
+            <button className="btn "> Ver todos </button>
         </Link>
         
     </div>

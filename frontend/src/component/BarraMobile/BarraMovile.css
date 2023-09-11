@@ -62,3 +62,13 @@ text-transform: none;
 
 align-self: stretch;
 }
+.grid-card h2{
+    color: var(--colors-default, #000);
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: Lato;
+font-size: 22px;
+font-style: normal;
+font-weight: 700;
+line-height: 30px; /* 136.364% */
+letter-spacing: 0.2px;
+}
