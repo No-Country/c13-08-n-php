@@ -22,7 +22,6 @@ import ItemsCombos from './component/ItemsCombos/ItemsCombos';
 import ItemsTodosProductos from './component/ItemsTodosProductos/ItemsTodosProductos';
 import CartGrid from './component/CartGrid/CartGrid';
 import Checkout from './pages/Checkout';
-import CheckoutGrid from './component/CheckoutGrid/CheckoutGrid';
 import AboutUs from './component/AboutUs/AboutUs';
 
 const navigationLink = [
@@ -127,16 +126,16 @@ function App() {
             />
 
             <Route 
-            path="/checkout"
-            element={<CheckoutGrid/>}
-            />
-
-            <Route 
             path="/aboutus"
             element={<AboutUs/>}
             />
+
+            <Route
+              path="/checkout"
+              element={<Checkout />}
+            />
            
-            </Routes>
+          </Routes>
 
             <Fotter /> 
          </div>
