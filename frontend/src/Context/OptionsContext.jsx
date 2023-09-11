@@ -33,4 +33,4 @@ const OptionProvider = ({children}) =>{
     )
 }
 
-export default OptionProvider
+export default OptionContext
