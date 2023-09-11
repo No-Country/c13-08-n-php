@@ -105,37 +105,35 @@ function App() {
               element={<ItemsPanes />}
             />
 
-            
             <Route
               path="/login"
               element={ <LoginModal show={show} setShow={setShow}/>}
             /> 
-            
-
             
             <Route
               path="/register"
               element={<SignInSide />}
             />
 
-           
            <Route
               path='/cart'
               element={<CartGrid />}
             />
+
             <Route 
             path="/todosProductos"
             element={<ItemsTodosProductos/>}
             />
+
             <Route 
             path="/checkout"
             element={<Checkout/>}
             />
+
             <Route 
             path="/aboutus"
             element={<AboutUs/>}
             />
-           
            
             </Routes>
 
