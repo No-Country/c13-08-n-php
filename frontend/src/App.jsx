@@ -21,6 +21,7 @@ import ItemsFocaccias from './component/ItemsFocaccias/ItemsFocaccias';
 import ItemsCombos from './component/ItemsCombos/ItemsCombos';
 import ItemsTodosProductos from './component/ItemsTodosProductos/ItemsTodosProductos';
 import CartGrid from './component/CartGrid/CartGrid';
+import Checkout from './pages/Checkout';
 
 const navigationLink = [
 
@@ -122,6 +123,10 @@ function App() {
             <Route 
             path="/todosProductos"
             element={<ItemsTodosProductos/>}
+            />
+            <Route 
+            path="/checkout"
+            element={<Checkout/>}
             />
          
            
