@@ -1,51 +1,62 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import "./BarraMovile.css"
 import MasVendidos from '../MasVendidos/MasVendidos'
-import { Hidden } from '@mui/material'
+import { Box, Hidden } from '@mui/material'
 import image1 from "../../assets/panes.png"
+import image2 from "../../assets/image10.png"
+import image3 from "../../assets/image4.png"
+import image4 from "../../assets/Combos.png"
+import { OptionContext } from '../../Context/optionsContext'
+import { Button } from '@mui/material'
+
+
 
 
 
 const BarraMovile = () => {
 
+    const { cambiarOption, option, url, image } = useContext(OptionContext)
+
+ 
+
   return (
   
   <>
   <Hidden only={['xl', 'lg', 'md', 'sm']}>
-  <div className="barra">
-    <Link to="/panificados">
-        <div className="btn-barra">
-            <h3>Panes</h3>
-            
-           
-        </div>
-    </Link>
-    <Link to="/focaccias">
-        <div className="btn-barra">
+  <div className="barra" >    
+
+        <Box sx={{ cursor: 'pointer' } } className="btn-barra" onClick={() => cambiarOption('Panes', '/panificados', image1)}>
+            <h3 >Panes</h3>    
+        </Box>
+    
+   
+        <Box sx={{ cursor: 'pointer' } } className="btn-barra" onClick={() => cambiarOption('Focaccias', '/focaccias', image2) }>
             <h3>Focaccias</h3>
-        </div>
-    </Link>
-    <Link to="/pizzas">
-        <div className="btn-barra">
+        </Box>
+
+        <Box sx={{ cursor: 'pointer' } } className="btn-barra" onClick={() => cambiarOption('Pizzas', '/pizzas', image3) }>
             <h3>Pizzas</h3>
-            
-        </div>
-    </Link>
-    <Link to="/combos">
-        <div className="btn-barra">
+        </Box>
+
+        <Box sx={{ cursor: 'pointer' } } className="btn-barra" onClick={() => cambiarOption('combos', '/combos', image4) }>
             <h3>Combos</h3>
-        </div>
-    </Link>
+        </Box>
+   
+    
   </div>
+
   <div className="grid-card">
     <div>
-        <h2>Panes</h2>
-        <h3>Ir a la Tienda </h3>
+        <h2>{option}</h2>
+        <Link to={url}><Button>Ir a la Tienda </Button></Link>
         
     </div>
-    
-      <img src={image1} className='img-barra' />
+    <Box >
+        
+        <img src={image} className='img-barra' />
+    </Box>
+      
 
   </div>
 

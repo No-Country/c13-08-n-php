@@ -5,19 +5,21 @@ import axios from 'axios';
 import { useEffect, useState } from "react";
 import ItemList from  "../ItemList/ItemList"
 import { Hidden } from '@mui/material'
+import { instanceAxios } from '../../utils/axios';
 
 const MasVendidos = () => {
     const [productos, setProductos] = useState([]);
     
   
     useEffect(() => {
-      
-      axios.get("https://c13-08-n-php.fly.dev/api/product/combos")
-      .then((res) => res.data.data.data)
-      .then((productos) => setProductos
-        (productos))
-        console.log(productos)
-      },[])
+      instanceAxios.get("/products")  
+      .then((res) =>{
+          const products = res.data.data.data   
+          const dataNew = products.slice(0,2)
+          setProductos(dataNew)
+        console.log(dataNew)})
+   
+      },[]) 
   return (
     <>
     <Hidden only={['xl', 'lg', 'md', 'sm']}>
@@ -26,7 +28,7 @@ const MasVendidos = () => {
 
          <Link  to="/todosProductos">
             <button className="btn "> Ver todos </button>
-        </Link>
+        </Link> 
         
     </div>
     <div className="rowProduct">
