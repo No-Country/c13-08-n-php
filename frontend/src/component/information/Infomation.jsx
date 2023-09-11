@@ -1,10 +1,11 @@
 import { Box } from '@mui/material'
 import React from 'react'
-
+import { Hidden } from '@mui/material'
 import { Typography } from '@mui/material';
 
 function Infomation() {
     return (
+        <Hidden only={['xs', 'sm']}>
         <Box sx={{  width: "1297", height: "89px", display: "flex", justifyContent: "center" }}>
             <Box sx={{ display: "flex", width: "1000px" }} >
                 <Box sx={{
@@ -101,6 +102,7 @@ function Infomation() {
                 </Box>
             </Box>
         </Box>
+        </Hidden>
 
     )
 }

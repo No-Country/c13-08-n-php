@@ -6,8 +6,25 @@
 }
 
 .row {
-    display: flex;
+    display: flex;    
     justify-content: center;
+    
+}
+
+.row-front-end {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;    
+    justify-content: center;
+
+}
+
+.row-back-end{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;   
+    justify-content: center;
+
 }
 
 .team-item {

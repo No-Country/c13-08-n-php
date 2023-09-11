@@ -2,9 +2,12 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './styles.css';
 import { redirect } from 'react-router-dom';
+import Cart from '../CartComponent/CartComponent';
+
 
 const CartGrid = () => {
     const [Profile, setProfile] = useState([]);
+
 
     useEffect(() => {
         getProfile();
@@ -99,6 +102,7 @@ const CartGrid = () => {
 
       <div className='productos-container'>
         <h3>Tu Carrito de compras</h3>
+        <Cart />
       </div>
 
     </div>

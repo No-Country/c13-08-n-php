@@ -1,5 +1,6 @@
 
 import LiveTvIcon from '@mui/icons-material/LiveTv';
+
 import CardsContainer from './component/CardsContainer/CardsContainer';
 import NavBar from './component/navBar/NavBar';
 import LoginModal from './component/LoginModal/LoginModal';
@@ -23,32 +24,41 @@ import ItemsTodosProductos from './component/ItemsTodosProductos/ItemsTodosProdu
 import CartGrid from './component/CartGrid/CartGrid';
 import Checkout from './pages/Checkout';
 import AboutUs from './component/AboutUs/AboutUs';
+import Bienvenida from './component/Bienvenida/Bienvenida';
+import BarraMovile from './component/BarraMobile/BarraMovile';
+
+
 
 const navigationLink = [
 
   {
     title: "Combos",
     path: "/combos",
-    icon: <LiveTvIcon />,
+    element: <ItemsCombos/>,
+    icon: <LiveTvIcon/>
   },
   {
     title: "Focaccias",
     path: "/focaccias",
+    element: <ItemsFocaccias/>,
     icon: <LiveTvIcon />,
   },
   {
     title: "Pizzas",
     path: "/pizzas",
+    element: <ItemsPizzas/>,
     icon: <LiveTvIcon />,
   },
   {
     title: "Panificados",
     path: "/panificados",
+    element: <ItemsPanes/>,
     icon: <LiveTvIcon />,
   },
   {
     title: "Acerca de",
     path: "/aboutus",
+    element: <AboutUs/>,
     icon: <LiveTvIcon />,
   }
 
@@ -79,7 +89,11 @@ function App() {
               <Slider /> 
               <Infomation />
               < CardsContainer />
-              <ItemListContainer />
+              <ItemListContainer />              
+              < Bienvenida />
+              <BarraMovile />
+              
+
               </>
               
               }
@@ -151,5 +165,8 @@ function App() {
     </>
   )
 }
+
+
+
 
 export default App

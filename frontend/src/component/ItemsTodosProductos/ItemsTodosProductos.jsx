@@ -8,19 +8,44 @@ import { useEffect, useState } from 'react'
 import SideBar from '../SideBar/SideBar'
 
 
+
 const ItemsTodosProductos = () => {
-    const [productos, setProductos] = useState([])
-    const { id } = useParams()
+    const [productos1, setProductos1] = useState([])
+    const [ productos2 , setProductos2] = useState([]) 
+    const [ productos3 , setProductos3] = useState([])
+    const [productos, setProductos] = useState([])  
+    
   
     useEffect(() => {
       axios
-        .get(`https://c13-08-n-php.fly.dev/api/products?page=1&category=${id}`)
+        .get(`https://c13-08-n-php.fly.dev/api/products?page=1`)
         .then((res) => res.data.data.data)
-        .then((productos) => setProductos(productos))
-    }, [id])
+        .then((data) => setProductos1(data))
+    }, [])
+
+    useEffect(() => {
+      axios
+        .get(`https://c13-08-n-php.fly.dev/api/products?page=2`)
+        .then((res) => res.data.data.data)
+        .then((data) => setProductos2(data))
+    }, [])
+
+    useEffect(() => {
+      axios
+        .get(`https://c13-08-n-php.fly.dev/api/products?page=3`)
+        .then((res) => res.data.data.data)
+        .then((data) => setProductos3(data))
+    }, [])
+
+    useEffect(() => {
+      setProductos([...productos1, ...productos2, ...productos3])
+    }, [productos1, productos2])
+
+
   
     return (
       <>
+      
         <div>
           <h1 className='titulo'>Nuestros productos</h1>
           <h2 className='subtitulo'>
@@ -34,6 +59,7 @@ const ItemsTodosProductos = () => {
           
           
         </div>
+        
       </>
     )}
 

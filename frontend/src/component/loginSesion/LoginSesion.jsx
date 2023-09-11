@@ -31,12 +31,14 @@ const LoginSesion = () => {
     >
 
     </TextField>
-    <Button variant="contained" sx={{mt:"7px"}}>
+    <Button variant="contained" sx={{mt:"7px"}}zz>
         Iniciar sesion
     </Button>
 
     <Typography sx={{mt:"10px"}} component={Link}>
+      <Link to="/register" >
         registrarse
+      </Link>
     </Typography>
 
   

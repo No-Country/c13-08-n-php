@@ -1,0 +1,29 @@
+.bienvenida{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 50px;    
+    padding: 20px;
+   
+    
+}
+
+.bienvenidad h1{
+    color: #1E1E1E;
+    font-family: Lato;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 15.732px;
+} 
+
+.bienvenida h2 {
+    color: #1E1E1E;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 15.732px;
+}

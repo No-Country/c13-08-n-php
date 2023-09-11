@@ -4,6 +4,7 @@ import Dots from "./Dots";
 import Arrows from "./Arrows";
 import sliderImage from "./SliderImage";
 import "./slider.css";
+import { Hidden } from "@mui/material";
 
 const len = sliderImage.length - 1;
 
@@ -18,6 +19,8 @@ function Slider(props) {
   }, [activeIndex]);
 
   return (
+    <Hidden only={['xs', 'sm']}>
+      
     <div className="slider-container">
       <SliderContent activeIndex={activeIndex} sliderImage={sliderImage} />
       <Arrows
@@ -34,6 +37,7 @@ function Slider(props) {
         onclick={(activeIndex) => setActiveIndex(activeIndex)}
       />
     </div>
+    </Hidden>
   );
 }
 

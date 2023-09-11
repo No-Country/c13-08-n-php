@@ -58,7 +58,7 @@ const AboutUs = () => {
                     <h3 className="section-departament">Departamento de FrontEnd</h3>
                 </div>
 
-                <div className="row">
+                <div className="row-front-end">
 
                     {/* Primera card */}
 
@@ -181,7 +181,7 @@ const AboutUs = () => {
                     <h3 className="section-departament">Departamento de BackEnd</h3>
                 </div>
 
-                <div className="row">
+                <div className="row-back-end">
 
                     {/* Primera card */}
 

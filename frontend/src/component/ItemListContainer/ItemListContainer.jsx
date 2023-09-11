@@ -4,6 +4,7 @@ import ItemList from  "../ItemList//ItemList"
 import axios from 'axios';
 import './ItemListContainer.css'
 import { Link } from "react-router-dom";
+import { Hidden } from "@mui/material";
 
  const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
@@ -23,6 +24,7 @@ import { Link } from "react-router-dom";
     
     return (
     < >
+     <Hidden only={['xs']}>
         <div className="box-titulos"> 
           <h1 className="titulo">Nuestros productos</h1>
           <h2 className="subtitulo">Panificados y Pizzas con Harinas Organicas y de fermentacion natural.</h2>
@@ -39,6 +41,7 @@ import { Link } from "react-router-dom";
       </Link>
       
       </div>
+      </Hidden>
     </>
   )
 }

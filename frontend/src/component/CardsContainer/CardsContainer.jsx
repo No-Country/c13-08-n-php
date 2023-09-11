@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import {db} from '../../Services/config'
 import { collection, getDocs, where, query } from 'firebase/firestore';
 import './CardsContainer.css'
+import { Hidden } from "@mui/material";
 
  const CardsContainer = () => {
   const [productos, setProductos] = useState([]);
@@ -25,12 +26,15 @@ import './CardsContainer.css'
   }, [idCategoria]);
 
   return (
+    <Hidden only={['xs', 'sm']}>
     <div className="gridCards">
       
       <Cards productos={productos} />
       
       
     </div>
+    </Hidden>
+
   )
 }
 

@@ -1,15 +1,17 @@
-import { NavLink } from "react-router-dom";
+
 
 import {
     Divider,
     List,
     ListItem,
-    ListItemButton,
-    ListItemIcon,
+    ListItemButton,    
     ListItemText,
 } from "@mui/material";
 
 import LoginSesion from "../loginSesion/LoginSesion";
+
+
+
 
 //Las llaves para pasar el arreglo son necesarias en react
 const NavListDrawer = ({ navigationLink, component, setOpen }) => {
@@ -20,15 +22,21 @@ const NavListDrawer = ({ navigationLink, component, setOpen }) => {
                 <List>
                     {
                         navigationLink.map((item) => (
-                            //console.log(`el path es ${item.path }`)
+                           
                             <ListItem key={item.title}>
-                                {console.log(item.icon)}
+                                
                                 <ListItemButton
                                     component={component}
                                     to={item.path}
                                     onClick={() => setOpen(false)}
+                                    fontFamily= "Lato"
+                                    textTransform= "capitalize"
+                                    textAlign= "center"
+                                    color= "#1E1E1E"
+                                    
+                                   
                                 >
-                                    <ListItemIcon> {item.icon} </ListItemIcon>
+                                  
                                     <ListItemText> {item.title} </ListItemText>
                                 </ListItemButton>
 
@@ -41,7 +49,7 @@ const NavListDrawer = ({ navigationLink, component, setOpen }) => {
 
             <Divider />
 
-            <LoginSesion />
+            < LoginSesion />
         </box>
 
     )

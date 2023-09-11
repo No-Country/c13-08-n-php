@@ -6,7 +6,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from "@mui/icons-material/Menu";
 import { Box } from "@mui/system";
 import Search from "../../pages/Search";
-
+import { Hidden } from "@mui/material";
 import { NavLink, redirect } from "react-router-dom";
 import LoginSesion from "../loginSesion/LoginSesion";
 
@@ -18,15 +18,20 @@ import { Height } from "@mui/icons-material";
 
 const NavBar = ({ navigationLink, show, setShow }) => {
     const [open, setOpen] = useState(false);
-    const [openSearch, setOpenSearch] = useState(false)
+    
 
     const handleSetShow = () => {
         setShow(true);
     }
+    const toggleDrawer = (open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+          return;
+        }
+        //changes the function state according to the value of open
+        setOpen(open);
+      };
 
-    const handleSearch = () => {
-        return <Search />
-    }
+   
     return (
         <>
             <AppBar position="static" sx={{ minHeight: "200px", backgroundColor: "white" }}>
@@ -34,10 +39,12 @@ const NavBar = ({ navigationLink, show, setShow }) => {
                     <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                         <NavLink to="/">
                         <IconButton
+                            edge="start"
                             color="inherit"
                             size="large"
-                            onClick={() => setOpen(true)}
-                            sx={{ display: "none" }}
+                            aria-label="open drawer"
+                            onClick={toggleDrawer(true)}
+                            sx={{ mr:2, display: {xs: 'block', sm: 'none'} }}
                         >
                             <MenuIcon />
 
@@ -65,16 +72,22 @@ const NavBar = ({ navigationLink, show, setShow }) => {
                             </Button>
                         ))}
                     </Box>
-
-                    <Box sx={{width:"200px", display:"flex",justifyContent: "space-between" }}>
+                    <Hidden only={[ 'xs']}>
+                        <Box sx={{width:"200px", display:"flex",justifyContent: "space-between" }}>
                         {/* when clicked the button will set show to modal active */}
                         <Button disabled={document.cookie.includes('token')} onClick={() => handleSetShow()} variant="text" sx={{color:"#1E1E1E",fontFamily: "Lato",fontSize:"14px",fontWeight: "bold" ,":hover": { borderBottom: "2px solid #1E1E1E"}}}>
                            
                           INICIAR SESION
                             
                         </Button>
+                        </Box>
 
 
+                    </Hidden>
+
+                    
+
+                    < Box >
                         <NavLink to="/cart">
                         <IconButton
                             color="inherit"
@@ -87,6 +100,7 @@ const NavBar = ({ navigationLink, show, setShow }) => {
                     </Box>
                 </Toolbar>
             </AppBar>
+            
 
             <Drawer
                 open={open}
@@ -100,22 +114,16 @@ const NavBar = ({ navigationLink, show, setShow }) => {
                     component={NavLink}
                     setOpen={setOpen}
                 >
+           
+
+                    <LoginSesion  />
+             
 
                 </NavListDrawer>
 
             </Drawer>
 
-            <Drawer
-                open={openSearch}
-                anchor="right"
-                //buscar papersProps
-                PaperProps={{ style: { width: '100%' } }}
-                onClose={() => setOpenSearch(false)}
-            //sx={{ display: { xs: "flex", sm: "none" } }}
-            >
-
-                <Search setOpenSearch={setOpenSearch} />
-            </Drawer>
+            
         </>
     )
 
