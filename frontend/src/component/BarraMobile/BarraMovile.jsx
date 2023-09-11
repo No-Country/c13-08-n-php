@@ -7,7 +7,7 @@ import image1 from "../../assets/Panes.png"
 import image2 from "../../assets/image10.png"
 import image3 from "../../assets/image4.png"
 import image4 from "../../assets/Combos.png"
-import { OptionContext } from '../../Context/optionsContext'
+import { OptionContext } from '../../Context/OptionsContext'
 import { Button } from '@mui/material'
 
 
