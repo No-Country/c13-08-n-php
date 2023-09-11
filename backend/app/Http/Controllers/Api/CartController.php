@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
+use App\Models\Orders;
 use App\Models\Products;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Tests\Integration\Queue\Order;
 
 class CartController extends Controller
 {
@@ -26,9 +26,9 @@ class CartController extends Controller
 
     public function addToCart(Request $request, $productId)
     {
-
-        $product = Products::find($productId); // Buscar producto por id
-
+        $product = Products::select('id', 'nombre','descripcion', 'precio', 'imagen')
+        ->find($productId); // Buscar producto por id
+        
         if (!$product) {
             return response([
                 "status" => 404,
@@ -36,13 +36,8 @@ class CartController extends Controller
             ], 404);
         }
 
-
         $cart = $request->session()->get('cart', []); // Buscar Carrito
-
-
         $cart[] = $product; // Agregar producto
-
-
         $request->session()->put('cart', $cart); // Guardar cambios
 
         return response([
@@ -54,16 +49,15 @@ class CartController extends Controller
 
     public function removeFromCart(Request $request, $productId)
     {
-
         $cart = $request->session()->get('cart', []); //buscar el carrito
 
-
-        $cart = array_filter($cart, function ($item) use ($productId) { //Buscar y eliminar
-            return $item->id !== $productId;
-        });
-
-        $request->session()->put('cart', $cart); //guardar cambios
-
+        foreach ($cart as $key => $product) {
+            if ($product->id == $productId) { 
+                unset($cart[$key]); //Buscar y eliminar
+            }
+            $request->session()->put('cart', $cart); //guardar cambios
+        }
+        
         return response([
             "status" => 200,
             "message" => "Removed product from cart successfully"
@@ -82,7 +76,6 @@ class CartController extends Controller
 
     public function checkout(Request $request)
     {
-
         if (!auth()->check()) {
             return response([
                 "status" => 401,
@@ -90,9 +83,7 @@ class CartController extends Controller
             ], 401);
         }
 
-
         $cart = $request->session()->get('cart', []);
-
 
         if (empty($cart)) {
             return response([
@@ -107,7 +98,7 @@ class CartController extends Controller
             DB::beginTransaction();
 
             //un nuevo pedido en la base de datos
-            $order = new Order();
+            $order = new Orders();
             $order->user_id = auth()->user()->id; // Asociar el pedido al usuario autenticado
             $order->save();
 
@@ -128,5 +119,4 @@ class CartController extends Controller
             "message" => "Checkout successful. Your order has been placed."
         ], 200);
     }
-
 }
