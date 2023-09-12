@@ -16,9 +16,12 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('apellido');
             $table->string('email')->unique();
+            $table->string('telefono')->nullable()->default(null);
             $table->string('contrasena');
             $table->string('localidad')->nullable()->default(null);
             $table->string('calle')->nullable()->default(null);
+            $table->string('google_id')->nullable()->default(null);
+            $table->string('google_token')->nullable()->default(null);
             $table->timestamps();
         });
     }
