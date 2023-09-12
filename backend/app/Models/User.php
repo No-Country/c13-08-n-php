@@ -18,8 +18,8 @@ class User extends Authenticatable
         'apellido',
         'email',
         'contrasena',
-        'google_id',
-        'google_token',
+        // 'google_id',
+        // 'google_token',
     ];
 
     public static function updateOrCreateGoogleUser($googleUser)

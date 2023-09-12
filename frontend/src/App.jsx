@@ -84,7 +84,7 @@ function App() {
     <>
       
         <BrowserRouter>
-        <OptionProvider>
+        {/* <OptionProvider> */}
           <CarritoProvider>
             <CssBaseline>
               <div className={show ? "darkFilter": ""}>
@@ -168,7 +168,7 @@ function App() {
        
             </CssBaseline>
           </CarritoProvider>     
-          </OptionProvider>  
+          {/* </OptionProvider>   */}
         </BrowserRouter>
       
       
