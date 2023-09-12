@@ -1,66 +1,72 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Tecnologías usadas 🛠️
+[![PHP](https://img.shields.io/badge/PHP-8.1-7A86B8?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net/) [![Laravel](https://img.shields.io/badge/Laravel-10.22-F9322C?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com/) [![MySQL](https://img.shields.io/badge/MySQL-00758F?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/) [![Apache](https://img.shields.io/badge/Apache-CA2136?style=for-the-badge&logo=apache&logoColor=white)](https://apache.org/) [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/) [![Clever Cloud](https://img.shields.io/badge/Clever%20Cloud-CF3942?style=for-the-badge&logoColor=white)](https://www.clever-cloud.com/) [![Fly.io](https://img.shields.io/badge/Fly.io-8F32E8?style=for-the-badge)](https://fly.io/) [![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)](https://www.postman.com/) [![Cloudinary](https://img.shields.io/badge/Cloudinary-777BB4?style=for-the-badge)](https://cloudinary.com/)
 
-## About Laravel
+## Ejecutar el proyecto
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Este es un proyecto hecho con Laravel, PHP y MySQL. Para ejecutar el proyecto, sigue los siguientes pasos para levantar el proyecto en tu máquina local.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Instalación local
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```bash
+git clone https://github.com/No-Country/c13-08-n-php.git 
+cd backend
+composer install # Instala los paquetes composer
+npm install
+```
+*Genera una key para la aplicación*
+```bash
+php artisan key:generate
+```
 
-## Learning Laravel
+#### Migraciones
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Variables necesarias para el uso de la aplicación:
+- `DB_CONNECTION` Tipo de base de datos
+- `DB_HOST` Host de la base de datos
+- `DB_PORT` Puerto de conexión
+- `DB_DATABASE` Nombre de la base de datos
+- `DB_USERNAME` Usuario
+- `DB_PASSWORD` Contraseña
+- `GOOGLE_CLIENT_ID` Cliente para la autenticación con google
+- `GOOGLE_CLIENT_SECRET` Clave secreta generada por google
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Luego de insetar los datos, ejecutar los siguientes comandos
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+php artisan migrate --seed
+php artisan serve # Correr el servidor
+```
 
-## Laravel Sponsors
+## Características
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+El proyecto incluye las siguientes funcionalidades:
 
-### Premium Partners
+- Autenticación manual y de terceros (con Google) a través de la biblioteca Laravel Socialite.
+- Edición y actualización de datos del usuario.
+- Creación, edición y actualización de categorías.
+- Creación, edición y actualización de productos.
+- Generación de reviews de usuarios por productos.
+- Gestión de productos favoritos por usuarios.
+- Integración de cloudinary para almacenamiento de imágenes.
+- Implementación de carrito de compras de productos por usuarios.
+- Generación de ordenes y detalle de compra.
+- Despliegues en fly.io y clever cloud.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### Endpoints
 
-## Contributing
+- Autenticación
+- Categorías
+- Productos
+- Carrito
+- Favoritos
+- Reviews
+- Orden y detalle de compra
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Desarrolladores
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+|  <img src="https://ca.slack-edge.com/T02KS88FB0E-U054BARC4KY-239641bad062-512" width="130" height="120">  | <img src="https://ca.slack-edge.com/T02KS88FB0E-U05KN05NE2V-0c07e79d8667-512" width="130" height="120">  | <img src="https://ca.slack-edge.com/T02KS88FB0E-U058F07JNGM-bc23040b3726-512" width="130" height="120">  | 
+|:-:|:-:|:-:|
+| **Ignacio Zolorza** <img src="https://i.ibb.co/Ln0vhg4/AR.png"> | **Maria Ines Godoy** <img src="https://i.ibb.co/Ln0vhg4/AR.png">| **Gabriel Mendoza** <img src="https://i.ibb.co/276DbnR/VE.png"> | 
+| [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/byZhetta) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ignacio-zdev/) | [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/godoyFlorio) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mariainesgodoy/) | [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white)](https://github.com/xzAnarchy) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gabriel-mendoza-a1a077227/) |
