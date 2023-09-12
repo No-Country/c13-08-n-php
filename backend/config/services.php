@@ -35,7 +35,7 @@ return [
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => 'http://example.com/auth/google/callback', //VER A DONDE REDIRIGIR
+        'redirect' => 'https://c13-08-n-php-smkl.vercel.app/auth/google/callback', //VER A DONDE REDIRIGIR
     ],
 
 ];
