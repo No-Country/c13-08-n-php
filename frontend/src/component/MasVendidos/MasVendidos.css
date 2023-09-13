@@ -6,13 +6,13 @@
     width: 100%;
     background-color: #F6F6F6;
     color: var(--colors-default, #000);
-font-feature-settings: 'clig' off, 'liga' off;
-font-family: Lato;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: 20px; /* 125% */
-letter-spacing: 0.2px;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; 
+    letter-spacing: 0.2px;
 
 }
 
@@ -31,4 +31,18 @@ letter-spacing: 0.2px;
     padding: 5px;
     margin: 5px;
     cursor: pointer;
+}
+
+@media screen  and(max-width: 550px) {
+    .masVendidos {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .rowProduct{
+        display:flex;
+        flex-direction: column;
+        column-gap: 1rem;
+       
+    }
 }

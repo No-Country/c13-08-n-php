@@ -1,7 +1,10 @@
 import {useState, createContext } from "react";
-
+import image1 from "../assets/Panes.png";
 
 export const OptionContext = createContext({
+   option: '',
+    url:  '',
+    image: image1,
 
 });
 
@@ -9,7 +12,7 @@ export const OptionContext = createContext({
 
 
 
-const OptionProvider = ({children}) =>{
+ export const OptionProvider = ({children}) =>{
 
     const [option, setOption ] = useState('');
     const [url, setUrl ] = useState('');
