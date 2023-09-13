@@ -39,7 +39,7 @@ const AboutUs = () => {
                                         </a>
                                     </li>
                                     <li>
-                                        <a target="_blank" href="#" className="github">
+                                        <a target="_blank" href="https://www.behance.net/carolinaflotts" className="github">
                                         Behance
                                         </a>
                                     </li>
@@ -159,7 +159,7 @@ const AboutUs = () => {
                                 <ul className="team-icon">
 
                                     <li>
-                                        <a target="_blank" href="https://www.linkedin.com/in/diego-omar-bufalari-8576831b9/" className="linkedin">
+                                        <a target="_blank" href="https://www.linkedin.com/in/eric-brandan-99a73922b/" className="linkedin">
                                         Linkedin
                                         </a>
                                     </li>
@@ -254,7 +254,7 @@ const AboutUs = () => {
                                 <ul className="team-icon">
 
                                     <li>
-                                        <a target="_blank" href="https://www.linkedin.com/in/jesus-alberto-vasquez-ruiz-developer/" className="linkedin">
+                                        <a target="_blank" href="https://www.linkedin.com/in/ignacio-zdev" className="linkedin">
                                         Linkedin
                                         </a>
                                     </li>
@@ -295,12 +295,12 @@ const AboutUs = () => {
                                 <ul className="team-icon">
 
                                     <li>
-                                        <a target="_blank" href="https://www.linkedin.com/in/jesus-alberto-vasquez-ruiz-developer/" className="linkedin">
+                                        <a target="_blank" href="https://www.linkedin.com/in/lucasdipasquale" className="linkedin">
                                         Linkedin
                                         </a>
                                     </li>
                                     <li>
-                                        <a target="_blank" href="https://github.com/byZhetta" className="github">
+                                        <a target="_blank" href="https://github.com/Lucas182777" className="github">
                                         GitHub
                                         </a>
                                     </li>
