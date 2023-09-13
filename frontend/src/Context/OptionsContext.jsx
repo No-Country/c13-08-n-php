@@ -8,10 +8,6 @@ export const OptionContext = createContext({
 
 });
 
-
-
-
-
  export const OptionProvider = ({children}) =>{
 
     const [option, setOption ] = useState('');

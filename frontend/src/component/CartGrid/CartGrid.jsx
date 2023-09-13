@@ -103,6 +103,11 @@ const CartGrid = () => {
       <div className='productos-container'>
         <h3>Tu Carrito de compras</h3>
         <Cart />
+
+        
+
+
+
       </div>
 
     </div>
