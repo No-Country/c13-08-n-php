@@ -26,7 +26,7 @@ import Checkout from './pages/Checkout';
 import AboutUs from './component/AboutUs/AboutUs';
 import Bienvenida from './component/Bienvenida/Bienvenida';
 import BarraMovile from './component/BarraMobile/BarraMovile';
-import OptionProvider from './Context/OptionsContext';
+import {OptionProvider} from './Context/optionsContext';
 
 
 
@@ -84,8 +84,9 @@ function App() {
     <>
       
         <BrowserRouter>
-        {/* <OptionProvider> */}
-          <CarritoProvider>
+         
+        <CarritoProvider>
+          <OptionProvider>
             <CssBaseline>
               <div className={show ? "darkFilter": ""}>
             <NavBar navigationLink={navigationLink} show={show} setShow={setShow}/>
@@ -167,8 +168,9 @@ function App() {
           <LoginModal show={show} setShow={setShow}/>
        
             </CssBaseline>
-          </CarritoProvider>     
-          {/* </OptionProvider>   */}
+          </OptionProvider> 
+        </CarritoProvider>     
+           
         </BrowserRouter>
       
       
