@@ -1,7 +1,7 @@
 import {useState, createContext } from "react";
 import image1 from "../assets/Panes.png";
 
-export const OptionContext = createContext({
+export const OptionsContext = createContext({
    option: '',
     url:  '',
     image: image1,
@@ -24,11 +24,11 @@ export const OptionContext = createContext({
 
 
     return (
-        <OptionContext.Provider value={{option, setOption, url, image, setUrl, cambiarOption}}>
+        <OptionsContext.Provider value={{option, setOption, url, image, setUrl, cambiarOption}}>
             
             {children}
 
-        </OptionContext.Provider>
+        </OptionsContext.Provider>
     )
 }
 

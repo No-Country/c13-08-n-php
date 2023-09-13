@@ -26,7 +26,8 @@ import Checkout from './pages/Checkout';
 import AboutUs from './component/AboutUs/AboutUs';
 import Bienvenida from './component/Bienvenida/Bienvenida';
 import BarraMovile from './component/BarraMobile/BarraMovile';
-import {OptionProvider} from './Context/optionsContext';
+import {OptionProvider} from './Context/OptionsContext';
+
 
 
 
