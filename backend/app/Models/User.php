@@ -18,21 +18,7 @@ class User extends Authenticatable
         'apellido',
         'email',
         'contrasena',
-        // 'google_id',
-        // 'google_token',
     ];
-
-    public static function updateOrCreateGoogleUser($googleUser)
-    {
-        return static::updateOrCreate(
-            ['google_id' => $googleUser->id],
-            [
-                'nombre' => $googleUser->name,
-                'email' => $googleUser->email,
-                'google_token' => $googleUser->token,
-            ]
-        );
-    }
 
     public function cart()
     {
