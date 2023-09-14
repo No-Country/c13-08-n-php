@@ -58,7 +58,7 @@ Route::get('cart', [CartController::class, 'showCart']);
 Route::post('cart/add/{productId}', [CartController::class, 'addToCart']);
 Route::post('cart/remove/{productId}', [CartController::class, 'removeFromCart']);
 Route::post('cart/clear', [CartController::class, 'clearCart']);
-Route::post('cart/checkout', [CartController::class, 'checkout'])->middleware('auth');
+// Route::post('cart/checkout', [CartController::class, 'checkout'])->middleware('auth');
 
 Route::middleware('auth:sanctum')->group(function () {
     //Favorites Routes
