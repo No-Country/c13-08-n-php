@@ -1,8 +1,41 @@
 import { Link, MenuItem, Select } from "@mui/material";
 import React from 'react';
 import './styles.css';
+import {useState, useEffect} from 'react';
+import axios from 'axios';
 
 const CheckoutGrid = () => {
+  const [Profile, setProfile] = useState([]);
+
+
+    useEffect(() => {
+        getProfile();
+    }, []);
+
+
+    function getProfile() {
+        //check if the user have cookies with the token
+        if (document.cookie.includes('token')) {
+            const token = document.cookie.split('=')[1];
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+            axios.get('https://c13-08-n-php.fly.dev/api/user-profile')
+            .then((response) => {
+                const data = response.data.data[0];
+                setProfile(data);
+                console.log(data);
+
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        }else{
+            console.log('No hay token');
+            // redirect to login
+            window.location.href = '/';
+            alert('Inicia sesion para continuar');
+        }
+    }
+
   return (
     <div className='checkout-container'>
       <div className='checkout-data-container'>
@@ -14,7 +47,7 @@ const CheckoutGrid = () => {
         <div className='checkout-data'>
           <div className='checkout-data-email'>
             <img src='/static/images/iconMail.svg' alt='' />
-            <p>Lorem ipsum dolor sit amet.{/* {Profile.email} */}</p>
+            <p>{Profile.email}</p>
             <svg
               width='542'
               height='2'
@@ -72,16 +105,16 @@ const CheckoutGrid = () => {
             {/* {Profile.localidad} */}
             <p>Envío a  - $1000</p>
 
-            <p  className='localidad-calle'> Lorem ipsum dolor sit.{/* {Profile.localidad} {Profile.calle} */}</p>
+            <p  className='localidad-calle'>{Profile.localidad} {Profile.calle}</p>
 
             <Link href="/cart" underline="hover" color="#f4d88f">Cambiar</Link>
           </div>
 
           <div className='checkout-user-info'>
             <h3>Datos de cobranza</h3>
-            <p>Lorem, ipsum.{/* {Profile.nombre} */}</p>
+            <p>{Profile.nombre}</p>
 
-            <p>7862380983{/* {Profile.telefono} */}</p>
+            <p>{Profile.telefono}</p>
           </div>
 
         </div>

@@ -133,6 +133,9 @@ export const LoginModal = ({ setShow, show }) => {
               name='contrasena'
             />
           </div>
+          <div className='forgot-password'>
+            <Link><span>Olvidé la contraseña</span></Link>
+          </div>
         </div>
       </div>
     </form>
