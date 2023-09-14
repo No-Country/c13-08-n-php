@@ -15,7 +15,7 @@ class CartController extends Controller
 {
     public function showCart(Request $request)
     {
-        $info = $request->session()->get('cart', []); 
+        $info = session()->get('cart', []); 
 
         if (count($info) >= 1 && count($info) != null) {
             $cart = Cart::join('products', 'carts.product_id', '=', 'products.id')
