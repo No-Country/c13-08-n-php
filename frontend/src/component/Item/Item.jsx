@@ -1,7 +1,7 @@
 import "./Item.css";
 import { Link } from "react-router-dom";
 
-const Item = ({ id, nombre, precio, imagen }) => {
+const Item = ({ id, nombre, precio, imagen, addCart }) => {
   return (
     <div className="cardProducto">
       <figure>
@@ -12,7 +12,9 @@ const Item = ({ id, nombre, precio, imagen }) => {
           <h3>{nombre}</h3>
           <p>${precio} </p>
           
-          <Link className="miBtnDetalles" to={`/cart`}>Agregar<img src="/static/images/ph_shopping-cart-fill.svg" alt="logo" /></Link>
+          <Link className="miBtnDetalles" onClick={() => addCart(id)} to={`/cart`}>Agregar<img src="/static/images/ph_shopping-cart-fill.svg" alt="logo" /></Link>
+        
+        
         </div>
       </figure>
     </div>

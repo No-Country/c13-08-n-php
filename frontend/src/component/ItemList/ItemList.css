@@ -20,6 +20,13 @@
     }
 }
 
+@media screen and (max-width: 500px){
+    .contenedor-productos{
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+}
+
 @media screen and (max-width: 480px){
     .contenedor-productos{
         grid-template-columns: 1fr;

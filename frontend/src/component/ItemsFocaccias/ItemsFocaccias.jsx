@@ -19,7 +19,7 @@ const ItemsFocaccias = () => {
       
       return (
       < >
-          <div>
+          <div className="box-titulo">
             <h1 className="titulo">Nuestros productos</h1>
             <h2 className="subtitulo">Focaccias:</h2>
           </div>

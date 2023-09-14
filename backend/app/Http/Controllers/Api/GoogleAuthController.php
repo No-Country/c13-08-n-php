@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,9 +17,17 @@ class GoogleAuthController extends Controller
     public function handleGoogleCallback()
     {
         $googleUser = Socialite::driver('google')->user();
-        $user = User::updateOrCreateGoogleUser($googleUser);
+        $user = User::updateOrCreate(
+            ['google_id' => $googleUser->id],
+            [
+                'nombre' => $googleUser->name,
+                'apellido' => $googleUser->name,
+                'email' => $googleUser->email,
+                'google_token' => $googleUser->token,
+            ]
+        );
         Auth::login($user);
-        return redirect('/dashboard'); //ver a donde
+        return redirect('/dashboard'); // redirección
     }
 
     public function getGoogleLoginUrl()
@@ -29,4 +36,3 @@ class GoogleAuthController extends Controller
         return response()->json(['url' => $url]);
     }
 }
-

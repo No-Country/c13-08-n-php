@@ -24,8 +24,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('auth/logout', [AuthController::class, 'logout']);
 });
 
-
-
+//google login
+Route::get('auth/google/redirect', [GoogleAuthController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [GoogleAuthController::class, 'handleGoogleCallback']);
+Route::get('auth/google/url', [GoogleAuthController::class, 'getGoogleLoginUrl']);
 
 //Categories Routes
 Route::get('categories', [CategoriesController::class, 'index']);

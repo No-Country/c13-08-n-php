@@ -19,7 +19,7 @@ const ItemsCombos = () => {
       
       return (
       < >
-          <div>
+          <div className="box-titulo">
             <h1 className="titulo">Nuestros productos</h1>
             <h2 className="subtitulo">Combos:</h2>
           </div>

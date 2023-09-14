@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::select('id', 'nombre', 'apellido', 'email', 'localidad', 'calle')
+        $users = User::select('id', 'nombre', 'apellido', 'email', 'telefono', 'localidad', 'calle')
         ->get();
         return response([
             "status" => 200,
@@ -21,7 +21,7 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        $user = User::select('id', 'nombre', 'apellido', 'email', 'localidad', 'calle')
+        $user = User::select('id', 'nombre', 'apellido', 'email', 'telefono', 'localidad', 'calle')
         ->where('id', $user->id)
         ->get();
         return response([
@@ -32,7 +32,7 @@ class UserController extends Controller
 
     public function showProfile()
     {
-        $user = User::select('id', 'nombre', 'apellido', 'email', 'localidad', 'calle')
+        $user = User::select('id', 'nombre', 'apellido', 'email', 'telefono', 'localidad', 'calle')
         ->where('id', auth()->user()->id)
         ->get();
         return response([

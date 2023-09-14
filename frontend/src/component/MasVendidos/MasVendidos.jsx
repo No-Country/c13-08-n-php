@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "./MasVendidos.css"
-import axios from 'axios';
+
 import { useEffect, useState } from "react";
 import ItemList from  "../ItemList/ItemList"
 import { Hidden } from '@mui/material'
@@ -17,7 +17,7 @@ const MasVendidos = () => {
           const products = res.data.data.data   
           const dataNew = products.slice(0,2)
           setProductos(dataNew)
-        console.log(dataNew)})
+      })
    
       },[]) 
   return (

@@ -31,7 +31,9 @@ const CartGrid = () => {
             });
         }else{
             console.log('No hay token');
-            redirect('/');
+            // redirect to login
+            window.location.href = '/';
+            alert('Inicia sesion para continuar');
         }
     }
 
@@ -46,12 +48,16 @@ const CartGrid = () => {
             // telefono: e.target.telefono.value,
             localidad: e.target.provincia.value + ' - ' + e.target.codigoPostal.value,
             calle: e.target.ciudad.value  + ' - ' +  e.target.direccion.value,
+            telefono: e.target.telefono.value,
         }
         console.log(data);
 
         axios.put('https://c13-08-n-php.fly.dev/api/user-profile/update', data)
         .then(response => {
             console.log(response);
+            alert('Datos guardados!');
+            //redirect to checkout
+            window.location.href = '/checkout';
         }
         )
         .catch(error => {
@@ -103,6 +109,11 @@ const CartGrid = () => {
       <div className='productos-container'>
         <h3>Tu Carrito de compras</h3>
         <Cart />
+
+        
+
+
+
       </div>
 
     </div>

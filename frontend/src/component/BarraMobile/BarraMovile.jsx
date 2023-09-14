@@ -7,8 +7,9 @@ import image1 from "../../assets/Panes.png"
 import image2 from "../../assets/image10.png"
 import image3 from "../../assets/image4.png"
 import image4 from "../../assets/Combos.png"
-import { OptionContext } from '../../Context/optionsContext'
+import { OptionContext } from '../../Context/OptionsContext'
 import { Button } from '@mui/material'
+import { useEffect } from 'react'
 
 
 
@@ -18,6 +19,11 @@ const BarraMovile = () => {
 
     const { cambiarOption, option, url, image } = useContext(OptionContext)
     
+
+
+    useEffect(() => {
+         cambiarOption('Panes', '/panificados', image1)
+     }, [])
 
  
 
@@ -46,33 +52,18 @@ const BarraMovile = () => {
    
     
   </div>
-
   <div className="grid-card">
     <Box>
         <h2>{option}</h2>
-        <Link to={url}><Button>Ir a la Tienda </Button></Link>
-        
+        <Link to={url}><Button>Ir a la Tienda </Button></Link>        
+    </Box>   
+    <Box >         
+        <img src={image} className='img-barra'  />       
     </Box>
-    <Box >
-      
-
-        <img src={image} className='img-barra'  />
-    </Box>
-      
-
-  </div>
-
-  
-
-
-    
+  </div> 
 
   <MasVendidos/>
-  
-
-
-  </Hidden>
-  
+  </Hidden>  
   </>
     
   )

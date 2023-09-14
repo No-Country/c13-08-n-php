@@ -1,11 +1,13 @@
 import "./ItemDetail.css"
 import ItemCount from '../ItemCount/ItemCount'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { CarritoContext } from '../../Context/CarritoContext'
 import { useContext } from 'react'
+import axios from 'axios'
 
 const ItemDetail = ({id, nombre, precio, imagen, stock, descripcion}) => {
+
   const [ agregarCantidad, setAgregarCantidad ] = useState(0);
 
   const {agregarProducto} = useContext(CarritoContext);
