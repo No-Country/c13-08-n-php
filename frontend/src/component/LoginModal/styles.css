@@ -1,5 +1,5 @@
 .modal {
-  height: 373px;
+  height: 388px !important;
   width: 378px;
   margin: auto;
   position: absolute;
@@ -10,7 +10,7 @@
 }
 
 .modal .formulario-login {
-  height: 373px;
+  height: 388px;
   left: 0;
   position: absolute;
   top: 0;
@@ -20,7 +20,7 @@
 .modal .frame {
   background: linear-gradient(180deg, rgb(244, 216, 143) 0%, rgb(160.22, 134.31, 66.76) 100%);
   border-radius: 7.89px;
-  height: 373px;
+  height: 388px;
   overflow: hidden;
   position: relative;
 }
@@ -32,7 +32,7 @@
   height: 38px;
   left: 33px;
   position: absolute;
-  top: 250px;
+  top: 270px;
   width: 312px;
 }
 
@@ -70,7 +70,7 @@
   height: 38px;
   left: 33px;
   position: absolute;
-  top: 193px;
+  top: 215px;
   width: 312px;
 }
 
@@ -234,4 +234,25 @@
   letter-spacing: 0;
   line-height: 18.9px;
   white-space: nowrap;
+}
+
+.forgot-password {
+  color: #1e1e1e;
+  font-family: 'Lato';
+  font-size: 12px;
+  font-weight: 650;
+  height: 20px;
+  left: 135px;
+  letter-spacing: 0;
+  line-height: 19.6px;
+  position: absolute;
+  text-align: center;
+  top: 185px;
+  white-space: nowrap;
+  /* Remove link color */
+}
+
+.forgot-password a {
+  color: #1e1e1e;
+  text-decoration: none !important;
 }
