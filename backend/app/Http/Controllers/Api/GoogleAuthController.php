@@ -27,7 +27,7 @@ class GoogleAuthController extends Controller
             ]
         );
         Auth::login($user);
-        return redirect('/dashboard'); // redirección
+        return redirect('/'); // redirección
     }
 
     public function getGoogleLoginUrl()
