@@ -12,6 +12,7 @@ const Cart = () => {
         useEffect(() => {
             axios.get("https://c13-08-n-php.fly.dev/api/cart")
             .then(response => {
+                console.log('carrito =>>>>',response.data.data)
                 setCart(response.data.data)
             })
             .catch(error => {
