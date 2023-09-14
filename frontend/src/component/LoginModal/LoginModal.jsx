@@ -61,7 +61,7 @@ export const LoginModal = ({ setShow, show }) => {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',
         },
-        url: 'https://c13-08-n-php-smkl.vercel.app/auth/google/url',
+        url: 'https://c13-08-n-php.fly.dev/api/auth/google/url',
       }).then((response) => {
         console.log(response);
         window.location.href = response.data.url;
