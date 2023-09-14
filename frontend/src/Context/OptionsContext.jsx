@@ -1,10 +1,10 @@
-import {useState, createContext} from "react";
+import {useState, createContext } from "react";
 
 
 export const OptionContext = createContext({
    option: '',
     url:  '',
-    image: '',
+    image: ''
 
 });
 
@@ -24,11 +24,11 @@ export const OptionContext = createContext({
 
 
     return (
-        <OptionContext.Consumer value={{option, setOption, url, image, setUrl, cambiarOption}}>
+        <OptionContext.Provider value={{option, setOption, url, image, setUrl, cambiarOption}}>
             
             {children}
 
-        </OptionContext.Consumer>
+        </OptionContext.Provider>
     )
 }
 

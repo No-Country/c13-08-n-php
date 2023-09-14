@@ -17,7 +17,7 @@ const MasVendidos = () => {
           const products = res.data.data.data   
           const dataNew = products.slice(0,2)
           setProductos(dataNew)
-        console.log(dataNew)})
+      })
    
       },[]) 
   return (
