@@ -88,7 +88,7 @@ function App() {
         <BrowserRouter>
          
         <CarritoProvider>
-          <OptionConsumer>
+          {/*<OptionConsumer>*/}
             <CssBaseline>
               <div className={show ? "darkFilter": ""}>
             <NavBar navigationLink={navigationLink} show={show} setShow={setShow}/>
@@ -170,7 +170,7 @@ function App() {
           <LoginModal show={show} setShow={setShow}/>
        
             </CssBaseline>
-          </OptionConsumer> 
+          {/*</OptionConsumer> */}
         </CarritoProvider>     
            
         </BrowserRouter>
