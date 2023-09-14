@@ -1,4 +1,4 @@
-import {useState, createContext } from "react";
+import {useState, createContext} from "react";
 
 
 export const OptionContext = createContext({
@@ -24,11 +24,11 @@ export const OptionContext = createContext({
 
 
     return (
-        <OptionContext.Provider value={{option, setOption, url, image, setUrl, cambiarOption}}>
+        <OptionContext.Consumer value={{option, setOption, url, image, setUrl, cambiarOption}}>
             
             {children}
 
-        </OptionContext.Provider>
+        </OptionContext.Consumer>
     )
 }
 
