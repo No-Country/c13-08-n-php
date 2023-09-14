@@ -1,5 +1,5 @@
 import {useState, createContext } from "react";
-import image1 from "../assets/Panes.png";
+
 
 export const OptionContext = createContext({
    option: '',

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "./MasVendidos.css"
-import axios from 'axios';
+
 import { useEffect, useState } from "react";
 import ItemList from  "../ItemList/ItemList"
 import { Hidden } from '@mui/material'
