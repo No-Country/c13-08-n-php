@@ -46,10 +46,15 @@ const ItemsTodosProductos = () => {
     return (
       <>
       
-        <div>
+        <div className="box-titulo">
           <h1 className='titulo'>Nuestros productos</h1>
           <h2 className='subtitulo'>
-            Panificados y Pizzas con Harinas Organicas y de fermentacion natural.
+            Panificados y Pizzas con Harinas Organicas 
+           
+          </h2>
+          
+          <h2 className='subtitulo'>
+            y de fermentacion natural.
           </h2>
         </div>
         <div className='productos'>

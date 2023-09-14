@@ -14,7 +14,7 @@ import SignInSide from './component/loginSesion/anotherLogin';
 import ItemListContainer from './component/ItemListContainer/ItemListContainer';
 import Slider from './component/Slider/Slider';
 //import ItemDetailContainer from './component/ItemDetailContainer/ItemDetailContainer';
-//import { CarritoProvider } from './Context/CarritoContext';
+import { CarritoProvider } from './Context/CarritoContext';
 import { CssBaseline } from '@mui/material';
 import ItemsPizzas from './component/ItemsPizzas/ItemsPizzas';
 import ItemsPanes from './component/ItemsPanes/ItemsPanes';
@@ -27,6 +27,7 @@ import AboutUs from './component/AboutUs/AboutUs';
 import Bienvenida from './component/Bienvenida/Bienvenida';
 import BarraMovile from './component/BarraMobile/BarraMovile';
 import {OptionProvider} from './Context/OptionsContext';
+
 
 
 
@@ -86,7 +87,7 @@ function App() {
       
         <BrowserRouter>
          
-        
+        <CarritoProvider>
           <OptionProvider>
             <CssBaseline>
               <div className={show ? "darkFilter": ""}>
@@ -170,7 +171,7 @@ function App() {
        
             </CssBaseline>
           </OptionProvider> 
-           
+        </CarritoProvider>     
            
         </BrowserRouter>
       

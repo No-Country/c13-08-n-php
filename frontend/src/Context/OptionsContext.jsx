@@ -4,7 +4,7 @@ import image1 from "../assets/Panes.png";
 export const OptionContext = createContext({
    option: '',
     url:  '',
-    image: image1,
+    image: '',
 
 });
 

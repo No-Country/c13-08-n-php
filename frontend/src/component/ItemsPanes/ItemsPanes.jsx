@@ -19,7 +19,7 @@ const ItemsPanes = () => {
       
       return (
       < >
-          <div>
+          <div className="box-titulo">
             <h1 className="titulo">Nuestros productos</h1>
             <h2 className="subtitulo">Panificados:</h2>
           </div>
