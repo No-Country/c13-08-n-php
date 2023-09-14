@@ -143,6 +143,7 @@ h4 {
   border: none;
   height: 50px;
   width: 378px;
+  cursor: pointer;
 }
 
 .arrow {
