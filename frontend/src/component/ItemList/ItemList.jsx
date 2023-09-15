@@ -7,8 +7,8 @@ const ItemList = ({productos}) => {
 
   const addCart = async (id) => {
     try{
-    const res = await instanceAxios.post(`/cart/add/${id}`)
-    console.log(res.data)
+    const res = await instanceAxios.post(`/cart/add/${id}`, {cantidad: 1})
+    //save the laravel_session cookie in the browser
     }catch(error){
       console.log(error)
     }

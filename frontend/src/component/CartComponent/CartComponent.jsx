@@ -10,9 +10,9 @@ const Cart = () => {
         const [total, setTotal] = useState(0)
 
         useEffect(() => {
-            axios.get("https://c13-08-n-php.fly.dev/api/cart")
+            axios.get("https://c13-08-n-php.fly.dev/api/cart", {withCredentials: true})
             .then(response => {
-                console.log('carrito =>>>>',response.data.data)
+                console.log('carrito =>>>>',response.data)
                 setCart(response.data.data)
             })
             .catch(error => {
