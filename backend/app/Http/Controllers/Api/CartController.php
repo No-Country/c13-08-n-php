@@ -16,7 +16,7 @@ class CartController extends Controller
     public function showCart(Request $request)
     {
         $info = $request->session()->get('cart', []); 
-        
+        $cookie = $request->cookie('laravel_session');
         if (count($info) >= 1 && count($info) != null) {
             $cart = Cart::join('products', 'carts.product_id', '=', 'products.id')
             ->select('products.nombre', 'products.descripcion', 'products.imagen', 'carts.cantidad', 
@@ -26,13 +26,15 @@ class CartController extends Controller
             
             return response([
                 "status" => 200,
+                "cookie" => $cookie,
                 "message" => "List cart items",
                 "data" => $cart
             ], 200);
         } else {
             return response([
                 "status" => 200,
-                "message" => "There are no products in the cart"
+                "cookie" => $cookie,
+                "message" => "There are no products in the cart",
             ], 200);
         }
     }
@@ -59,6 +61,7 @@ class CartController extends Controller
         }
 
         $cart = $request->session()->get('cart', []); // Consultar si hay token
+        $cookie = $request->cookie('laravel_session');
         if (count($cart) >= 1 && count($cart) != null) {
             // verificar si en el carrito ya está el producto
             $info = Cart::where('token', $cart['token'])
@@ -89,6 +92,7 @@ class CartController extends Controller
             
             return response([
                 "status" => 200,
+                "cookie" => $cookie,
                 "message" => "Added product to cart successfully"
             ], 200);
         } else {
@@ -106,6 +110,7 @@ class CartController extends Controller
             $product->save();
             return response([
                 "status" => 200,
+                "cookie" => $cookie,
                 "message" => "Added product to cart successfully"
             ], 200);
         }
@@ -114,6 +119,7 @@ class CartController extends Controller
     public function removeFromCart(Request $request, $productId)
     {
         $cart = $request->session()->get('cart', []); 
+        $cookie = $request->cookie('laravel_session');
         if (count($cart) >= 1 && count($cart) != null) {
             $info = DB::table('carts')
             ->where('token', $cart['token'])
@@ -126,17 +132,20 @@ class CartController extends Controller
 
                 return response([
                     "status" => 200,
+                    "cookie" => $cookie,
                     "message" => "Removed product from cart successfully"
                 ], 200);
             } else {
                 return response([
                     "status" => 200,
+                    "cookie" => $cookie,
                     "message" => "There is no such id in the cart"
                 ], 200);
             } 
         } else {
             return response([
                 "status" => 200,
+                "cookie" => $cookie,
                 "message" => "There are no products in the cart"
             ], 200);
         }
@@ -145,6 +154,7 @@ class CartController extends Controller
     public function clearCart(Request $request)
     {
         $cart = $request->session()->get('cart', []); 
+        $cookie = $request->cookie('laravel_session');
         if (count($cart) >= 1 && count($cart) != null) {
             $info = DB::table('carts')
             ->where('token', $cart['token'])
@@ -155,6 +165,7 @@ class CartController extends Controller
             } else {
                 return response([
                     "status" => 200,
+                    "cookie" => $cookie,
                     "message" => "There are no products in the cart"
                 ], 200);
             }  
@@ -163,14 +174,11 @@ class CartController extends Controller
         $request->session()->forget('cart'); //Vaciar el carrito 
         return response([
             "status" => 200,
+            "cookie" => $cookie,
             "message" => "Cart cleared successfully"
         ], 200);
     }
 
-    public function test(Request $request) {
-        $data = $request->session()->all();
-        return $data;
-    }
     // public function checkout(Request $request)
     // {
     //     if (!auth()->check()) {
