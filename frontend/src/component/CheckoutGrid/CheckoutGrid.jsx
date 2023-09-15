@@ -115,7 +115,7 @@ const CheckoutGrid = () => {
 
             <h3>Resumen de tu envío</h3>
             {/* {Profile.localidad} */}
-            <p>Envío a  - $1000</p>
+            <p>Envío - $1000</p>
 
             <p  className='localidad-calle'>{Profile.localidad} {Profile.calle}</p>
 
