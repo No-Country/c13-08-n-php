@@ -5,60 +5,102 @@ import CartItem from "../CartItem/CartItem"
 
 const Cart = () => {
      {/*agregar al carrito  usando axios  usanto metodo post */} 
+     const bearerToken = document.cookie.split("=")[1];
 
         const [cart, setCart] = useState([])
         const [total, setTotal] = useState(0)
+        const [cantidad, setCantidad] = useState(0)
+
 
         useEffect(() => {
-            axios.get("https://c13-08-n-php.fly.dev/api/cart", {withCredentials: true})
+            axios.get("https://c13-08-n-php.fly.dev/api/cart", {
+                headers: {
+                    Authorization: `Bearer ${bearerToken}`
+                }
+            })
             .then(response => {
                 console.log('carrito =>>>>',response.data)
-                setCart(response.data.data)
+                // setCart(response.data.data)
             })
             .catch(error => {
                 console.log(error)
             })
+
+            //set cart from session storage
+            const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+            setCart(cart);
+            console.log("cart", cart);
         }, [])
 
         const handleDelete = (id) => {
-            axios.delete(`https://c13-08-n-php.fly.dev/api/cart/remove/${id}`)
-            .then(response => {
-                console.log(response)
-                setCart(cart.filter(item => item.id !== id))
-            })
-            .catch(error => {
-                console.log(error)
-            })
+            // axios.delete(`https://c13-08-n-php.fly.dev/api/cart/remove/${id}`)
+            // .then(response => {
+            //     console.log(response)
+            //     setCart(cart.filter(item => item.id !== id))
+            // })
+            // .catch(error => {
+            //     console.log(error)
+            // })
+
+            //delete product from cart saved in session storage
+            const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+            const product = cart.find((prod) => prod.id === id);
+            cart.splice(cart.indexOf(product), 1);
+            sessionStorage.setItem("cart", JSON.stringify(cart));
+            setCart(cart);
         }
 
         const handleAdd = (id) => {
-            axios.post(`https://c13-08-n-php.fly.dev/api/cart/addToCart/${id}`)
-            .then(response => {
-                console.log(response)
-                setCart(cart.map(item => item.id === id ? {...item, quantity: item.quantity + 1} : item))
-                setTotal(total + 1)
-            })
-            .catch(error => {
-                console.log(error)
-            })
+            // axios.post(`https://c13-08-n-php.fly.dev/api/cart/addToCart/${id}`)
+            // .then(response => {
+            //     console.log(response)
+            //     setCart(cart.map(item => item.id === id ? {...item, quantity: item.quantity + 1} : item))
+            //     setTotal(total + 1)
+            // })
+            // .catch(error => {
+            //     console.log(error)
+            // })
+
+            //add products to cart saved in session storage
+            const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+            const product = cart.find((prod) => prod.id === id);
+            if (product) {
+                product.cantidad += 1;
+            } else {
+                product.cantidad = 1;
+                cart.push(product);
+            }
+            sessionStorage.setItem("cart", JSON.stringify(cart));
+            setCart(cart);
         }
 
         const handleSubtract = (id) => {
-            axios.post(`https://c13-08-n-php.fly.dev/api/cart/${id}`)
-            .then(response => {
-                console.log(response)
-                setCart(cart.map(item => item.id === id ? {...item, quantity: item.quantity - 1} : item))
-                setTotal(total - 1)
-            })
-            .catch(error => {
-                console.log(error)
-            })
+            // axios.post(`https://c13-08-n-php.fly.dev/api/cart/${id}`)
+            // .then(response => {
+            //     console.log(response)
+            //     setCart(cart.map(item => item.id === id ? {...item, quantity: item.quantity - 1} : item))
+            //     setTotal(total - 1)
+            // })
+            // .catch(error => {
+            //     console.log(error)
+            // })
+
+            //subtract product from cart saved in session storage
+            const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+            const product = cart.find((prod) => prod.id === id);
+            if (product.cantidad > 1) {
+                product.cantidad -= 1;
+            } else {
+                cart.splice(cart.indexOf(product), 1);
+            }
+            sessionStorage.setItem("cart", JSON.stringify(cart));
+            setCart(cart);
         }
 
         const handleTotal = () => {
             let total = 0
             cart.forEach(item => {
-                total += item.quantity * item.price
+                total += item.precio * item.cantidad
             })
             setTotal(total)
         }
