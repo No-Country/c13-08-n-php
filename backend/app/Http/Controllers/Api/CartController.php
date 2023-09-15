@@ -4,9 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
-use App\Models\Orders;
 use App\Models\Products;
-use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -66,7 +64,7 @@ class CartController extends Controller
             // verificar si en el carrito ya está el producto
             $info = Cart::where('token', $cart['token'])
             ->where('product_id', $productId)
-            ->get();
+            ->get();            
             if (count($info) >= 1 && count($info) != null) {
                 // si está, sumar la cantidad
                 $quantity = DB::table('carts')
@@ -76,18 +74,32 @@ class CartController extends Controller
                 ->get();
                 
                 foreach ($quantity as $cant) {
-                    Cart::where('token', $cart['token'])
-                    ->where('product_id', $productId)
-                    ->update(['cantidad' => $cant->cantidad]);
+                    // ve la cantidad
+                    $price = Cart::
+                    select(DB::raw('precio * '.$cant->cantidad.' as total'))
+                    ->where('id', $productId)
+                    ->get();
+                    foreach ($price as $price) {
+                        Cart::where('token', $cart['token'])
+                        ->where('product_id', $productId)
+                        ->update(['cantidad' => $cant->cantidad, 'precio' => $price->total]);
+                    }
                 }
             } else {
-                // si no está, se agrega
-                $product = new Cart([
-                    'token' => $cart['token'],
-                    'product_id' => $productId,
-                    'cantidad' => $request->cantidad,
-                ]);
-                $product->save();
+                // agrega cantidad
+                $price = Products::
+                select(DB::raw('precio * '.$request->cantidad.' as total'))
+                ->where('id', $productId)
+                ->get();
+                foreach ($price as $price) {
+                    $product = new Cart([
+                        'token' => $cart['token'],
+                        'product_id' => $productId,
+                        'cantidad' => $request->cantidad,
+                        'precio' => $price->total
+                    ]);
+                    $product->save();
+                }
             }
             
             return response([
@@ -178,50 +190,4 @@ class CartController extends Controller
             "message" => "Cart cleared successfully"
         ], 200);
     }
-
-    // public function checkout(Request $request)
-    // {
-    //     if (!auth()->check()) {
-    //         return response([
-    //             "status" => 401,
-    //             "message" => "You must be logged in to complete the checkout"
-    //         ], 401);
-    //     }
-
-    //     $cart = $request->session()->get('cart', []);
-
-    //     if (empty($cart)) {
-    //         return response([
-    //             "status" => 400,
-    //             "message" => "Your cart is empty. Add items to your cart before checking out."
-    //         ], 400);
-    //     }
-
-    //     //proceso de compra
-    //     try{
-    //         // Iniciar una transacción de base de datos
-    //         DB::beginTransaction();
-
-    //         //un nuevo pedido en la base de datos
-    //         $order = new Orders();
-    //         $order->user_id = auth()->user()->id; // Asociar el pedido al usuario autenticado
-    //         $order->save();
-
-    //         // Asociar productos del carrito al pedido
-    //         foreach ($cart as $item) {
-    //             $order->products()->attach($item['product_id'], ['cantidad' => $item['cantidad']]);
-    //         }
-
-    //         DB::commit();
-    //     }catch (Exception $e) {
-    //         echo "Se produjo una excepción: " . $e->getMessage();
-    //     }
-
-    //     $request->session()->forget('cart');
-
-    //     return response([
-    //         "status" => 200,
-    //         "message" => "Checkout successful. Your order has been placed."
-    //     ], 200);
-    // }
 }

@@ -58,7 +58,6 @@ Route::get('cart', [CartController::class, 'showCart']);
 Route::post('cart/add/{productId}', [CartController::class, 'addToCart']);
 Route::post('cart/remove/{productId}', [CartController::class, 'removeFromCart']);
 Route::post('cart/clear', [CartController::class, 'clearCart']);
-// Route::post('cart/checkout', [CartController::class, 'checkout'])->middleware('auth');
 
 Route::middleware('auth:sanctum')->group(function () {
     //Favorites Routes
@@ -79,6 +78,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('orders/{orders}', [OrdersController::class, 'updateStatus']);
 
     //Order Details Routes
-    Route::post('orders/details', [OrdersDetailController::class, 'create']);
+    Route::post('orders/details', [OrdersDetailController::class, 'checkout']);
     Route::get('orders/details/{details}', [OrdersDetailController::class, 'showbyOrder']);
 });
