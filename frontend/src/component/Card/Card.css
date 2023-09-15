@@ -22,6 +22,16 @@
    object-fit: cover;
    
  }
+ #wrapper .text {
+  position:relative;
+  bottom:30px;
+  left:0px;
+  visibility:hidden;
+  }
+  
+  #wrapper:hover.text {
+  visibility:visible;
+  }
  
   
   

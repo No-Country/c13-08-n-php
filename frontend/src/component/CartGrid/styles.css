@@ -120,6 +120,10 @@ h4 {
   align-items: center;
 }
 
+.completar-direccion input:invalid {
+    border:1px solid red;
+}
+
 .completar-direccion p {
   text-align: center;
 }
@@ -146,8 +150,152 @@ h4 {
   cursor: pointer;
 }
 
+.checkout-button2 {
+  color:#ffffff;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  background: linear-gradient(180deg, rgb(64, 153, 137) 0%, rgb(50, 51, 52) 100%);
+  border-radius: 5px;
+  border: none;
+  height: 50px;
+  width: 378px;
+  cursor: pointer;
+}
+
 .arrow {
   align-items: center;
   text-align: center;
   cursor: pointer;
+}
+
+@media screen and ( max-width: 768px){
+  .cart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mis-direcciones {
+    margin-bottom: 0;
+  }
+
+  .direccion-nueva {
+    margin-top: 0;
+  }
+
+  .direccion {
+    margin-bottom: 20px;
+  }
+
+  .guardadas {
+    margin-right: 0;
+  }
+
+  .mas-opciones {
+    margin-top: 15px;
+  }
+}
+
+@media screen and ( max-width: 500px){
+  .cart-container {
+    margin-top: 60px;
+  }
+
+  .direccion {
+    width: 100%;
+  }
+
+  .direccion-nueva {
+    margin-top: 20px;
+  }
+
+  .completar-direccion input {
+    width: 100%;
+  }
+
+  .checkout-button {
+    width: 100%;
+  }
+
+  .checkout-button2 {
+    width: 100%;
+  }
+
+  .guardadas {
+    display: none;
+  }
+
+  .mas-opciones {
+    margin-top: 0;
+  }
+}
+
+@media screen and ( max-width: 400px){
+  .cart-container {
+    margin-top: 60px;
+  }
+
+  .direccion {
+    width: 100%;
+  }
+
+  .direccion-nueva {
+    margin-top: 20px;
+  }
+
+  .completar-direccion input {
+    width: 100%;
+  }
+
+  .checkout-button {
+    width: 100%;
+  }
+
+  .checkout-button2 {
+    width: 100%;
+  }
+
+  .guardadas {
+    display: none;
+  }
+
+  .mas-opciones {
+    margin-top: 0;
+  }
+
+
+}
+
+@media screen and ( max-width: 320px){
+  .cart-container {
+    margin-top: 60px;
+  }
+
+  .direccion {
+    width: 100%;
+  }
+
+  .direccion-nueva {
+    margin-top: 20px;
+  }
+
+  .completar-direccion input {
+    width: 100%;
+  }
+
+  .checkout-button {
+    width: 100%;
+  }
+
+  .checkout-button2 {
+    width: 100%;
+  }
+
+  .guardadas {
+    display: none;
+  }
+
+  .mas-opciones {
+    margin-top: 0;
+  }
 }

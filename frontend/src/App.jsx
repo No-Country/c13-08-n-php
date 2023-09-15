@@ -1,29 +1,30 @@
 
 import LiveTvIcon from '@mui/icons-material/LiveTv';
-import CardsContainer from './component/CardsContainer/CardsContainer';
-import NavBar from './component/navBar/NavBar';
-import LoginModal from './component/LoginModal/LoginModal';
+import { CssBaseline } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import "./app.css"
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { CarritoProvider } from './Context/CarritoContext';
+import { OptionProvider } from './Context/OptionsContext';
+import "./app.css";
+import AboutUs from './component/AboutUs/AboutUs';
+import BarraMovile from './component/BarraMobile/BarraMovile';
+import Bienvenida from './component/Bienvenida/Bienvenida';
+import CardsContainer from './component/CardsContainer/CardsContainer';
+import CartGrid from './component/CartGrid/CartGrid';
+import ItemListContainer from './component/ItemListContainer/ItemListContainer';
+import ItemsCombos from './component/ItemsCombos/ItemsCombos';
+import ItemsFocaccias from './component/ItemsFocaccias/ItemsFocaccias';
+import ItemsPanes from './component/ItemsPanes/ItemsPanes';
+import ItemsPizzas from './component/ItemsPizzas/ItemsPizzas';
+import ItemsTodosProductos from './component/ItemsTodosProductos/ItemsTodosProductos';
+import LoginModal from './component/LoginModal/LoginModal';
+import Slider from './component/Slider/Slider';
 import Fotter from './component/fotter/Fotter';
 import Infomation from './component/information/Infomation';
 import SignInSide from './component/loginSesion/anotherLogin';
-import ItemListContainer from './component/ItemListContainer/ItemListContainer';
-import Slider from './component/Slider/Slider';
-import { CarritoProvider } from './Context/CarritoContext';
-import { CssBaseline } from '@mui/material';
-import ItemsPizzas from './component/ItemsPizzas/ItemsPizzas';
-import ItemsPanes from './component/ItemsPanes/ItemsPanes';
-import ItemsFocaccias from './component/ItemsFocaccias/ItemsFocaccias';
-import ItemsCombos from './component/ItemsCombos/ItemsCombos';
-import ItemsTodosProductos from './component/ItemsTodosProductos/ItemsTodosProductos';
-import CartGrid from './component/CartGrid/CartGrid';
+import NavBar from './component/navBar/NavBar';
 import Checkout from './pages/Checkout';
-import AboutUs from './component/AboutUs/AboutUs';
-import Bienvenida from './component/Bienvenida/Bienvenida';
-import BarraMovile from './component/BarraMobile/BarraMovile';
-import {OptionProvider} from './Context/OptionsContext';
+import Validando from './pages/Validando';
 
 
 
@@ -158,6 +159,11 @@ function App() {
             <Route
               path="/checkout"
               element={<Checkout />}
+            />
+
+            <Route
+              path="/validando"
+              element={<Validando />}
             />
            
           </Routes>

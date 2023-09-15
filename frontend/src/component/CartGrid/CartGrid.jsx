@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import './styles.css';
 import { redirect } from 'react-router-dom';
 import Cart from '../CartComponent/CartComponent';
+import './styles.css';
 
 
 const CartGrid = () => {
@@ -77,7 +77,7 @@ const CartGrid = () => {
 
             <div className='direcciones-guardadas'>
                 <div className='direccion'>
-                    <input type="radio" name='address-1' id='ad1' value={"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, quis."}/>
+                    <input type="radio" name='address-1' id='ad1' value={Profile.calle + ' - ' + Profile.localidad}/>
                     <label htmlFor="ad1">
                         <p className='address1'>
                             {/* while the data isnt ready show loading */}
@@ -94,14 +94,20 @@ const CartGrid = () => {
         <div className='direccion-nueva'>
             <h4>Completa con tus datos para el envío</h4>
             <form onSubmit={handleSubmit} className='completar-direccion'>
-                <input className="new-address" type="text" placeholder='Nombre y Apellido' name='nombre'/>
-                <input className="new-address" type="text" placeholder='Dirección' name='direccion'/>
-                <input className="new-address" type="text" placeholder='Ciudad' name='ciudad'/>
-                <input className="new-address" type="text" placeholder='Provincia' name='provincia'/>
-                <input className="new-address" type="text" placeholder='Código Postal' name='codigoPostal'/>
-                <input className="new-address" type="text" placeholder='Teléfono' name='telefono'/>
-                <button type='submit' className='checkout-button'>Continuar al pago</button>
-            </form>
+                <input className="new-address" type="text" placeholder='Nombre y Apellido' name='nombre' />
+                <input className="new-address" type="text" placeholder='Dirección' name='direccion' />
+                <input className="new-address" type="text" placeholder='Ciudad' name='ciudad' />
+                <input className="new-address" type="text" placeholder='Provincia' name='provincia' />
+                <input className="new-address" type="number" placeholder='Código Postal'  min='1' name='codigoPostal' />
+                <input className="new-address" type="tel" placeholder='Teléfono' name='telefono' />
+                <button type='submit' className='checkout-button'>Agregar Nueva Direccion</button>
+
+                <button type='button' className='checkout-button2' onClick={
+                () => {
+                    window.location.href = '/checkout';
+                }
+            }>Ir al pago</button>   
+            </form>  
         </div>
 
     </div>

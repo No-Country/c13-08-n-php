@@ -3,6 +3,7 @@ import React from 'react';
 import './styles.css';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import Cart from '../CartComponent/CartComponent';
 
 const CheckoutGrid = () => {
   const [Profile, setProfile] = useState([]);
@@ -114,7 +115,7 @@ const CheckoutGrid = () => {
 
             <h3>Resumen de tu envío</h3>
             {/* {Profile.localidad} */}
-            <p>Envío a  - $1000</p>
+            <p>Envío - $1000</p>
 
             <p  className='localidad-calle'>{Profile.localidad} {Profile.calle}</p>
 
@@ -178,14 +179,17 @@ const CheckoutGrid = () => {
           </div>
 
           <div className="makeOrder">
-            <button className="makeOrderButton">Realizar pedido</button>
+            <button className="makeOrderButton" onClick={() => window.location.href = '/validando'}>Realizar pedido</button>
           </div>
 
         </div>
 
       </div>
 
-      <div className='checkout-products-container'></div>
+      <div className='checkout-products-container'>
+      <h3>Tu Carrito de compras</h3>
+        <Cart />
+      </div>
     </div>
   );
 };

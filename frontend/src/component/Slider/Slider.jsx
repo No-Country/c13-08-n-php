@@ -6,10 +6,13 @@ import sliderImage from "./SliderImage";
 import "./slider.css";
 import { Hidden } from "@mui/material";
 
+
+
 const len = sliderImage.length - 1;
 
-function Slider(props) {
+function Slider() {
   const [activeIndex, setActiveIndex] = useState(0);
+
 
   useEffect(() => {
     const interval = setInterval(() => {
