@@ -120,6 +120,10 @@ h4 {
   align-items: center;
 }
 
+.completar-direccion input:invalid {
+    border:1px solid red;
+}
+
 .completar-direccion p {
   text-align: center;
 }
