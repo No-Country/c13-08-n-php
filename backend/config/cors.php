@@ -15,17 +15,18 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'auth/*', 'sanctum/csrf-cookie'],
+    // 'paths' => ['api/*', 'auth/*', 'sanctum/csrf-cookie'],
+    'paths' => ['*'],
 
-    'allowed_methods' => ['*'],
+    'allowed_methods' => ['GET', 'POST', 'PUT', 'DELETE'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => ['https://c13-08-n-php-smkl.vercel.app/', 'https://c13-08-n-php.fly.dev/'],
 
     'allowed_origins_patterns' => [],
 
-    'allowed_headers' => ['*'],
+    'allowed_headers' => ['content-type', 'accept', 'x-custom-header'],
 
-    'exposed_headers' => [],
+    'exposed_headers' => ['x-custom-response-header'],
 
     'max_age' => 0,
 
