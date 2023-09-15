@@ -20,7 +20,7 @@ return [
 
     'allowed_methods' => ['GET', 'POST', 'PUT', 'DELETE'],
 
-    'allowed_origins' => ['https://c13-08-n-php-smkl.vercel.app/', 'https://c13-08-n-php.fly.dev/'],
+    'allowed_origins' => ['https://c13-08-n-php-smkl.vercel.app/'],
 
     'allowed_origins_patterns' => [],
 
