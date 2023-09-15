@@ -2,6 +2,7 @@ import { Link} from 'react-router-dom'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import CartItem from "../CartItem/CartItem"
+import "./styles.css"
 
 const Cart = () => {
      {/*agregar al carrito  usando axios  usanto metodo post */} 
@@ -111,9 +112,6 @@ const Cart = () => {
 
         return (
             <div className="cart">
-                <div className="cart__title">
-                    <h1>Carrito de compras</h1>
-                </div>
                 <div className="cart__container">
                     <div className="cart__items">
 
@@ -122,9 +120,9 @@ const Cart = () => {
                         ))}
                     </div>
                     <div className="cart__total">
-                        <h3>Total: ${total}</h3>
-                        <Link to="/checkout">
-                            <button>Comprar</button>
+                        <h3>Total: <span className='total'>${total}</span></h3>
+                        <Link to="/todosProductos">
+                            <button className='seguir-Comprando'>Seguir Comprando</button>
                         </Link>
                     </div>
                 </div>
