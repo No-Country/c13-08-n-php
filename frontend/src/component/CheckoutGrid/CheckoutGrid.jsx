@@ -186,8 +186,10 @@ const CheckoutGrid = () => {
 
       </div>
 
-      <div className='checkout-products-container'></div>
-      <Cart/>
+      <div className='checkout-products-container'>
+      <h3>Tu Carrito de compras</h3>
+        <Cart />
+      </div>
     </div>
   );
 };
