@@ -179,7 +179,7 @@ const CheckoutGrid = () => {
           </div>
 
           <div className="makeOrder">
-            <button className="makeOrderButton">Realizar pedido</button>
+            <button className="makeOrderButton" onClick={() => window.location.href = '/validando'}>Realizar pedido</button>
           </div>
 
         </div>

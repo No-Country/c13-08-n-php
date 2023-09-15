@@ -102,7 +102,7 @@ const CartGrid = () => {
                 <input className="new-address" type="tel" placeholder='Teléfono' name='telefono' />
                 <button type='submit' className='checkout-button'>Agregar Nueva Direccion</button>
 
-                <button type='button' className='checkout-button' onClick={
+                <button type='button' className='checkout-button2' onClick={
                 () => {
                     window.location.href = '/checkout';
                 }

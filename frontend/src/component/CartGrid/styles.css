@@ -150,6 +150,18 @@ h4 {
   cursor: pointer;
 }
 
+.checkout-button2 {
+  color:#ffffff;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  background: linear-gradient(180deg, rgb(64, 153, 137) 0%, rgb(50, 51, 52) 100%);
+  border-radius: 5px;
+  border: none;
+  height: 50px;
+  width: 378px;
+  cursor: pointer;
+}
+
 .arrow {
   align-items: center;
   text-align: center;
