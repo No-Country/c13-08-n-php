@@ -15,8 +15,8 @@ class CartController extends Controller
 {
     public function showCart(Request $request)
     {
-        $info = session()->get('cart', []); 
-
+        $info = $request->session()->get('cart', []); 
+        
         if (count($info) >= 1 && count($info) != null) {
             $cart = Cart::join('products', 'carts.product_id', '=', 'products.id')
             ->select('products.nombre', 'products.descripcion', 'products.imagen', 'carts.cantidad', 
@@ -96,8 +96,8 @@ class CartController extends Controller
             $cart = $request->session()->get('cart', [
                 'token' => $token
             ]); 
-            $request->session()->put('cart', $cart); // Guardar cambios
-
+            session(['cart' => $cart]); // Guardar cambios
+            
             $product = new Cart([
                 'token' => $cart['token'],
                 'product_id' => $productId,
@@ -167,6 +167,10 @@ class CartController extends Controller
         ], 200);
     }
 
+    public function test(Request $request) {
+        $data = $request->session()->all();
+        return $data;
+    }
     // public function checkout(Request $request)
     // {
     //     if (!auth()->check()) {
