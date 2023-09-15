@@ -159,10 +159,10 @@ const CheckoutGrid = () => {
 
                 <div className="card-container">
                   <div className="card">
-                    
+                    <img src="/static/images/mastercard.svg" alt="mastercard" />
                   </div>
+                  <button id="master">Agregar Nueva Tarjeta</button>
                 </div>
-              <button>Agregar Nueva Tarjeta</button>
               </div>
             </div>
             {/* <input type='radio' name='payment-method' value='credit-card' /> */}
