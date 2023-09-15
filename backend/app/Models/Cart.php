@@ -13,6 +13,7 @@ class Cart extends Model
         'token',
         'product_id',
         'cantidad',
+        'precio'
     ];
 
     // public function user()
