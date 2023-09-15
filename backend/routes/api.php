@@ -55,7 +55,6 @@ Route::delete('products/{product}', [ProductsController::class, 'destroy']);
 
 //Cart Routes
 Route::get('cart', [CartController::class, 'showCart']);
-Route::get('cart/test', [CartController::class, 'test']); // test session
 Route::post('cart/add/{productId}', [CartController::class, 'addToCart']);
 Route::post('cart/remove/{productId}', [CartController::class, 'removeFromCart']);
 Route::post('cart/clear', [CartController::class, 'clearCart']);
