@@ -38,3 +38,40 @@ padding: .5rem;
   margin: 1rem;
 }
 
+.minus {
+  border: 1px solid #ccc;
+  display: inline-block;
+  font-size: 12px;
+  padding: 3px 7px;
+  text-decoration: none;
+  color: #777;
+  border-radius: 6.42px;
+  margin: 0 5px;
+  height: 19.27px;
+  width: 19.27px;
+  text-align: center;
+  align-items: center;
+}
+
+.controller {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.title{
+  color: #323334;
+  font-family: "Lato";
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.cardProducto{
+  display: flex !important;
+  align-items: center;
+  margin-left: 50px;
+}

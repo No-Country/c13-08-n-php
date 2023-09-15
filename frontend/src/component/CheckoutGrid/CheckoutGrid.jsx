@@ -3,6 +3,7 @@ import React from 'react';
 import './styles.css';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import Cart from '../CartComponent/CartComponent';
 
 const CheckoutGrid = () => {
   const [Profile, setProfile] = useState([]);
@@ -186,6 +187,7 @@ const CheckoutGrid = () => {
       </div>
 
       <div className='checkout-products-container'></div>
+      <Cart/>
     </div>
   );
 };

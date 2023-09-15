@@ -1,0 +1,25 @@
+.total {
+    margin-left: 250px;
+}
+
+.seguir-Comprando {
+    background: linear-gradient(180deg, rgb(64, 153, 137) 0%, rgb(50, 51, 52) 100%);
+    border-radius: 5px;
+    height: 50px;
+    width: 378px;
+    color: white;
+    font-size: 16.7px;
+     border: none;
+}
+
+/* .cart__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+} */
+
+.cart__total h3 {
+ padding-left: 10px;
+}
